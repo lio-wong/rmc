@@ -1,0 +1,25 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Jamie lost to Ollie.
+In the second match, Jamie beat Ollie.
+In the third match, Ollie beat Indiana.
+In the fourth match, Ollie beat Peyton.
+In the fifth match, Jamie lost to Quinn.
+In the sixth match, Jamie lost to Emery.
+Some of the athletes are getting very tired and not trying their hardest.
+
+QUERIES
+
+Query 1: How likely is it that Jamie is intrinsically more skilled than a random typical competitor?
+Query 2: How likely is it that Ollie is intrinsically more skilled than a random typical competitor?
+Query 3: How likely is it that Indiana is intrinsically more skilled than a random typical competitor?
+Query 4: How likely is it that Jamie tried hard in the second match?
+Query 5: How likely is it that Ollie tried hard in the first match?
+Query 6: How likely is it that Indiana tried hard in the third match?
+Query 7: In a new match, how likely is it that Jamie will beat Ollie ?
+Query 8: In a new match, how likely is it that Jamie will beat Indiana?
+    

@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a biathalon, a winter sport that combines cross-country skiing and rifle shooting. Teams compete in relays. Each team member both skis and shoots.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Ollie and Taylor beat Val and Robin.
+In the second match, Ollie and Willow beat Ness and Drew.
+In the third match, Ollie and Lane beat Gale and Indiana.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Ollie put into the second match?
+Query 5: How much effort do you think Taylor put into the first match?
+Query 6: How much effort do you think Val put into the first match?
+Query 7: In a new match, how likely is it that Ollie and Taylor will beat Val and Drew?
+Query 8: In a new match, how likely is it that Ollie and Val will beat Taylor and Robin?
+    

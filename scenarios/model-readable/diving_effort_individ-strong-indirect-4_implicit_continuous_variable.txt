@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Jamie lost to Max.
+In the second match, Max lost to Fey.
+In the third match, Max lost to Indiana.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Jamie put into the first match?
+Query 5: How much effort do you think Max put into the second match?
+Query 6: How much effort do you think Fey put into the second match?
+Query 7: In a new match, how likely is it that Jamie will beat Fey?
+Query 8: In a new match, how likely is it that Jamie will beat Indiana?
+    

@@ -1,0 +1,25 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Gale beat Sam.
+In the second match, Gale lost to Sam.
+In the third match, Sam lost to Blake.
+In the fourth match, Sam lost to Quinn.
+In the fifth match, Gale beat Taylor.
+In the sixth match, Gale beat Willow.
+Blake pulled a muscle in the last competition and its unclear if he can compete in top form.
+
+QUERIES
+
+Query 1: How likely is it that Gale is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Sam is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Blake is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Gale tried hard in the second match?
+Query 5: How likely is it that Sam tried hard in the first match?
+Query 6: How likely is it that Blake tried hard in the third match?
+Query 7: In a new match, how likely is it that Gale will beat Sam ?
+Query 8: In a new match, how likely is it that Gale will beat Blake?
+    

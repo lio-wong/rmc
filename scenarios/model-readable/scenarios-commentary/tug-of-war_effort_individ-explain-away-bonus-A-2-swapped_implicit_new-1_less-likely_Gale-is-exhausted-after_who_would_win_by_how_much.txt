@@ -1,0 +1,24 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war. In each round, the team that wins the round depends on how hard the athletes collectively pull, based on their intrinsic strength modulated by other factors including how much effort they put in to that round.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Avery beat Robin.
+In the second match, Avery lost to Robin.
+In the third match, Robin lost to Val.
+In the fourth match, Robin lost to Emery.
+In the fifth match, Avery beat Jamie.
+In the sixth match, Avery beat Ollie.
+Avery is exhausted after his two wins against Jamie and Ollie.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Val put into the third match?
+Query 7: In a new match later this same day between Avery (Team 1) and Robin (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Val (Team 1) and Avery (Team 2), who would win and by how much?
+    

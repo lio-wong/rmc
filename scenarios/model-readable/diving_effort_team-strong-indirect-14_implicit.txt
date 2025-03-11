@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Teams compete in synchronized diving. Each team member jumps at the same time.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Kay and Peyton lost to Sam and Blake.
+In the second match, Peyton and Willow beat Sam and Blake.
+In the third match, Peyton and Lane beat Sam and Blake.
+
+QUERIES
+Query 1: How likely is it that Kay is intrinsically more skilled than a random typical competitor?
+Query 2: How likely is it that Peyton is intrinsically more skilled than a random typical competitor?
+Query 3: How likely is it that Sam is intrinsically more skilled than a random typical competitor?
+Query 4: How likely is it that Kay tried hard in the first match?
+Query 5: How likely is it that Peyton tried hard in the second match?
+Query 6: How likely is it that Sam tried hard in the second match?
+Query 7: In a new match, how likely is it that Kay and Peyton will beat Willow and Sam?
+Query 8: In a new match, how likely is it that Kay and Sam will beat Peyton and Blake?
+    

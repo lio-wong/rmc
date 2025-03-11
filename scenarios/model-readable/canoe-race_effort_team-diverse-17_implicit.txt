@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Max and Avery beat Taylor and Val.
+In the second match, Max and Blake beat Fey and Jamie.
+In the third match, Max and Kay beat Gale and PZ.
+
+QUERIES
+Query 1: How likely is it that Max is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Avery is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Taylor is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Max tried hard in the second match?
+Query 5: How likely is it that Avery tried hard in the first match?
+Query 6: How likely is it that Taylor tried hard in the first match?
+Query 7: In a new match, how likely is it that Max and Avery will beat Taylor and Jamie?
+Query 8: In a new match, how likely is it that Max and Taylor will beat Avery and Val?
+    

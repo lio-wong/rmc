@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Drew lost to Ollie .
+In the second match, Drew beat Ollie .
+In the third match, Drew beat Ollie.
+In the fourth match, Peyton beat Robin.
+
+QUERIES
+Query 1: How likely is it that Drew is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Ollie is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Robin is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Drew tried hard in the first match?
+Query 5: How likely is it that Ollie tried hard in the second match?
+Query 6: How likely is it that Robin tried hard in the fourth match?
+Query 7: In a new match, how likely is it that Drew will beat Ollie ?
+Query 8: In a new match, how likely is it that Drew will beat Robin?
+    

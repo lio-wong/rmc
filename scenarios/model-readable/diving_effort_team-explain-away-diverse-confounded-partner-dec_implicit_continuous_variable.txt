@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. In synchronized diving, team members are jumping simultaneously and scores depend both on overall execution and how well matched the team members are.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Val and Fey beat Lane and Taylor.
+In the second match, Val and Fey beat Casey and Sam.
+In the third match, Val and Fey lost to Casey and Taylor.
+In the fourth match, Val and Fey beat Lane and Casey.
+In the fifth match, Val and Fey beat Sam and Taylor.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Val put into the third match?
+Query 5: How much effort do you think Fey put into the third match?
+Query 6: How much effort do you think Casey put into the third match?
+Query 7: In a new match, how likely is it that Val and Fey will beat Casey and Taylor?
+Query 8: In a new match, how likely is it that Val and Lane will beat Fey and Sam?
+    

@@ -1,0 +1,29 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+Intrinsic strength varies widely from athlete to athlete.
+Athletes also vary in how often they try their hardest in any given match.
+If an athlete doesn’t try hard in any given match, that athlete only pulls with half of their intrinsic strength in that match.
+Each team pulls as hard as the total effective strength of all of its athletes in that match.
+The team that pulls the hardest will win a given match.
+
+CONDITIONS
+In the first match, Blake lost to Ness.
+In the second match, Blake beat Ness.
+In the third match, Ness beat Indiana.
+In the fourth match, Ness beat Kay.
+In the fifth match, Blake lost to Willow.
+In the sixth match, Blake lost to Drew.
+
+QUERIES
+Query 1: How likely is it that Blake is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Ness is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Indiana is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Blake tried hard in the second match?
+Query 5: How likely is it that Ness tried hard in the first match?
+Query 6: How likely is it that Indiana tried hard in the third match?
+Query 7: In a new match, how likely is it that Blake will beat Ness ?
+Query 8: In a new match, how likely is it that Blake will beat Indiana?
+    

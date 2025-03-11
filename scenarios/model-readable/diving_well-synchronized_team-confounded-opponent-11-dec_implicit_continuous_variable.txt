@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. The overall dive difficulty attempted by any given team is determined by the least skilled athlete on the team. In each round of a synchronized dive, the team's overall score depends on their dive difficulty and how well matched the team members are in their execution in that particular round.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first round, Ollie and Quinn beat Blake and Max.
+In the second round, Ollie and Avery beat Blake and Jamie.
+In the third round, Ollie and Taylor beat Blake and Willow.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic skill?
+Query 4: On a percentage scale from 0 to 100%, how well synchronized do you think Ollie was with their teammate in the third round?
+Query 5: On a percentage scale from 0 to 100%, how well synchronized do you think Quinn was with their teammate in the third round?
+Query 6: On a percentage scale from 0 to 100%, how well synchronized do you think Blake was with their teammate in the third round?
+Query 7: In a new round later today during this same tournament, how likely is it that Ollie and Quinn will beat Avery and Willow?
+Query 8: In a new round later today during this same tournament, how likely is it that Ollie and Blake will beat Quinn and Max?
+    

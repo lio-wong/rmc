@@ -1,0 +1,26 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+Intrinsic strength varies widely from athlete to athlete.
+Athletes also vary in how often they try their hardest in any given match.
+If an athlete doesn’t try hard in any given match, that athlete only pulls with half of their intrinsic strength in that match.
+Each team pulls as hard as the total effective strength of all of its athletes in that match.
+The team that pulls the hardest will win a given match.
+
+CONDITIONS
+In the first match, Drew and Quinn lost to Kay and Ness.
+In the second match, Quinn and Jamie beat Kay and Ness.
+In the third match, Quinn and Ollie beat Kay and Ness.
+
+QUERIES
+Query 1: How likely is it that Drew is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Quinn is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Kay is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Drew tried hard in the first match?
+Query 5: How likely is it that Quinn tried hard in the second match?
+Query 6: How likely is it that Kay tried hard in the second match?
+Query 7: In a new match, how likely is it that Drew and Quinn will beat Jamie and Kay?
+Query 8: In a new match, how likely is it that Drew and Kay will beat Quinn and Ness?
+    

@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Blake and Fey beat Taylor and Max.
+In the second match, Fey and Casey beat Taylor and Max.
+In the third match, Fey and Willow beat Taylor and Max.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Blake put into the first match?
+Query 5: How much effort do you think Fey put into the second match?
+Query 6: How much effort do you think Taylor put into the second match?
+Query 7: In a new match, how likely is it that Blake and Fey will beat Casey and Taylor?
+Query 8: In a new match, how likely is it that Blake and Taylor will beat Fey and Max?
+    

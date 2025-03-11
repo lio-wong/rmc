@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a biathalon, a winter sport that combines cross-country skiing and rifle shooting. Teams compete in relays. Each team member both skis and shoots.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Sam and Peyton beat Ollie and Jamie.
+In the second match, Sam and Ollie beat Peyton and Jamie.
+In the third match, Sam and Jamie beat Peyton and Ollie.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Sam put into the second match?
+Query 5: How much effort do you think Peyton put into the second match?
+Query 6: How much effort do you think Jamie put into the second match?
+Query 7: In a new match, how likely is it that Sam and Peyton will beat Ollie and Indiana?
+Query 8: In a new match, how likely is it that Sam and Ollie will beat Peyton and Indiana?
+    

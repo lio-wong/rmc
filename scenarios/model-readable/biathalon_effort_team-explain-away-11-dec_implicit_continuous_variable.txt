@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a biathalon, a winter sport that combines cross-country skiing and rifle shooting. Teams compete in relays. Each team member both skis and shoots.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Indiana and Ness beat Avery and Gale.
+In the second match, Indiana and Emery beat Avery and Sam.
+In the third match, Indiana and Casey beat Avery and Jamie.
+In the fourth match, Indiana and Ness lost to Avery and Gale.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Indiana put into the fourth match?
+Query 5: How much effort do you think Ness put into the fourth match?
+Query 6: How much effort do you think Avery put into the fourth match?
+Query 7: In a new match, how likely is it that Indiana and Ness will beat Emery and Jamie?
+Query 8: In a new match, how likely is it that Indiana and Avery will beat Ness and Gale?
+    

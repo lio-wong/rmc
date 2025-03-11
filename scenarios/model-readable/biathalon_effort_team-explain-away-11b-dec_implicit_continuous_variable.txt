@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a biathalon, a winter sport that combines cross-country skiing and rifle shooting. Teams compete in relays. Each team member both skis and shoots.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Kay and Fey lost to Robin and Blake.
+In the second match, Kay and Willow lost to Robin and Sam.
+In the third match, Kay and Drew lost to Robin and Taylor.
+In the fourth match, Kay and Fey beat Robin and Blake.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Kay put into the fourth match?
+Query 5: How much effort do you think Fey put into the fourth match?
+Query 6: How much effort do you think Robin put into the fourth match?
+Query 7: In a new match, how likely is it that Kay and Fey will beat Willow and Taylor?
+Query 8: In a new match, how likely is it that Kay and Robin will beat Fey and Blake?
+    

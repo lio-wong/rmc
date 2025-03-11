@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races. In each race, the team that wins depends on the average speed with which the athletes are able to row, based on their intrinsic strength modulated by other factors including how much effort they put in to that race.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first race, Harper and Emery beat Taylor and Ollie.
+In the second race, Harper and Emery lost to Taylor and Ollie.
+In the third race, Harper and Emery beat Taylor and Kay.
+In the fourth race, Harper and Emery beat Taylor and Indiana.
+In the fifth race, Harper and Emery beat Taylor and Drew.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Harper ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Harper put into the second race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Emery put into the second race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the second race?
+Query 7: In a new race later today during this same tournament, how likely is it that Harper and Emery will beat Taylor and Ollie?
+Query 8: In a new race later today during this same tournament, how likely is it that Harper and Emery will beat Ollie and Kay?
+    

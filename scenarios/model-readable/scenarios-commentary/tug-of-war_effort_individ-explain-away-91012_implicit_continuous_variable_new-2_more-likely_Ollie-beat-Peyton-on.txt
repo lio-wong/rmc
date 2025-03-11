@@ -1,0 +1,24 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Drew lost to Ollie .
+In the second match, Drew beat Ollie .
+In the third match, Drew beat Ollie.
+In the fourth match, Peyton beat Robin.
+Ollie beat Peyton on the previous day.
+Peyton has been ill for the last couple days.
+
+QUERIES
+
+Query 1: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Drew put into the first match?
+Query 5: How much effort do you think Ollie put into the second match?
+Query 6: How much effort do you think Robin put into the fourth match?
+Query 7: In a new match, how likely is it that Drew will beat Ollie ?
+Query 8: In a new match, how likely is it that Drew will beat Robin?
+    

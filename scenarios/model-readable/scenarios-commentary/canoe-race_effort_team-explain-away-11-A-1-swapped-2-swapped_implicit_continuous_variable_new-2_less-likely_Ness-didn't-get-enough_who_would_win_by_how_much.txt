@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races. In each race, the team that wins depends on the average speed with which the athletes are able to row, based on their intrinsic strength modulated by other factors including how much effort they put in to that race.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Drew and Lane beat Kay and Taylor.
+In the second match, Drew and Val beat Kay and Peyton.
+In the third match, Drew and Harper beat Kay and Sam.
+In the fourth match, Drew and Lane lost to Kay and Taylor.
+Kay didn't get enough sleep last night and can barely stay awake during the race.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Drew put into the fourth race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the fourth race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Kay put into the fourth race?
+Query 7: In a new race later this same day between Sam and Indiana (Team 1) and Drew and Lane (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Taylor and Lane (Team 1) and Drew and Kay (Team 2), who would win and by how much?
+    

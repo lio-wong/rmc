@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races. In each race, the team that wins depends on the average speed with which the athletes are able to row, based on their intrinsic strength modulated by other factors including how much effort they put in to that race.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first race, Blake and Fey lost to Lane and Max.
+In the second race, Blake and Avery lost to Lane and Ness.
+In the third race, Blake and Sam lost to Lane and Quinn.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the second race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the first race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the second race?
+Query 7: In a new race later today during this same tournament, how likely is it that Blake and Fey will beat Avery and Quinn?
+Query 8: In a new race later today during this same tournament, how likely is it that Blake and Lane will beat Fey and Max?
+    

@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Teams compete in synchronized diving. Each team member jumps at the same time.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Taylor and Casey beat Sam and Lane.
+In the second match, Casey and Gale beat Sam and Lane.
+In the third match, Casey and Indiana beat Sam and Lane.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Taylor put into the first match?
+Query 5: How much effort do you think Casey put into the second match?
+Query 6: How much effort do you think Sam put into the second match?
+Query 7: In a new match, how likely is it that Taylor and Casey will beat Gale and Sam?
+Query 8: In a new match, how likely is it that Taylor and Sam will beat Casey and Lane?
+    

@@ -1,0 +1,3 @@
+[submodule "hfppl"]
+	path = hfppl
+	url = git@github.com:probcomp/hfppl.git

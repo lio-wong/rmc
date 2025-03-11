@@ -1,0 +1,30 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+Intrinsic skill varies widely from athlete to athlete.
+Athletes also vary in how often they try their hardest in any given dive.
+Each team’s score depends on two different factors: their overall dive execution, and their overall dive difficulty, each of which is ranked on a 1-10 scale.
+
+An athlete’s intrinsic skill determines the difficulty of dives that they can successfully complete.
+The overall dive difficulty attempted by any given team is determined by the least skilled athlete on the team.
+If an athlete doesn’t try in a given dive, their execution will only be about half as good as it could be.
+The overall execution of a diving team is determined by the average execution between the members of a given team, along with a penalty based on the difference in execution between the members of a given team. 
+The team with the highest combined overall execution and dive difficulty scores will win a given round.
+
+CONDITIONS
+In the first match, Jamie lost to Max.
+In the second match, Max lost to Fey.
+In the third match, Max lost to Indiana.
+
+QUERIES
+Query 1: How likely is it that Jamie is intrinsically more skilled than a random typical competitor?
+Query 2: How likely is it that Max is intrinsically more skilled than a random typical competitor?
+Query 3: How likely is it that Fey is intrinsically more skilled than a random typical competitor?
+Query 4: How likely is it that Jamie tried hard in the first match?
+Query 5: How likely is it that Max tried hard in the second match?
+Query 6: How likely is it that Fey tried hard in the second match?
+Query 7: In a new match, how likely is it that Jamie will beat Fey?
+Query 8: In a new match, how likely is it that Jamie will beat Indiana?
+    

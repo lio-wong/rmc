@@ -1,0 +1,23 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Avery beat Max.
+In the second match, Avery lost to Max.
+In the third match, Max lost to Peyton.
+In the fourth match, Max lost to Blake.
+In the fifth match, Avery beat Ollie.
+In the sixth match, Avery beat Ness.
+
+QUERIES
+Query 1: How likely is it that Avery is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Max is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Peyton is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Avery tried hard in the second match?
+Query 5: How likely is it that Max tried hard in the first match?
+Query 6: How likely is it that Peyton tried hard in the third match?
+Query 7: In a new match, how likely is it that Avery will beat Max ?
+Query 8: In a new match, how likely is it that Avery will beat Peyton?
+    

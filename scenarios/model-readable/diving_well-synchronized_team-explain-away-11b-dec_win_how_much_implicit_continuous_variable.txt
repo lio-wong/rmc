@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. The overall dive difficulty attempted by any given team is determined by the least skilled athlete on the team. In each round of a synchronized dive, the team's overall score depends on their dive difficulty and how well matched the team members are in their execution in that particular round.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first round, Max and Kay lost to Fey and Indiana.
+In the second round, Max and Harper lost to Fey and Taylor.
+In the third round, Max and Ness lost to Fey and Sam.
+In the fourth round, Max and Kay beat Fey and Indiana.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?
+Query 4: On a percentage scale from 0 to 100%, how well synchronized do you think Max was with their teammate in the fourth round?
+Query 5: On a percentage scale from 0 to 100%, how well synchronized do you think Kay was with their teammate in the fourth round?
+Query 6: On a percentage scale from 0 to 100%, how well synchronized do you think Fey was with their teammate in the fourth round?
+Query 7: In a new round later this same day between Max and Kay (Team 1) and Harper and Sam (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Max and Fey (Team 1) and Kay and Indiana (Team 2), who would win and by how much?
+    

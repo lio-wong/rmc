@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Gale lost to Ness.
+In the second match, Ness lost to Taylor.
+In the third match, Ness lost to Peyton.
+
+QUERIES
+Query 1: How likely is it that Gale is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Ness is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Taylor is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Gale tried hard in the first match?
+Query 5: How likely is it that Ness tried hard in the second match?
+Query 6: How likely is it that Taylor tried hard in the second match?
+Query 7: In a new match, how likely is it that Gale will beat Taylor?
+Query 8: In a new match, how likely is it that Gale will beat Peyton?
+    

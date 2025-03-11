@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Emery beat Max.
+In the second match, Emery lost to Max.
+In the third match, Max lost to Kay.
+In the fourth match, Max lost to Drew.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Emery put into the second match?
+Query 5: How much effort do you think Max put into the first match?
+Query 6: How much effort do you think Kay put into the third match?
+Query 7: In a new match, how likely is it that Emery will beat Max ?
+Query 8: In a new match, how likely is it that Emery will beat Kay?
+    

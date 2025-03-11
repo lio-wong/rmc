@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. In synchronized diving, team members are jumping simultaneously and scores depend both on overall execution and how well matched the team members are.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Peyton and Drew beat Harper and Jamie.
+In the second match, Peyton and Drew beat Emery and Indiana.
+In the third match, Peyton and Drew beat Avery and Quinn.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Peyton put into the second match?
+Query 5: How much effort do you think Drew put into the second match?
+Query 6: How much effort do you think Emery put into the second match?
+Query 7: In a new match, how likely is it that Peyton and Drew will beat Harper and Quinn?
+Query 8: In a new match, how likely is it that Peyton and Harper will beat Drew and Jamie?
+    

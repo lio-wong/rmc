@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Willow and Casey beat Ness and Max.
+In the second match, Willow and Ollie beat Ness and Robin.
+In the third match, Willow and Fey beat Ness and Quinn.
+In the fourth match, Willow and Casey lost to Ness and Max.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Willow put into the fourth match?
+Query 5: How much effort do you think Casey put into the first match?
+Query 6: How much effort do you think Ness put into the second match?
+Query 7: In a new match, how likely is it that Willow and Casey will beat Ollie and Quinn?
+Query 8: In a new match, how likely is it that Willow and Ness will beat Casey and Max?
+    

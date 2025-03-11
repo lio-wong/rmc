@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. The overall dive difficulty attempted by any given team is determined by the least skilled athlete on the team. In each round of a synchronized dive, the team's overall score depends on their dive difficulty and how well matched the team members are in their execution in that particular round.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first round, Lane and Jamie beat Max and Avery.
+In the second round, Lane and Fey beat Max and Harper.
+In the third round, Lane and Emery beat Max and Val.
+In the fourth round, Lane and Jamie lost to Max and Avery.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic skill?
+Query 4: On a percentage scale from 0 to 100%, how well synchronized do you think Lane was with their teammate in the fourth round?
+Query 5: On a percentage scale from 0 to 100%, how well synchronized do you think Jamie was with their teammate in the fourth round?
+Query 6: On a percentage scale from 0 to 100%, how well synchronized do you think Max was with their teammate in the fourth round?
+Query 7: In a new round later today during this same tournament, how likely is it that Lane and Jamie will beat Fey and Val?
+Query 8: In a new round later today during this same tournament, how likely is it that Lane and Max will beat Jamie and Avery?
+    

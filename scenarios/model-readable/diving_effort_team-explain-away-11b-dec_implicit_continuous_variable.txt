@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. In synchronized diving, team members are jumping simultaneously and scores depend both on overall execution and how well matched the team members are.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Kay and Fey lost to Robin and Blake.
+In the second match, Kay and Willow lost to Robin and Sam.
+In the third match, Kay and Drew lost to Robin and Taylor.
+In the fourth match, Kay and Fey beat Robin and Blake.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Kay put into the fourth match?
+Query 5: How much effort do you think Fey put into the fourth match?
+Query 6: How much effort do you think Robin put into the fourth match?
+Query 7: In a new match, how likely is it that Kay and Fey will beat Willow and Taylor?
+Query 8: In a new match, how likely is it that Kay and Robin will beat Fey and Blake?
+    

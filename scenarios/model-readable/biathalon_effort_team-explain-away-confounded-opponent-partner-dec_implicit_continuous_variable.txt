@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a biathalon, a winter sport that combines cross-country skiing and rifle shooting. Teams compete in relays. Each team member both skis and shoots.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Val and Peyton beat Fey and Jamie.
+In the second match, Val and Peyton lost to Fey and Jamie.
+In the third match, Val and Peyton beat Fey and Blake.
+In the fourth match, Val and Peyton beat Fey and Avery.
+In the fifth match, Val and Peyton beat Fey and Gale.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Val put into the second match?
+Query 5: How much effort do you think Peyton put into the second match?
+Query 6: How much effort do you think Fey put into the second match?
+Query 7: In a new match, how likely is it that Val and Peyton will beat Fey and Jamie?
+Query 8: In a new match, how likely is it that Val and Peyton will beat Jamie and Blake?
+    

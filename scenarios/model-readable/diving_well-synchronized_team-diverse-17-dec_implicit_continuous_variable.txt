@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament. The overall dive difficulty attempted by any given team is determined by the least skilled athlete on the team. In each round of a synchronized dive, the team's overall score depends on their dive difficulty and how well matched the team members are in their execution in that particular round.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first round, Blake and Val beat Harper and Jamie.
+In the second round, Blake and Gale beat Sam and Indiana.
+In the third round, Blake and Emery beat Drew and Taylor.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Harper ranks in terms of intrinsic skill?
+Query 4: On a percentage scale from 0 to 100%, how well synchronized do you think Blake was with their teammate in the second round?
+Query 5: On a percentage scale from 0 to 100%, how well synchronized do you think Val was with their teammate in the first round?
+Query 6: On a percentage scale from 0 to 100%, how well synchronized do you think Harper was with their teammate in the first round?
+Query 7: In a new round later today during this same tournament, how likely is it that Blake and Val will beat Harper and Indiana?
+Query 8: In a new round later today during this same tournament, how likely is it that Blake and Harper will beat Val and Jamie?
+    

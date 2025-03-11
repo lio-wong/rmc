@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war. In each round, the team that wins the round depends on how hard the athletes collectively pull, based on their intrinsic strength modulated by other factors including how much effort they put in to that round.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Max and Kay lost to Drew and Harper.
+In the second match, Max and Sam lost to Drew and Gale.
+In the third match, Max and Val lost to Drew and Quinn.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Max put into the second match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Kay put into the first match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Drew put into the second match?
+Query 7: In a new match later today during this same tournament, how likely is it that Max and Kay will beat Sam and Quinn?
+Query 8: In a new match later today during this same tournament, how likely is it that Max and Drew will beat Kay and Harper?
+    

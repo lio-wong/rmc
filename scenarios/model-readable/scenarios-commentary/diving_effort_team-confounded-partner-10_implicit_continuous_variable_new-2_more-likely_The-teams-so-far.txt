@@ -1,0 +1,24 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Teams compete in synchronized diving. Each team member jumps at the same time.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Max and Indiana lost to Peyton and Emery.
+In the second match, Max and Indiana lost to Drew and Robin.
+In the third match, Max and Indiana lost to Harper and Val.
+The teams so far have often had one very strong diver and one very weak diver.
+So we've seen that some teams that have repeated losses were due to the poor diving of one of the members, while the other member had strong scores.
+
+QUERIES
+
+Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic skill?
+Query 4: How much effort do you think Max put into the first match?
+Query 5: How much effort do you think Indiana put into the second match?
+Query 6: How much effort do you think Drew put into the second match?
+Query 7: In a new match, how likely is it that Max and Indiana will beat Peyton and Val?
+Query 8: In a new match, how likely is it that Max and Peyton will beat Indiana and Emery?
+    

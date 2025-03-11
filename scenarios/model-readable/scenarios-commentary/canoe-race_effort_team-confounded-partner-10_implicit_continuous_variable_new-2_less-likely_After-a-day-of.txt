@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Robin and Quinn lost to Willow and Taylor.
+In the second match, Robin and Quinn lost to Indiana and Sam.
+In the third match, Robin and Quinn lost to Blake and Kay.
+After a day of competition, it is likely that some of the competitiors will be worn out.
+
+QUERIES
+
+Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Robin put into the first match?
+Query 5: How much effort do you think Quinn put into the second match?
+Query 6: How much effort do you think Indiana put into the second match?
+Query 7: In a new match, how likely is it that Robin and Quinn will beat Willow and Kay?
+Query 8: In a new match, how likely is it that Robin and Willow will beat Quinn and Taylor?
+    

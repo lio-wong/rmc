@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Ollie and Indiana beat Quinn and Peyton.
+In the second match, Indiana and Val lost to Quinn and Peyton.
+In the third match, Indiana and Avery lost to Quinn and Peyton.
+In the fourth match, Ollie lost to Indiana.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Ollie put into the fourth match?
+Query 5: How much effort do you think Indiana put into the second match?
+Query 6: How much effort do you think Quinn put into the second match?
+Query 7: In a new match, how likely is it that Ollie and Indiana will beat Val and Quinn?
+Query 8: In a new match, how likely is it that Ollie and Quinn will beat Indiana and Peyton?
+    

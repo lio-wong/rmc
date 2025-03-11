@@ -1,0 +1,21 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Taylor lost to Sam .
+In the second match, Taylor beat Sam .
+In the third match, Taylor beat Sam.
+In the fourth match, Ness beat Max.
+
+QUERIES
+Query 1: How likely is it that Taylor is intrinsically more skilled than a random typical competitor?
+Query 2: How likely is it that Sam is intrinsically more skilled than a random typical competitor?
+Query 3: How likely is it that Max is intrinsically more skilled than a random typical competitor?
+Query 4: How likely is it that Taylor tried hard in the first match?
+Query 5: How likely is it that Sam tried hard in the second match?
+Query 6: How likely is it that Max tried hard in the fourth match?
+Query 7: In a new match, how likely is it that Taylor will beat Sam ?
+Query 8: In a new match, how likely is it that Taylor will beat Max?
+    

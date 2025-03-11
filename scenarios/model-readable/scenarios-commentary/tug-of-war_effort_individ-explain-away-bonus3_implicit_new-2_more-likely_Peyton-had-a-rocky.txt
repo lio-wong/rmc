@@ -1,0 +1,25 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Peyton beat Blake.
+In the second match, Peyton lost to Blake.
+In the third match, Blake lost to Ness.
+In the fourth match, Blake lost to Indiana.
+Peyton had a rocky start with his back-and-forth with Blake, but things tend to turn around when his estranged father attends his matches.
+Lo and behold, Peyton's dad showed up midway through his second bought with Blake.
+Dad gave Peyton a thumb's up, so it is all but certain that Peyton will beat the incumbent Ness.
+
+QUERIES
+
+Query 1: How likely is it that Peyton is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Blake is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Ness is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Peyton tried hard in the second match?
+Query 5: How likely is it that Blake tried hard in the first match?
+Query 6: How likely is it that Ness tried hard in the third match?
+Query 7: In a new match, how likely is it that Peyton will beat Blake ?
+Query 8: In a new match, how likely is it that Peyton will beat Ness?
+    

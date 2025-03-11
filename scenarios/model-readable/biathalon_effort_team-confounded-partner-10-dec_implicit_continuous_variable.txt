@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a biathalon, a winter sport that combines cross-country skiing and rifle shooting. Teams compete in relays. Each team member both skis and shoots.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Indiana and Drew lost to Ollie and Willow.
+In the second match, Indiana and Drew lost to Ness and Quinn.
+In the third match, Indiana and Drew lost to Max and Val.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Indiana put into the third match?
+Query 5: How much effort do you think Drew put into the third match?
+Query 6: How much effort do you think Max put into the third match?
+Query 7: In a new match, how likely is it that Indiana and Drew will beat Ollie and Val?
+Query 8: In a new match, how likely is it that Indiana and Ollie will beat Drew and Willow?
+    

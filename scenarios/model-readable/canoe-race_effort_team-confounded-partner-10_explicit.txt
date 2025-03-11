@@ -1,0 +1,27 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+Intrinsic strength varies widely from athlete to athlete.
+The stronger the athlete, the faster they can individually row.
+Athletes also vary in how often they try their hardest in any given race.
+If an athlete doesn’t try hard in any given match, that athlete only rows about half as quickly as they could.
+Each canoe team moves as fast as the average effective speed of all of its athletes in that race.
+The canoe team that is the fastest will win a given race.
+
+CONDITIONS
+In the first match, Robin and Quinn lost to Willow and Taylor.
+In the second match, Robin and Quinn lost to Indiana and Sam.
+In the third match, Robin and Quinn lost to Blake and Kay.
+
+QUERIES
+Query 1: How likely is it that Robin is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Quinn is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Indiana is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Robin tried hard in the first match?
+Query 5: How likely is it that Quinn tried hard in the second match?
+Query 6: How likely is it that Indiana tried hard in the second match?
+Query 7: In a new match, how likely is it that Robin and Quinn will beat Willow and Kay?
+Query 8: In a new match, how likely is it that Robin and Willow will beat Quinn and Taylor?
+    

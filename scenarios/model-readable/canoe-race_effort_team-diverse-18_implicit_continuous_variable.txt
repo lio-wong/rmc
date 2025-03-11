@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Fey and Peyton lost to Drew and Ollie.
+In the second match, Fey and Jamie lost to Robin and Gale.
+In the third match, Fey and Harper lost to Val and PZ.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Fey put into the second match?
+Query 5: How much effort do you think Peyton put into the first match?
+Query 6: How much effort do you think Drew put into the first match?
+Query 7: In a new match, how likely is it that Fey and Peyton will beat Drew and Gale?
+Query 8: In a new match, how likely is it that Fey and Drew will beat Peyton and Ollie?
+    

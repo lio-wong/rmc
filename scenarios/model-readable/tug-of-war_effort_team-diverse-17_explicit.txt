@@ -1,0 +1,26 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+Intrinsic strength varies widely from athlete to athlete.
+Athletes also vary in how often they try their hardest in any given match.
+If an athlete doesn’t try hard in any given match, that athlete only pulls with half of their intrinsic strength in that match.
+Each team pulls as hard as the total effective strength of all of its athletes in that match.
+The team that pulls the hardest will win a given match.
+
+CONDITIONS
+In the first match, Ness and Indiana beat Max and Willow.
+In the second match, Ness and Robin beat Lane and Gale.
+In the third match, Ness and Val beat Kay and PZ.
+
+QUERIES
+Query 1: How likely is it that Ness is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Indiana is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Max is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Ness tried hard in the second match?
+Query 5: How likely is it that Indiana tried hard in the first match?
+Query 6: How likely is it that Max tried hard in the first match?
+Query 7: In a new match, how likely is it that Ness and Indiana will beat Max and Gale?
+Query 8: In a new match, how likely is it that Ness and Max will beat Indiana and Willow?
+    

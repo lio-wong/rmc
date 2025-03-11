@@ -1,0 +1,1144 @@
+,stimuli_id,background,scenario,questions,outcomes,commentary,model_descr_variant
+0,tug-of-war_effort_team-strong-indirect-14-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Val and Robin lost to Blake and Jamie.
+In the second match, Robin and Gale beat Blake and Jamie.
+In the third match, Robin and Kay beat Blake and Jamie.","['Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the first match?', 'Query 7: In a new match later this same day between Val and Robin (Team 1) and Gale and Blake (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Val and Blake (Team 1) and Robin and Jamie (Team 2), who would win and by how much?']","In the first match, Val and Robin lost to Blake and Jamie.
+In the second match, Robin and Gale beat Blake and Jamie.
+In the third match, Robin and Kay beat Blake and Jamie.",,explicit
+1,canoe-race_effort_team-strong-indirect-14-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Robin and Willow lost to Gale and Ollie.
+In the second race, Willow and Drew beat Gale and Ollie.
+In the third race, Willow and Val beat Gale and Ollie.","['Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Willow put into the first race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the first race?', 'Query 7: In a new race later this same day between Robin and Willow (Team 1) and Drew and Gale (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Robin and Gale (Team 1) and Willow and Ollie (Team 2), who would win and by how much?']","In the first race, Robin and Willow lost to Gale and Ollie.
+In the second race, Willow and Drew beat Gale and Ollie.
+In the third race, Willow and Val beat Gale and Ollie.",,explicit
+2,diving_difficulty_team-strong-indirect-14-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Fey and Quinn lost to Avery and Emery.
+In the second round, Quinn and Ness beat Avery and Emery.
+In the third round, Quinn and Val beat Avery and Emery.","['Query 1: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Fey was on in first round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Quinn was on in first round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Avery was on in first round attempted?', 'Query 7: In a new round later this same day between Fey and Quinn (Team 1) and Ness and Avery (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Fey and Avery (Team 1) and Quinn and Emery (Team 2), who would win and by how much?']","In the first round, Fey and Quinn lost to Avery and Emery.
+In the second round, Quinn and Ness beat Avery and Emery.
+In the third round, Quinn and Val beat Avery and Emery.",,explicit
+3,biathalon_shooting-accuracy_team-strong-indirect-14-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Avery and Blake lost to Kay and Drew.
+In the second round, Blake and Peyton beat Kay and Drew.
+In the third round, Blake and Willow beat Kay and Drew.","['Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Avery was at shooting in the first round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Blake was at shooting in the first round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the first round?', 'Query 7: In a new round later this same day between Avery and Blake (Team 1) and Peyton and Kay (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Avery and Kay (Team 1) and Blake and Drew (Team 2), who would win and by how much?']","In the first round, Avery and Blake lost to Kay and Drew.
+In the second round, Blake and Peyton beat Kay and Drew.
+In the third round, Blake and Willow beat Kay and Drew.",,explicit
+4,tug-of-war_effort_team-weak-indirect-16-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Emery and Casey lost to Fey and Blake.
+In the second match, Casey and Harper lost to Fey and Blake.
+In the third match, Casey and Jamie lost to Fey and Blake.","['Query 1: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Emery put into the first match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Casey put into the first match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the first match?', 'Query 7: In a new match later this same day between Emery and Casey (Team 1) and Harper and Fey (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Emery and Fey (Team 1) and Casey and Blake (Team 2), who would win and by how much?']","In the first match, Emery and Casey lost to Fey and Blake.
+In the second match, Casey and Harper lost to Fey and Blake.
+In the third match, Casey and Jamie lost to Fey and Blake.",,explicit
+5,canoe-race_effort_team-weak-indirect-16-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Quinn and Val lost to Willow and Ollie.
+In the second race, Val and Ness lost to Willow and Ollie.
+In the third race, Val and Gale lost to Willow and Ollie.","['Query 1: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Quinn put into the first race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Willow put into the first race?', 'Query 7: In a new race later this same day between Quinn and Val (Team 1) and Ness and Willow (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Quinn and Willow (Team 1) and Val and Ollie (Team 2), who would win and by how much?']","In the first race, Quinn and Val lost to Willow and Ollie.
+In the second race, Val and Ness lost to Willow and Ollie.
+In the third race, Val and Gale lost to Willow and Ollie.",,explicit
+6,diving_difficulty_team-weak-indirect-16-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Avery and Lane lost to Jamie and Fey.
+In the second round, Lane and Drew lost to Jamie and Fey.
+In the third round, Lane and Ness lost to Jamie and Fey.","['Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Avery was on in first round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Lane was on in first round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Jamie was on in first round attempted?', 'Query 7: In a new round later this same day between Avery and Lane (Team 1) and Drew and Jamie (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Avery and Jamie (Team 1) and Lane and Fey (Team 2), who would win and by how much?']","In the first round, Avery and Lane lost to Jamie and Fey.
+In the second round, Lane and Drew lost to Jamie and Fey.
+In the third round, Lane and Ness lost to Jamie and Fey.",,explicit
+7,biathalon_shooting-accuracy_team-weak-indirect-16-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Quinn and Ness lost to Emery and Casey.
+In the second round, Ness and Robin lost to Emery and Casey.
+In the third round, Ness and Indiana lost to Emery and Casey.","['Query 1: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Quinn was at shooting in the first round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the first round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Emery was at shooting in the first round?', 'Query 7: In a new round later this same day between Quinn and Ness (Team 1) and Robin and Emery (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Quinn and Emery (Team 1) and Ness and Casey (Team 2), who would win and by how much?']","In the first round, Quinn and Ness lost to Emery and Casey.
+In the second round, Ness and Robin lost to Emery and Casey.
+In the third round, Ness and Indiana lost to Emery and Casey.",,explicit
+8,tug-of-war_effort_team-explain-away-11-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Max and Indiana beat Jamie and Emery.
+In the second match, Max and Quinn beat Jamie and Avery.
+In the third match, Max and Kay beat Jamie and Peyton.
+In the fourth match, Max and Indiana lost to Jamie and Emery.","['Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Max put into the fourth match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the fourth match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Jamie put into the fourth match?', 'Query 7: In a new match later this same day between Max and Indiana (Team 1) and Quinn and Peyton (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Max and Jamie (Team 1) and Indiana and Emery (Team 2), who would win and by how much?']","In the first match, Max and Indiana beat Jamie and Emery.
+In the second match, Max and Quinn beat Jamie and Avery.
+In the third match, Max and Kay beat Jamie and Peyton.
+In the fourth match, Max and Indiana lost to Jamie and Emery.",,explicit
+9,canoe-race_effort_team-explain-away-11-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Avery and Peyton beat Val and Casey.
+In the second race, Avery and Jamie beat Val and Harper.
+In the third race, Avery and Kay beat Val and Taylor.
+In the fourth race, Avery and Peyton lost to Val and Casey.","['Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the fourth race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the fourth race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Val put into the fourth race?', 'Query 7: In a new race later this same day between Avery and Peyton (Team 1) and Jamie and Taylor (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Avery and Val (Team 1) and Peyton and Casey (Team 2), who would win and by how much?']","In the first race, Avery and Peyton beat Val and Casey.
+In the second race, Avery and Jamie beat Val and Harper.
+In the third race, Avery and Kay beat Val and Taylor.
+In the fourth race, Avery and Peyton lost to Val and Casey.",,explicit
+10,diving_difficulty_team-explain-away-11-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Lane and Jamie beat Robin and Gale.
+In the second round, Lane and Sam beat Robin and Drew.
+In the third round, Lane and Kay beat Robin and Avery.
+In the fourth round, Lane and Jamie lost to Robin and Gale.","['Query 1: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Lane was on in fourth round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Jamie was on in fourth round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Robin was on in fourth round attempted?', 'Query 7: In a new round later this same day between Lane and Jamie (Team 1) and Sam and Avery (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Lane and Robin (Team 1) and Jamie and Gale (Team 2), who would win and by how much?']","In the first round, Lane and Jamie beat Robin and Gale.
+In the second round, Lane and Sam beat Robin and Drew.
+In the third round, Lane and Kay beat Robin and Avery.
+In the fourth round, Lane and Jamie lost to Robin and Gale.",,explicit
+11,biathalon_shooting-accuracy_team-explain-away-11-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Ness and Lane beat Casey and Taylor.
+In the second round, Ness and Jamie beat Casey and Val.
+In the third round, Ness and Avery beat Casey and Max.
+In the fourth round, Ness and Lane lost to Casey and Taylor.","['Query 1: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the fourth round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Lane was at shooting in the fourth round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Casey was at shooting in the fourth round?', 'Query 7: In a new round later this same day between Ness and Lane (Team 1) and Jamie and Max (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Ness and Casey (Team 1) and Lane and Taylor (Team 2), who would win and by how much?']","In the first round, Ness and Lane beat Casey and Taylor.
+In the second round, Ness and Jamie beat Casey and Val.
+In the third round, Ness and Avery beat Casey and Max.
+In the fourth round, Ness and Lane lost to Casey and Taylor.",,explicit
+12,tug-of-war_effort_team-diverse-17-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Robin and Emery beat Peyton and Willow.
+In the second match, Robin and Taylor beat Avery and Ness.
+In the third match, Robin and Sam beat Ollie and Casey.","['Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the second match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Emery put into the first match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the first match?', 'Query 7: In a new match later this same day between Robin and Emery (Team 1) and Peyton and Ness (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Robin and Peyton (Team 1) and Emery and Willow (Team 2), who would win and by how much?']","In the first match, Robin and Emery beat Peyton and Willow.
+In the second match, Robin and Taylor beat Avery and Ness.
+In the third match, Robin and Sam beat Ollie and Casey.",,explicit
+13,canoe-race_effort_team-diverse-17-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Fey and Val beat Indiana and Kay.
+In the second race, Fey and Casey beat Drew and Taylor.
+In the third race, Fey and Robin beat Peyton and Max.","['Query 1: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the second race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the first race?', 'Query 7: In a new race later this same day between Fey and Val (Team 1) and Indiana and Taylor (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Fey and Indiana (Team 1) and Val and Kay (Team 2), who would win and by how much?']","In the first race, Fey and Val beat Indiana and Kay.
+In the second race, Fey and Casey beat Drew and Taylor.
+In the third race, Fey and Robin beat Peyton and Max.",,explicit
+14,diving_difficulty_team-diverse-17-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Sam and Blake beat Kay and Avery.
+In the second round, Sam and Jamie beat Drew and Max.
+In the third round, Sam and Ness beat Peyton and Lane.","['Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Sam was on in second round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Blake was on in first round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Kay was on in first round attempted?', 'Query 7: In a new round later this same day between Sam and Blake (Team 1) and Kay and Max (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Sam and Kay (Team 1) and Blake and Avery (Team 2), who would win and by how much?']","In the first round, Sam and Blake beat Kay and Avery.
+In the second round, Sam and Jamie beat Drew and Max.
+In the third round, Sam and Ness beat Peyton and Lane.",,explicit
+15,biathalon_shooting-accuracy_team-diverse-17-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Val and Willow beat Indiana and Fey.
+In the second round, Val and Ollie beat Blake and Jamie.
+In the third round, Val and Emery beat Casey and Peyton.","['Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Val was at shooting in the second round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Willow was at shooting in the first round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Indiana was at shooting in the first round?', 'Query 7: In a new round later this same day between Val and Willow (Team 1) and Indiana and Jamie (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Val and Indiana (Team 1) and Willow and Fey (Team 2), who would win and by how much?']","In the first round, Val and Willow beat Indiana and Fey.
+In the second round, Val and Ollie beat Blake and Jamie.
+In the third round, Val and Emery beat Casey and Peyton.",,explicit
+16,tug-of-war_effort_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Blake and Peyton lost to Ness and Taylor.
+In the second match, Blake and Peyton lost to Quinn and Harper.
+In the third match, Blake and Peyton lost to Robin and Max.","['Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the third match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the third match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the third match?', 'Query 7: In a new match later this same day between Blake and Peyton (Team 1) and Ness and Max (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Blake and Ness (Team 1) and Peyton and Taylor (Team 2), who would win and by how much?']","In the first match, Blake and Peyton lost to Ness and Taylor.
+In the second match, Blake and Peyton lost to Quinn and Harper.
+In the third match, Blake and Peyton lost to Robin and Max.",,explicit
+17,canoe-race_effort_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Gale and Emery lost to Kay and Indiana.
+In the second race, Gale and Emery lost to Fey and Quinn.
+In the third race, Gale and Emery lost to Jamie and Casey.","['Query 1: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the third race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Emery put into the third race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Jamie put into the third race?', 'Query 7: In a new race later this same day between Gale and Emery (Team 1) and Kay and Casey (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Gale and Kay (Team 1) and Emery and Indiana (Team 2), who would win and by how much?']","In the first race, Gale and Emery lost to Kay and Indiana.
+In the second race, Gale and Emery lost to Fey and Quinn.
+In the third race, Gale and Emery lost to Jamie and Casey.",,explicit
+18,diving_difficulty_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Ollie and Ness lost to Indiana and Jamie.
+In the second round, Ollie and Ness lost to Casey and Emery.
+In the third round, Ollie and Ness lost to Willow and Kay.","['Query 1: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Ollie was on in third round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Ness was on in third round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Willow was on in third round attempted?', 'Query 7: In a new round later this same day between Ollie and Ness (Team 1) and Indiana and Kay (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Ollie and Indiana (Team 1) and Ness and Jamie (Team 2), who would win and by how much?']","In the first round, Ollie and Ness lost to Indiana and Jamie.
+In the second round, Ollie and Ness lost to Casey and Emery.
+In the third round, Ollie and Ness lost to Willow and Kay.",,explicit
+19,biathalon_shooting-accuracy_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Kay and Avery lost to Lane and Quinn.
+In the second round, Kay and Avery lost to Blake and Peyton.
+In the third round, Kay and Avery lost to Jamie and Gale.","['Query 1: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the third round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Avery was at shooting in the third round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Jamie was at shooting in the third round?', 'Query 7: In a new round later this same day between Kay and Avery (Team 1) and Lane and Gale (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Kay and Lane (Team 1) and Avery and Quinn (Team 2), who would win and by how much?']","In the first round, Kay and Avery lost to Lane and Quinn.
+In the second round, Kay and Avery lost to Blake and Peyton.
+In the third round, Kay and Avery lost to Jamie and Gale.",,explicit
+20,tug-of-war_effort_team-confounded-partner-9-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Quinn and Fey beat Jamie and Max.
+In the second match, Quinn and Fey beat Ollie and Val.
+In the third match, Quinn and Fey beat Kay and Indiana.","['Query 1: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Quinn put into the second match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the second match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Ollie put into the second match?', 'Query 7: In a new match later this same day between Quinn and Fey (Team 1) and Jamie and Indiana (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Quinn and Jamie (Team 1) and Fey and Max (Team 2), who would win and by how much?']","In the first match, Quinn and Fey beat Jamie and Max.
+In the second match, Quinn and Fey beat Ollie and Val.
+In the third match, Quinn and Fey beat Kay and Indiana.",,explicit
+21,canoe-race_effort_team-confounded-partner-9-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Max and Taylor beat Harper and Ollie.
+In the second race, Max and Taylor beat Indiana and Ness.
+In the third race, Max and Taylor beat Robin and Casey.","['Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Max put into the second race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the second race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the second race?', 'Query 7: In a new race later this same day between Max and Taylor (Team 1) and Harper and Casey (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Max and Harper (Team 1) and Taylor and Ollie (Team 2), who would win and by how much?']","In the first race, Max and Taylor beat Harper and Ollie.
+In the second race, Max and Taylor beat Indiana and Ness.
+In the third race, Max and Taylor beat Robin and Casey.",,explicit
+22,diving_difficulty_team-confounded-partner-9-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Peyton and Jamie beat Avery and Sam.
+In the second round, Peyton and Jamie beat Kay and Emery.
+In the third round, Peyton and Jamie beat Quinn and Willow.","['Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Peyton was on in second round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Jamie was on in second round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Kay was on in second round attempted?', 'Query 7: In a new round later this same day between Peyton and Jamie (Team 1) and Avery and Willow (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Peyton and Avery (Team 1) and Jamie and Sam (Team 2), who would win and by how much?']","In the first round, Peyton and Jamie beat Avery and Sam.
+In the second round, Peyton and Jamie beat Kay and Emery.
+In the third round, Peyton and Jamie beat Quinn and Willow.",,explicit
+23,biathalon_shooting-accuracy_team-confounded-partner-9-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Ness and Peyton beat Taylor and Gale.
+In the second round, Ness and Peyton beat Drew and Casey.
+In the third round, Ness and Peyton beat Harper and Willow.","['Query 1: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the second round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Peyton was at shooting in the second round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Drew was at shooting in the second round?', 'Query 7: In a new round later this same day between Ness and Peyton (Team 1) and Taylor and Willow (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Ness and Taylor (Team 1) and Peyton and Gale (Team 2), who would win and by how much?']","In the first round, Ness and Peyton beat Taylor and Gale.
+In the second round, Ness and Peyton beat Drew and Casey.
+In the third round, Ness and Peyton beat Harper and Willow.",,explicit
+24,tug-of-war_effort_team-explain-away-11b-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Val and Fey lost to Max and Avery.
+In the second match, Val and Drew lost to Max and Robin.
+In the third match, Val and Ness lost to Max and Kay.
+In the fourth match, Val and Fey beat Max and Avery.","['Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Val put into the fourth match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the fourth match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Max put into the fourth match?', 'Query 7: In a new match later this same day between Val and Fey (Team 1) and Drew and Kay (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Val and Max (Team 1) and Fey and Avery (Team 2), who would win and by how much?']","In the first match, Val and Fey lost to Max and Avery.
+In the second match, Val and Drew lost to Max and Robin.
+In the third match, Val and Ness lost to Max and Kay.
+In the fourth match, Val and Fey beat Max and Avery.",,explicit
+25,canoe-race_effort_team-explain-away-11b-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Robin and Lane lost to Avery and Casey.
+In the second race, Robin and Taylor lost to Avery and Sam.
+In the third race, Robin and Indiana lost to Avery and Ollie.
+In the fourth race, Robin and Lane beat Avery and Casey.","['Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the fourth race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the fourth race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the fourth race?', 'Query 7: In a new race later this same day between Robin and Lane (Team 1) and Taylor and Ollie (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Robin and Avery (Team 1) and Lane and Casey (Team 2), who would win and by how much?']","In the first race, Robin and Lane lost to Avery and Casey.
+In the second race, Robin and Taylor lost to Avery and Sam.
+In the third race, Robin and Indiana lost to Avery and Ollie.
+In the fourth race, Robin and Lane beat Avery and Casey.",,explicit
+26,diving_difficulty_team-explain-away-11b-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Robin and Fey lost to Drew and Peyton.
+In the second round, Robin and Emery lost to Drew and Ness.
+In the third round, Robin and Gale lost to Drew and Avery.
+In the fourth round, Robin and Fey beat Drew and Peyton.","['Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Robin was on in fourth round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Fey was on in fourth round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Drew was on in fourth round attempted?', 'Query 7: In a new round later this same day between Robin and Fey (Team 1) and Emery and Avery (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Robin and Drew (Team 1) and Fey and Peyton (Team 2), who would win and by how much?']","In the first round, Robin and Fey lost to Drew and Peyton.
+In the second round, Robin and Emery lost to Drew and Ness.
+In the third round, Robin and Gale lost to Drew and Avery.
+In the fourth round, Robin and Fey beat Drew and Peyton.",,explicit
+27,biathalon_shooting-accuracy_team-explain-away-11b-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Casey and Val lost to Quinn and Harper.
+In the second round, Casey and Max lost to Quinn and Taylor.
+In the third round, Casey and Avery lost to Quinn and Drew.
+In the fourth round, Casey and Val beat Quinn and Harper.","['Query 1: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Casey was at shooting in the fourth round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Val was at shooting in the fourth round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Quinn was at shooting in the fourth round?', 'Query 7: In a new round later this same day between Casey and Val (Team 1) and Max and Drew (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Casey and Quinn (Team 1) and Val and Harper (Team 2), who would win and by how much?']","In the first round, Casey and Val lost to Quinn and Harper.
+In the second round, Casey and Max lost to Quinn and Taylor.
+In the third round, Casey and Avery lost to Quinn and Drew.
+In the fourth round, Casey and Val beat Quinn and Harper.",,explicit
+28,tug-of-war_effort_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Taylor and Indiana beat Quinn and Max.
+In the second match, Taylor and Indiana lost to Quinn and Max.
+In the third match, Taylor and Indiana beat Quinn and Avery.
+In the fourth match, Taylor and Indiana beat Quinn and Blake.
+In the fifth match, Taylor and Indiana beat Quinn and Robin.","['Query 1: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the second match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the second match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Quinn put into the second match?', 'Query 7: In a new match later this same day between Taylor and Indiana (Team 1) and Quinn and Max (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Taylor and Indiana (Team 1) and Max and Avery (Team 2), who would win and by how much?']","In the first match, Taylor and Indiana beat Quinn and Max.
+In the second match, Taylor and Indiana lost to Quinn and Max.
+In the third match, Taylor and Indiana beat Quinn and Avery.
+In the fourth match, Taylor and Indiana beat Quinn and Blake.
+In the fifth match, Taylor and Indiana beat Quinn and Robin.",,explicit
+29,canoe-race_effort_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Blake and Avery beat Lane and Ollie.
+In the second race, Blake and Avery lost to Lane and Ollie.
+In the third race, Blake and Avery beat Lane and Willow.
+In the fourth race, Blake and Avery beat Lane and Quinn.
+In the fifth race, Blake and Avery beat Lane and Robin.","['Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the second race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the second race?', 'Query 7: In a new race later this same day between Blake and Avery (Team 1) and Lane and Ollie (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Blake and Avery (Team 1) and Ollie and Willow (Team 2), who would win and by how much?']","In the first race, Blake and Avery beat Lane and Ollie.
+In the second race, Blake and Avery lost to Lane and Ollie.
+In the third race, Blake and Avery beat Lane and Willow.
+In the fourth race, Blake and Avery beat Lane and Quinn.
+In the fifth race, Blake and Avery beat Lane and Robin.",,explicit
+30,diving_difficulty_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Max and Indiana beat Gale and Willow.
+In the second round, Max and Indiana lost to Gale and Willow.
+In the third round, Max and Indiana beat Gale and Casey.
+In the fourth round, Max and Indiana beat Gale and Peyton.
+In the fifth round, Max and Indiana beat Gale and Val.","['Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Max was on in second round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Indiana was on in second round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Gale was on in second round attempted?', 'Query 7: In a new round later this same day between Max and Indiana (Team 1) and Gale and Willow (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Max and Indiana (Team 1) and Willow and Casey (Team 2), who would win and by how much?']","In the first round, Max and Indiana beat Gale and Willow.
+In the second round, Max and Indiana lost to Gale and Willow.
+In the third round, Max and Indiana beat Gale and Casey.
+In the fourth round, Max and Indiana beat Gale and Peyton.
+In the fifth round, Max and Indiana beat Gale and Val.",,explicit
+31,biathalon_shooting-accuracy_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Drew and Ness beat Gale and Quinn.
+In the second round, Drew and Ness lost to Gale and Quinn.
+In the third round, Drew and Ness beat Gale and Harper.
+In the fourth round, Drew and Ness beat Gale and Val.
+In the fifth round, Drew and Ness beat Gale and Lane.","['Query 1: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Drew was at shooting in the second round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the second round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Gale was at shooting in the second round?', 'Query 7: In a new round later this same day between Drew and Ness (Team 1) and Gale and Quinn (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Drew and Ness (Team 1) and Quinn and Harper (Team 2), who would win and by how much?']","In the first round, Drew and Ness beat Gale and Quinn.
+In the second round, Drew and Ness lost to Gale and Quinn.
+In the third round, Drew and Ness beat Gale and Harper.
+In the fourth round, Drew and Ness beat Gale and Val.
+In the fifth round, Drew and Ness beat Gale and Lane.",,explicit
+32,tug-of-war_effort_team-confounded-opponent-12-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Indiana and Lane lost to Taylor and Ness.
+In the second match, Indiana and Casey lost to Taylor and Avery.
+In the third match, Indiana and Kay lost to Taylor and Fey.","['Query 1: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the second match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the first match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the second match?', 'Query 7: In a new match later this same day between Indiana and Lane (Team 1) and Casey and Fey (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Indiana and Taylor (Team 1) and Lane and Ness (Team 2), who would win and by how much?']","In the first match, Indiana and Lane lost to Taylor and Ness.
+In the second match, Indiana and Casey lost to Taylor and Avery.
+In the third match, Indiana and Kay lost to Taylor and Fey.",,explicit
+33,canoe-race_effort_team-confounded-opponent-12-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Val and Gale lost to Avery and Kay.
+In the second race, Val and Harper lost to Avery and Ness.
+In the third race, Val and Indiana lost to Avery and Casey.","['Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Val put into the second race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the first race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second race?', 'Query 7: In a new race later this same day between Val and Gale (Team 1) and Harper and Casey (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Val and Avery (Team 1) and Gale and Kay (Team 2), who would win and by how much?']","In the first race, Val and Gale lost to Avery and Kay.
+In the second race, Val and Harper lost to Avery and Ness.
+In the third race, Val and Indiana lost to Avery and Casey.",,explicit
+34,diving_difficulty_team-confounded-opponent-12-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Willow and Avery lost to Jamie and Kay.
+In the second round, Willow and Casey lost to Jamie and Ollie.
+In the third round, Willow and Peyton lost to Jamie and Drew.","['Query 1: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Willow was on in second round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Avery was on in first round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Jamie was on in second round attempted?', 'Query 7: In a new round later this same day between Willow and Avery (Team 1) and Casey and Drew (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Willow and Jamie (Team 1) and Avery and Kay (Team 2), who would win and by how much?']","In the first round, Willow and Avery lost to Jamie and Kay.
+In the second round, Willow and Casey lost to Jamie and Ollie.
+In the third round, Willow and Peyton lost to Jamie and Drew.",,explicit
+35,biathalon_shooting-accuracy_team-confounded-opponent-12-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Val and Casey lost to Peyton and Harper.
+In the second round, Val and Taylor lost to Peyton and Gale.
+In the third round, Val and Max lost to Peyton and Fey.","['Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Val was at shooting in the second round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Casey was at shooting in the first round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Peyton was at shooting in the second round?', 'Query 7: In a new round later this same day between Val and Casey (Team 1) and Taylor and Fey (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Val and Peyton (Team 1) and Casey and Harper (Team 2), who would win and by how much?']","In the first round, Val and Casey lost to Peyton and Harper.
+In the second round, Val and Taylor lost to Peyton and Gale.
+In the third round, Val and Max lost to Peyton and Fey.",,explicit
+36,tug-of-war_effort_team-confounded-opponent-11-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Sam and Gale beat Peyton and Max.
+In the second match, Sam and Jamie beat Peyton and Robin.
+In the third match, Sam and Willow beat Peyton and Lane.","['Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the third match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the third match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the third match?', 'Query 7: In a new match later this same day between Sam and Gale (Team 1) and Jamie and Lane (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Sam and Peyton (Team 1) and Gale and Max (Team 2), who would win and by how much?']","In the first match, Sam and Gale beat Peyton and Max.
+In the second match, Sam and Jamie beat Peyton and Robin.
+In the third match, Sam and Willow beat Peyton and Lane.",,explicit
+37,canoe-race_effort_team-confounded-opponent-11-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Peyton and Kay beat Fey and Lane.
+In the second race, Peyton and Indiana beat Fey and Blake.
+In the third race, Peyton and Taylor beat Fey and Harper.","['Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the third race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Kay put into the third race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the third race?', 'Query 7: In a new race later this same day between Peyton and Kay (Team 1) and Indiana and Harper (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Peyton and Fey (Team 1) and Kay and Lane (Team 2), who would win and by how much?']","In the first race, Peyton and Kay beat Fey and Lane.
+In the second race, Peyton and Indiana beat Fey and Blake.
+In the third race, Peyton and Taylor beat Fey and Harper.",,explicit
+38,diving_difficulty_team-confounded-opponent-11-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Fey and Ness beat Gale and Drew.
+In the second round, Fey and Robin beat Gale and Sam.
+In the third round, Fey and Indiana beat Gale and Willow.","['Query 1: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Fey was on in third round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Ness was on in third round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Gale was on in third round attempted?', 'Query 7: In a new round later this same day between Fey and Ness (Team 1) and Robin and Willow (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Fey and Gale (Team 1) and Ness and Drew (Team 2), who would win and by how much?']","In the first round, Fey and Ness beat Gale and Drew.
+In the second round, Fey and Robin beat Gale and Sam.
+In the third round, Fey and Indiana beat Gale and Willow.",,explicit
+39,biathalon_shooting-accuracy_team-confounded-opponent-11-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Harper and Ollie beat Ness and Casey.
+In the second round, Harper and Jamie beat Ness and Kay.
+In the third round, Harper and Peyton beat Ness and Robin.","['Query 1: Out of 100 random athletes, where do you think Harper ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Harper was at shooting in the third round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Ollie was at shooting in the third round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the third round?', 'Query 7: In a new round later this same day between Harper and Ollie (Team 1) and Jamie and Robin (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Harper and Ness (Team 1) and Ollie and Casey (Team 2), who would win and by how much?']","In the first round, Harper and Ollie beat Ness and Casey.
+In the second round, Harper and Jamie beat Ness and Kay.
+In the third round, Harper and Peyton beat Ness and Robin.",,explicit
+40,tug-of-war_effort_team-strong-indirect-13-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Jamie and Taylor beat Ness and Casey.
+In the second match, Taylor and Gale lost to Ness and Casey.
+In the third match, Taylor and Ollie lost to Ness and Casey.","['Query 1: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Jamie put into the first match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the first match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Ness put into the first match?', 'Query 7: In a new match later this same day between Jamie and Taylor (Team 1) and Gale and Ness (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Jamie and Ness (Team 1) and Taylor and Casey (Team 2), who would win and by how much?']","In the first match, Jamie and Taylor beat Ness and Casey.
+In the second match, Taylor and Gale lost to Ness and Casey.
+In the third match, Taylor and Ollie lost to Ness and Casey.",,explicit
+41,canoe-race_effort_team-strong-indirect-13-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Sam and Val beat Max and Taylor.
+In the second race, Val and Drew lost to Max and Taylor.
+In the third race, Val and Peyton lost to Max and Taylor.","['Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the first race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Max put into the first race?', 'Query 7: In a new race later this same day between Sam and Val (Team 1) and Drew and Max (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Sam and Max (Team 1) and Val and Taylor (Team 2), who would win and by how much?']","In the first race, Sam and Val beat Max and Taylor.
+In the second race, Val and Drew lost to Max and Taylor.
+In the third race, Val and Peyton lost to Max and Taylor.",,explicit
+42,diving_difficulty_team-strong-indirect-13-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Blake and Harper beat Emery and Max.
+In the second round, Harper and Ollie lost to Emery and Max.
+In the third round, Harper and Willow lost to Emery and Max.","['Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Harper ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Blake was on in first round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Harper was on in first round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Emery was on in first round attempted?', 'Query 7: In a new round later this same day between Blake and Harper (Team 1) and Ollie and Emery (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Blake and Emery (Team 1) and Harper and Max (Team 2), who would win and by how much?']","In the first round, Blake and Harper beat Emery and Max.
+In the second round, Harper and Ollie lost to Emery and Max.
+In the third round, Harper and Willow lost to Emery and Max.",,explicit
+43,biathalon_shooting-accuracy_team-strong-indirect-13-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Harper and Indiana beat Lane and Casey.
+In the second round, Indiana and Kay lost to Lane and Casey.
+In the third round, Indiana and Max lost to Lane and Casey.","['Query 1: Out of 100 random athletes, where do you think Harper ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Harper was at shooting in the first round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Indiana was at shooting in the first round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Lane was at shooting in the first round?', 'Query 7: In a new round later this same day between Harper and Indiana (Team 1) and Kay and Lane (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Harper and Lane (Team 1) and Indiana and Casey (Team 2), who would win and by how much?']","In the first round, Harper and Indiana beat Lane and Casey.
+In the second round, Indiana and Kay lost to Lane and Casey.
+In the third round, Indiana and Max lost to Lane and Casey.",,explicit
+44,tug-of-war_effort_team-weak-indirect-15-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Robin and Peyton beat Kay and Ollie.
+In the second match, Peyton and Quinn beat Kay and Ollie.
+In the third match, Peyton and Fey beat Kay and Ollie.","['Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the first match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Kay put into the first match?', 'Query 7: In a new match later this same day between Robin and Peyton (Team 1) and Quinn and Kay (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Robin and Kay (Team 1) and Peyton and Ollie (Team 2), who would win and by how much?']","In the first match, Robin and Peyton beat Kay and Ollie.
+In the second match, Peyton and Quinn beat Kay and Ollie.
+In the third match, Peyton and Fey beat Kay and Ollie.",,explicit
+45,canoe-race_effort_team-weak-indirect-15-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Peyton and Val beat Avery and Kay.
+In the second race, Val and Ness beat Avery and Kay.
+In the third race, Val and Fey beat Avery and Kay.","['Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the first race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the first race?', 'Query 7: In a new race later this same day between Peyton and Val (Team 1) and Ness and Avery (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Peyton and Avery (Team 1) and Val and Kay (Team 2), who would win and by how much?']","In the first race, Peyton and Val beat Avery and Kay.
+In the second race, Val and Ness beat Avery and Kay.
+In the third race, Val and Fey beat Avery and Kay.",,explicit
+46,diving_difficulty_team-weak-indirect-15-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Willow and Taylor beat Fey and Gale.
+In the second round, Taylor and Ness beat Fey and Gale.
+In the third round, Taylor and Blake beat Fey and Gale.","['Query 1: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Willow was on in first round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Taylor was on in first round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Fey was on in first round attempted?', 'Query 7: In a new round later this same day between Willow and Taylor (Team 1) and Ness and Fey (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Willow and Fey (Team 1) and Taylor and Gale (Team 2), who would win and by how much?']","In the first round, Willow and Taylor beat Fey and Gale.
+In the second round, Taylor and Ness beat Fey and Gale.
+In the third round, Taylor and Blake beat Fey and Gale.",,explicit
+47,biathalon_shooting-accuracy_team-weak-indirect-15-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Willow and Kay beat Gale and Peyton.
+In the second round, Kay and Jamie beat Gale and Peyton.
+In the third round, Kay and Quinn beat Gale and Peyton.","['Query 1: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Willow was at shooting in the first round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the first round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Gale was at shooting in the first round?', 'Query 7: In a new round later this same day between Willow and Kay (Team 1) and Jamie and Gale (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Willow and Gale (Team 1) and Kay and Peyton (Team 2), who would win and by how much?']","In the first round, Willow and Kay beat Gale and Peyton.
+In the second round, Kay and Jamie beat Gale and Peyton.
+In the third round, Kay and Quinn beat Gale and Peyton.",,explicit
+48,tug-of-war_effort_team-round-robin-19-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Quinn and Casey beat Avery and Jamie.
+In the second match, Quinn and Avery beat Casey and Jamie.
+In the third match, Quinn and Jamie beat Casey and Avery.","['Query 1: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Quinn put into the second match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Casey put into the second match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Jamie put into the second match?', 'Query 7: In a new match later this same day between Quinn and Casey (Team 1) and Avery and Gale (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Quinn and Avery (Team 1) and Casey and Gale (Team 2), who would win and by how much?']","In the first match, Quinn and Casey beat Avery and Jamie.
+In the second match, Quinn and Avery beat Casey and Jamie.
+In the third match, Quinn and Jamie beat Casey and Avery.",,explicit
+49,canoe-race_effort_team-round-robin-19-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Sam and Val beat Casey and Robin.
+In the second race, Sam and Casey beat Val and Robin.
+In the third race, Sam and Robin beat Val and Casey.","['Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the second race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Val put into the second race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the second race?', 'Query 7: In a new race later this same day between Sam and Val (Team 1) and Casey and Gale (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Sam and Casey (Team 1) and Val and Gale (Team 2), who would win and by how much?']","In the first race, Sam and Val beat Casey and Robin.
+In the second race, Sam and Casey beat Val and Robin.
+In the third race, Sam and Robin beat Val and Casey.",,explicit
+50,diving_difficulty_team-round-robin-19-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Fey and Indiana beat Jamie and Willow.
+In the second round, Fey and Jamie beat Indiana and Willow.
+In the third round, Fey and Willow beat Indiana and Jamie.","['Query 1: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Fey was on in second round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Indiana was on in second round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Willow was on in second round attempted?', 'Query 7: In a new round later this same day between Fey and Indiana (Team 1) and Jamie and Drew (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Fey and Jamie (Team 1) and Indiana and Drew (Team 2), who would win and by how much?']","In the first round, Fey and Indiana beat Jamie and Willow.
+In the second round, Fey and Jamie beat Indiana and Willow.
+In the third round, Fey and Willow beat Indiana and Jamie.",,explicit
+51,biathalon_shooting-accuracy_team-round-robin-19-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Fey and Avery beat Emery and Harper.
+In the second round, Fey and Emery beat Avery and Harper.
+In the third round, Fey and Harper beat Avery and Emery.","['Query 1: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Harper ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Fey was at shooting in the second round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Avery was at shooting in the second round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Harper was at shooting in the second round?', 'Query 7: In a new round later this same day between Fey and Avery (Team 1) and Emery and Peyton (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Fey and Emery (Team 1) and Avery and Peyton (Team 2), who would win and by how much?']","In the first round, Fey and Avery beat Emery and Harper.
+In the second round, Fey and Emery beat Avery and Harper.
+In the third round, Fey and Harper beat Avery and Emery.",,explicit
+52,tug-of-war_effort_team-explain-away-diverse-confounded-partner-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Taylor and Avery beat Kay and Robin.
+In the second match, Taylor and Avery beat Fey and Jamie.
+In the third match, Taylor and Avery lost to Fey and Robin.
+In the fourth match, Taylor and Avery beat Kay and Fey.
+In the fifth match, Taylor and Avery beat Jamie and Robin.","['Query 1: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the third match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the third match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the third match?', 'Query 7: In a new match later this same day between Taylor and Avery (Team 1) and Fey and Robin (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Taylor and Kay (Team 1) and Avery and Jamie (Team 2), who would win and by how much?']","In the first match, Taylor and Avery beat Kay and Robin.
+In the second match, Taylor and Avery beat Fey and Jamie.
+In the third match, Taylor and Avery lost to Fey and Robin.
+In the fourth match, Taylor and Avery beat Kay and Fey.
+In the fifth match, Taylor and Avery beat Jamie and Robin.",,explicit
+53,canoe-race_effort_team-explain-away-diverse-confounded-partner-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Sam and Ollie beat Taylor and Blake.
+In the second race, Sam and Ollie beat Indiana and Avery.
+In the third race, Sam and Ollie lost to Indiana and Blake.
+In the fourth race, Sam and Ollie beat Taylor and Indiana.
+In the fifth race, Sam and Ollie beat Avery and Blake.","['Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the third race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Ollie put into the third race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the third race?', 'Query 7: In a new race later this same day between Sam and Ollie (Team 1) and Indiana and Blake (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Sam and Taylor (Team 1) and Ollie and Avery (Team 2), who would win and by how much?']","In the first race, Sam and Ollie beat Taylor and Blake.
+In the second race, Sam and Ollie beat Indiana and Avery.
+In the third race, Sam and Ollie lost to Indiana and Blake.
+In the fourth race, Sam and Ollie beat Taylor and Indiana.
+In the fifth race, Sam and Ollie beat Avery and Blake.",,explicit
+54,diving_difficulty_team-explain-away-diverse-confounded-partner-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Ness and Emery beat Indiana and Peyton.
+In the second round, Ness and Emery beat Kay and Casey.
+In the third round, Ness and Emery lost to Kay and Peyton.
+In the fourth round, Ness and Emery beat Indiana and Kay.
+In the fifth round, Ness and Emery beat Casey and Peyton.","['Query 1: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Ness was on in third round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Emery was on in third round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Kay was on in third round attempted?', 'Query 7: In a new round later this same day between Ness and Emery (Team 1) and Kay and Peyton (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Ness and Indiana (Team 1) and Emery and Casey (Team 2), who would win and by how much?']","In the first round, Ness and Emery beat Indiana and Peyton.
+In the second round, Ness and Emery beat Kay and Casey.
+In the third round, Ness and Emery lost to Kay and Peyton.
+In the fourth round, Ness and Emery beat Indiana and Kay.
+In the fifth round, Ness and Emery beat Casey and Peyton.",,explicit
+55,biathalon_shooting-accuracy_team-explain-away-diverse-confounded-partner-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Peyton and Indiana beat Blake and Max.
+In the second round, Peyton and Indiana beat Casey and Fey.
+In the third round, Peyton and Indiana lost to Casey and Max.
+In the fourth round, Peyton and Indiana beat Blake and Casey.
+In the fifth round, Peyton and Indiana beat Fey and Max.","['Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Peyton was at shooting in the third round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Indiana was at shooting in the third round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Casey was at shooting in the third round?', 'Query 7: In a new round later this same day between Peyton and Indiana (Team 1) and Casey and Max (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Peyton and Blake (Team 1) and Indiana and Fey (Team 2), who would win and by how much?']","In the first round, Peyton and Indiana beat Blake and Max.
+In the second round, Peyton and Indiana beat Casey and Fey.
+In the third round, Peyton and Indiana lost to Casey and Max.
+In the fourth round, Peyton and Indiana beat Blake and Casey.
+In the fifth round, Peyton and Indiana beat Fey and Max.",,explicit
+56,tug-of-war_effort_team-round-robin-20-dec_win_how_much_explicit_continuous_variable.txt,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team. 
+
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that pulls the hardest in a given match wins.
+ 
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first match, Peyton and Avery lost to Blake and Casey.
+In the second match, Peyton and Blake lost to Avery and Casey.
+In the third match, Peyton and Casey lost to Avery and Blake.","['Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the second match?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second match?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the second match?', 'Query 7: In a new match later this same day between Peyton and Avery (Team 1) and Blake and Gale (Team 2), who would win and by how much?', 'Query 8: In a new match later this same day between Peyton and Blake (Team 1) and Avery and Gale (Team 2), who would win and by how much?']","In the first match, Peyton and Avery lost to Blake and Casey.
+In the second match, Peyton and Blake lost to Avery and Casey.
+In the third match, Peyton and Casey lost to Avery and Blake.",,explicit
+57,canoe-race_effort_team-round-robin-20-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team. 
+
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+
+The team that rows the fastest (highest team speed) in a given race wins.
+                   
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first race, Max and Willow lost to Val and Indiana.
+In the second race, Max and Val lost to Willow and Indiana.
+In the third race, Max and Indiana lost to Willow and Val.","['Query 1: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how much effort do you think Max put into the second race?', 'Query 5: On a percentage scale from 0 to 100%, how much effort do you think Willow put into the second race?', 'Query 6: On a percentage scale from 0 to 100%, how much effort do you think Val put into the second race?', 'Query 7: In a new race later this same day between Max and Willow (Team 1) and Val and Drew (Team 2), who would win and by how much?', 'Query 8: In a new race later this same day between Max and Val (Team 1) and Willow and Drew (Team 2), who would win and by how much?']","In the first race, Max and Willow lost to Val and Indiana.
+In the second race, Max and Val lost to Willow and Indiana.
+In the third race, Max and Indiana lost to Willow and Val.",,explicit
+58,diving_difficulty_team-round-robin-20-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Gale and Quinn lost to Emery and Ollie.
+In the second round, Gale and Emery lost to Quinn and Ollie.
+In the third round, Gale and Ollie lost to Quinn and Emery.","['Query 1: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic skill?', 'Query 2: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic skill?', 'Query 3: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic skill?', 'Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Gale was on in second round attempted?', 'Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Quinn was on in second round attempted?', 'Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Emery was on in second round attempted?', 'Query 7: In a new round later this same day between Gale and Quinn (Team 1) and Emery and Peyton (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Gale and Emery (Team 1) and Quinn and Peyton (Team 2), who would win and by how much?']","In the first round, Gale and Quinn lost to Emery and Ollie.
+In the second round, Gale and Emery lost to Quinn and Ollie.
+In the third round, Gale and Ollie lost to Quinn and Emery.",,explicit
+59,biathalon_shooting-accuracy_team-round-robin-20-dec_win_how_much_explicit_continuous_variable.txt,"
+In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance. 
+
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+
+The team that completes the course with the highest score wins. 
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.","In the first round, Lane and Indiana lost to Quinn and Taylor.
+In the second round, Lane and Quinn lost to Indiana and Taylor.
+In the third round, Lane and Taylor lost to Indiana and Quinn.","['Query 1: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?', 'Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?', 'Query 3: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?', 'Query 4: On a percentage scale from 0 to 100%, how accurate do you think Lane was at shooting in the second round?', 'Query 5: On a percentage scale from 0 to 100%, how accurate do you think Indiana was at shooting in the second round?', 'Query 6: On a percentage scale from 0 to 100%, how accurate do you think Quinn was at shooting in the second round?', 'Query 7: In a new round later this same day between Lane and Indiana (Team 1) and Quinn and Harper (Team 2), who would win and by how much?', 'Query 8: In a new round later this same day between Lane and Quinn (Team 1) and Indiana and Harper (Team 2), who would win and by how much?']","In the first round, Lane and Indiana lost to Quinn and Taylor.
+In the second round, Lane and Quinn lost to Indiana and Taylor.
+In the third round, Lane and Taylor lost to Indiana and Quinn.",,explicit

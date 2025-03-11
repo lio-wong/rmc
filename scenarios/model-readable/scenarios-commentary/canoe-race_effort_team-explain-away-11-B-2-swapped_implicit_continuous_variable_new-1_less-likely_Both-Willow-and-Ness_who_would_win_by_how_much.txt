@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races. In each race, the team that wins depends on the average speed with which the athletes are able to row, based on their intrinsic strength modulated by other factors including how much effort they put in to that race.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Indiana and Drew beat Sam and Val.
+In the second match, Indiana and Gale beat Sam and Emery.
+In the third match, Indiana and Taylor beat Sam and Lane.
+In the fourth match, Indiana and Drew lost to Sam and Val.
+You can see Indiana seems to be experiencing much more fatigue which set in for their last match.
+Sam on the other hand seems to have caught a second wind.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the fourth race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Drew put into the fourth race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the fourth race?
+Query 7: In a new race later this same day between Indiana and Drew (Team 1) and Avery and Lane (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Drew and Val (Team 1) and Indiana and Sam (Team 2), who would win and by how much?

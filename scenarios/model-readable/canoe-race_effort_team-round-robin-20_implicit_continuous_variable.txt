@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Kay and Peyton lost to Ollie and Taylor.
+In the second match, Kay and Ollie lost to Peyton and Taylor.
+In the third match, Kay and Taylor lost to Peyton and Ollie.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Kay put into the second match?
+Query 5: How much effort do you think Peyton put into the first match?
+Query 6: How much effort do you think Ollie put into the first match?
+Query 7: In a new match, how likely is it that Kay and Peyton will beat Ollie and Indiana?
+Query 8: In a new match, how likely is it that Kay and Ollie will beat Peyton and Indiana?
+    

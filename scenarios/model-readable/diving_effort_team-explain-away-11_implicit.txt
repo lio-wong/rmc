@@ -1,0 +1,22 @@
+BACKGROUND
+In this event, teams of players are competing in rounds of a synchronized diving tournament.
+Teams compete in synchronized diving. Each team member jumps at the same time.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Taylor and Harper beat Emery and Blake.
+In the second match, Taylor and Avery beat Emery and Fey.
+In the third match, Taylor and Robin beat Emery and Drew.
+In the fourth match, Taylor and Harper lost to Emery and Blake.
+
+QUERIES
+Query 1: How likely is it that Taylor is intrinsically more skilled than a random typical competitor?
+Query 2: How likely is it that Harper is intrinsically more skilled than a random typical competitor?
+Query 3: How likely is it that Emery is intrinsically more skilled than a random typical competitor?
+Query 4: How likely is it that Taylor tried hard in the fourth match?
+Query 5: How likely is it that Harper tried hard in the first match?
+Query 6: How likely is it that Emery tried hard in the second match?
+Query 7: In a new match, how likely is it that Taylor and Harper will beat Avery and Drew?
+Query 8: In a new match, how likely is it that Taylor and Emery will beat Harper and Blake?
+    

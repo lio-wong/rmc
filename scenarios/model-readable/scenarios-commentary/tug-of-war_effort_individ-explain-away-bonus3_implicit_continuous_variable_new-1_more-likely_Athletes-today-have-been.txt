@@ -1,0 +1,25 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Peyton beat Blake.
+In the second match, Peyton lost to Blake.
+In the third match, Blake lost to Ness.
+In the fourth match, Blake lost to Indiana.
+Athletes today have been complaining about the air quality.
+Their breathing has been negatively affected.
+This has caused them issues with their endurance.
+
+QUERIES
+
+Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Peyton put into the second match?
+Query 5: How much effort do you think Blake put into the first match?
+Query 6: How much effort do you think Ness put into the third match?
+Query 7: In a new match, how likely is it that Peyton will beat Blake ?
+Query 8: In a new match, how likely is it that Peyton will beat Ness?
+    

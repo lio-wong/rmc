@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in a series of canoe races.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Robin and Sam beat Gale and Casey.
+In the second match, Robin and Gale beat Sam and Casey.
+In the third match, Robin and Casey beat Sam and Gale.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+Query 4: How much effort do you think Robin put into the second match?
+Query 5: How much effort do you think Sam put into the first match?
+Query 6: How much effort do you think Gale put into the first match?
+Query 7: In a new match, how likely is it that Robin and Sam will beat Gale and Val?
+Query 8: In a new match, how likely is it that Robin and Gale will beat Sam and Val?
+    

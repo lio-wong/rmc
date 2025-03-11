@@ -1,0 +1,34 @@
+BACKGROUND
+
+In this event, the athletes are competing in a series of synchronized diving tournaments. Each tournament consists of a series of rounds. In each match, athletes compete as part of a team. 
+
+In a given round, each team receives a score based on the difficulty of the dive and the execution of the dive. 
+
+How difficult of a dive a team takes on varies in any given round. Teams can differ in the difficulty they attempt on any given round. The same team may try different levels of difficulty on different rounds. The dives each team takes in a given match are chosen before the tournament begins and are therefore independent of the outcome of the previous round.
+
+A team’s execution score is based on the average skill of the athletes on the team and how difficult the attempted dive was. If the athletes are highly skilled, but the dive is very difficult, they may not execute well. Conversely, if athletes are highly skilled but the dive is not very difficult, the team may get a high execution score.
+
+Note that an athlete’s intrinsic skill remains constant throughout a tournament. An athlete neither gets more nor less skilled between rounds. You can assume that all rounds take place on the same day.
+
+A team’s overall score is determined by the sum of the difficulty and execution scores. Difficulty and execution scores are weighted equally. 
+
+The team that gets the highest score in any given round wins.
+
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first round, Sam and Blake beat Kay and Avery.
+In the second round, Sam and Jamie beat Drew and Max.
+In the third round, Sam and Ness beat Peyton and Lane.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic skill?
+Query 2: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic skill?
+Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic skill?
+Query 4: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Sam was on in second round attempted?
+Query 5: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Blake was on in first round attempted?
+Query 6: On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team Kay was on in first round attempted?
+Query 7: In a new round later this same day between Sam and Blake (Team 1) and Kay and Max (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Sam and Kay (Team 1) and Blake and Avery (Team 2), who would win and by how much?
+    

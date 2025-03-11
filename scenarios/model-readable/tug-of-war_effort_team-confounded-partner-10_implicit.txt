@@ -1,0 +1,20 @@
+BACKGROUND
+In this event, the athletes are competing in matches of tug-of-war.
+Athletes compete either individually or as a team.
+All matches take place on the same day.
+
+CONDITIONS
+In the first match, Casey and Kay lost to Willow and Avery.
+In the second match, Casey and Kay lost to Ness and Drew.
+In the third match, Casey and Kay lost to Sam and Ollie.
+
+QUERIES
+Query 1: How likely is it that Casey is intrinsically stronger than a random typical competitor?
+Query 2: How likely is it that Kay is intrinsically stronger than a random typical competitor?
+Query 3: How likely is it that Ness is intrinsically stronger than a random typical competitor?
+Query 4: How likely is it that Casey tried hard in the first match?
+Query 5: How likely is it that Kay tried hard in the second match?
+Query 6: How likely is it that Ness tried hard in the second match?
+Query 7: In a new match, how likely is it that Casey and Kay will beat Willow and Ollie?
+Query 8: In a new match, how likely is it that Casey and Willow will beat Kay and Avery?
+    
