@@ -20,6 +20,7 @@ parser.add_argument('--debug_run_first_k', type=int, default=-1,
 parser.add_argument('--mean_sampling_budget_per_model', type=int, default=5000, help='Mean number of samples per model to evaluate.')
 parser.add_argument('--sampling_method', type=str, default="rejection")
 parser.add_argument("--base_dir", type=str, default="rmc-experiments/", help='Base output directory for runs.')
+parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
 
 if __name__ == "__main__": 
     # Handwritten background parses.
@@ -74,6 +75,9 @@ if __name__ == "__main__":
                     line = line.replace("$BASE_DIR", f"{args.base_dir}")
                     line = line.replace('$BACKGROUND_PARSES', " ".join(background_parses))
                     line = line.replace("$PROMPTS", " ".join(scenario_prompts))
+
+                    if args.replace_background_with_background_parses:
+                        line += " --replace_background_with_background_parses"
                     
                     print("\n\nRunning ...", line)
                     command_args = line.split()

@@ -5,6 +5,34 @@ START_DEFINITION = "// DEFINE: "
 START_CONDITION = "// CONDITION: "
 
 
+LIBRARY_FUNCTIONS_HEADER = """// LIBRARY_FUNCTIONS"""
+LIBRARY_FUNCTIONS = """
+var argMax = function(f, ar){
+    return maxWith(f, ar)[0]
+};
+
+var mapMaxOverArray = function(f, ar){ 
+    return maxWith(f, ar)[1]
+}
+
+var argMin = function(f, ar){
+    return minWith(f, ar)[0]
+};
+
+var mapMinOverArray = function(f, ar){ 
+    return minWith(f, ar)[1]
+}
+
+var mean = function(ar){ 
+    return sum(ar) / ar.length
+}
+"""
+
+TRANSLATIONS_HEADER = """
+Translate each new sentence into a function of WebPPL code. Begin each translation with <BEGIN_CODE> and end each translation with <END_CODE>. Functions may call any library function, or any other function in the context delimited by the current <START_LANGUAGE_TO_WEBPPL_CODE> scope.
+"""
+
+
 sports_map = {
     "tug-of-war": {"description": """In this event, the athletes are competing in matches of tug-of-war. In each round, the team that wins the round depends on how hard the athletes collectively pull, based on their intrinsic strength modulated by other factors including how much effort they put in to that round.""",
                    "description_full": 
