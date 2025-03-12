@@ -1,0 +1,103 @@
+// An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+<BEGIN_CODE>
+var intrinsic_strength = mem(function ({athlete}) {
+      var parameter_weak_prior = 0.33;
+      var parameter_average_prior = 0.33;
+      var parameter_strong_prior = 0.34;
+
+      var weak_mean = 80; 
+      var average_mean = 100;
+      var strong_mean = 140;
+      var parameter_intrinsic_strength_variance = 10;
+
+      var parameter_intrinsic_strength_average = categorical({ps: [parameter_weak_prior, parameter_average_prior, parameter_strong_prior], 
+      vs: [weak_mean, average_mean, strong_mean]});
+
+      return Math.max(gaussian(parameter_intrinsic_strength_average ,  parameter_intrinsic_strength_variance), 0);
+    })
+<END_CODE>
+
+// Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+var athlete_speed_at_skiing_in_round = mem(function({athlete, round}) {
+      return intrinsic_strength({athlete : athlete});
+    })
+
+// An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+<BEGIN_CODE>
+var athlete_shooting_accuracy_in_round = mem(function({athlete, round}) {
+     var parameter_low_accuracy_prior = 
+          intrinsic_strength(athlete) > 120 ? 0.05 : 
+               intrinsic_strength(athlete) < 80 ?  0.8 : 
+                                                     0.2;  
+      var parameter_moderate_accuracy_prior = intrinsic_strength(athlete) > 120 ? 0.15 : 
+               intrinsic_strength(athlete) < 80 ?  0.15 : 
+                                                        0.6; 
+      var parameter_extra_high_accuracy_prior = intrinsic_strength(athlete) > 120 ? 0.8 :  
+               intrinsic_strength(athlete) < 80 ?  0.05 : 
+                                                        0.2; 
+
+      var low_accuracy_average = 30; 
+      var moderate_accuracy_average = 60;
+      var extra_high_accuracy_average = 90;
+      var accuracy_variance = 10;
+      
+      var this_player_accuracy_average = categorical({ps: [parameter_low_accuracy_prior, parameter_moderate_accuracy_prior, parameter_extra_high_accuracy_prior], 
+      vs: [low_accuracy_average, moderate_accuracy_average, extra_high_accuracy_average]});
+
+      return Math.min(Math.max(gaussian(this_player_accuracy_average, accuracy_variance), 0), 100)
+    })
+<END_CODE>
+
+// A team’s overall score is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+<BEGIN_CODE>
+var team_overall_score_in_round = function({team, round}) {
+    var total_team_sum_of_scores = sum(map(function(athlete) { 
+        return athlete_speed_at_skiing_in_round({athlete: athlete, round: round}) + athlete_shooting_accuracy_in_round({athlete: athlete, round: round})
+        }, team));
+    return total_team_sum_of_scores;
+}
+<END_CODE>
+
+// The team that completes the course with the highest score beats the other team.
+<BEGIN_CODE>
+var beat = function({team1, team2, round}){
+      // Assert that the appropriate team wins
+      // Return true if team1 won
+      return team_overall_score_in_round({team: team1, round: round}) > team_overall_score_in_round({team: team2, round: round})
+}
+<END_CODE>
+
+// A biathalon team loses to another team if they did not beat that team in a given round.
+<BEGIN_CODE>
+var lost = function({team1, team2, round}){ 
+      return !beat({team1: team1, team2: team2, round: round})
+}
+<END_CODE>
+
+// An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+<BEGIN_CODE>
+var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
+        var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
+        
+        return sum(map(
+            function(random_athlete_id) {
+              return intrinsic_strength({athlete: athlete}) > intrinsic_strength({athlete: random_athlete_id})}, random_athlete_ids))
+    }
+<END_CODE>
+
+// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random round.
+<BEGIN_CODE>
+var who_would_win_by_how_much = function({team1, team2, round}) {
+      var num_future_rounds_to_simulate = 100;
+      var random_future_round_ids = mapN(function(x) {return uniform(round+1, 1000)}, num_future_rounds_to_simulate);
+
+      var simulated_rounds_won_by_team_2 = sum(map(
+            function(random_future_round_id) {
+              return lost({team1: team1, team2: team2, round: random_future_round_id})}, random_future_round_ids))
+
+      return simulated_rounds_won_by_team_2 / num_future_rounds_to_simulate;
+}
+<END_CODE>
+
+
+

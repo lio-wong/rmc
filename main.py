@@ -16,21 +16,35 @@ parser = argparse.ArgumentParser()
 
 #### Experiment core input parameters
 parser.add_argument('--scenario', type=str, help='Input problem scenario.')
+parser.add_argument('--background_parses', type=str, nargs="+", default=['tug_of_war', 'jump'], help='Background knowledge domains to seed few shot prompt.')
 parser.add_argument('--background_domains', type=str, nargs="+", default=['tug_of_war', 'jump'], help='Background knowledge domains to seed few shot prompt.')
+
+### World model low-level parameters
+parser.add_argument('--random_seed', type=int, default=7,
+    help='Random seed')
+parser.add_argument('--llm', type=str, default="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    help='LLM to run')
 
 # World model evaluation parameters.
 parser.add_argument('--mean_sampling_budget_per_model', type=int, default=5000, help='Mean number of samples per model to evaluate.')
 parser.add_argument('--sampling_method', type=str, default="rejection")
 
+#### Experiment utilities
+parser.add_argument('--background_domains_dir', type=str, default="prompts/background-domains")
+parser.add_argument('--scenario_dir', type=str, default="scenarios/model-readable")
+parser.add_argument('--base_dir', type=str, default="rmc-experiments/",
+    help='Base output directory for runs.')
+
+parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
 
 
-def answer_questions(scenario, experiment_dir, args):
+def answer_questions(scenario, experiment_dir, rng, args):
     # TODO: alternative models using LLMs can go here.
-    return rmc(scenario, experiment_dir, args)
+    return rmc(scenario, experiment_dir, rng, args)
  
-def rmc(scenario, experiment_dir, args):
+def rmc(scenario, experiment_dir, rng, args):
     # Synthesize programs from scenario text.
-    programs = synthesize_ppl.parse(scenario, experiment_dir, args)
+    programs = synthesize_ppl.parse(scenario, background_domains=args.background_domains, experiment_dir=experiment_dir, rng=rng, args=args)
     # Inferences to answer questions given world models.
    
 if __name__ == "__main__":
@@ -41,8 +55,6 @@ if __name__ == "__main__":
     experiment_tag, experiment_dir = utils.init_experiment_dir(
         base_dir=args.base_dir,
         scenario=args.scenario,
-        background_domains=args.background_domains, 
-        background_domain_prompt_type=args.background_domain_prompt_type,
         llm_type=args.llm)
     
     # save the params to that folder
@@ -51,6 +63,7 @@ if __name__ == "__main__":
     synthesis_metadata = answer_questions(
                 scenario = args.scenario,
                 experiment_dir=experiment_dir,
+                rng=rng,
                 args = args,
             )
 

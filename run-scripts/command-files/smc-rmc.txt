@@ -1,1 +1,1 @@
-python3 main.py --scenario $SCENARIO --background_domains $PROMPTS --mean_sampling_budget_per_model=$MEAN_SAMPLING_BUDGET --llm $LLM --scenario_dir=$SCENARIO_DIR --base_dir $BASE_DIR
+python3 main.py --scenario $SCENARIO --background_domains $PROMPTS --mean_sampling_budget_per_model=$MEAN_SAMPLING_BUDGET --llm $LLM --scenario_dir=$SCENARIO_DIR --base_dir $BASE_DIR --background_parses $BACKGROUND_PARSES

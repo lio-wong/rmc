@@ -19,9 +19,16 @@ parser.add_argument('--debug_run_first_k', type=int, default=-1,
                     help='By default (-1), run all scenarios. Otherwise, just run the first k.')
 parser.add_argument('--mean_sampling_budget_per_model', type=int, default=5000, help='Mean number of samples per model to evaluate.')
 parser.add_argument('--sampling_method', type=str, default="rejection")
-parser.add_argument("--base_dir", type=str, default="marshaling-experiments/", help='Base output directory for runs.')
+parser.add_argument("--base_dir", type=str, default="rmc-experiments/", help='Base output directory for runs.')
 
 if __name__ == "__main__": 
+    # Handwritten background parses.
+    background_parses = [
+        "tug-of-war_base_skill_to_effort_continuous",
+        "canoe-race_base_skill_to_effort_continuous",
+        "biathalon_base_skill_to_effort_multimodal_skill_continuous",
+    ]
+
     args = parser.parse_args()
     random.seed(args.random_seed)
     
@@ -65,7 +72,7 @@ if __name__ == "__main__":
                     
                     line = line.replace("$SAMPLING_METHOD", f"{args.sampling_method}")
                     line = line.replace("$BASE_DIR", f"{args.base_dir}")
-                    
+                    line = line.replace('$BACKGROUND_PARSES', " ".join(background_parses))
                     line = line.replace("$PROMPTS", " ".join(scenario_prompts))
                     
                     print("\n\nRunning ...", line)
