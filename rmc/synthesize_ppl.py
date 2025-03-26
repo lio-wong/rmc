@@ -2,6 +2,11 @@ import os
 import sys
 
 from rmc import constants, utils
+from hfppl import CachedCausalLM
+from hfppl import LMContext
+from hfppl import Model
+from hfppl import smc_standard
+sys.path.append("..")
 sys.path.append("../hfppl")
 
 def get_scenario_conditions(scenario):
@@ -84,3 +89,4 @@ def parse(scenario, background_domains, experiment_dir, rng, args):
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)
 
     # Begin SMC-style parse.
+    import pdb; pdb.set_trace()

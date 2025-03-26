@@ -61,7 +61,7 @@ var beat = function({team1, team2, race}){
 <END_CODE>
 
 // A team loses if their team did not beat the other team in a given race.
-<BEGIN_C
+<BEGIN_CODE>
 var lost = function({team1, team2, race}){ 
       return !beat({team1: team1, team2: team2, race: race})
     }
