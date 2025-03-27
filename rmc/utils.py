@@ -67,15 +67,12 @@ def gold_query_parse(query_sentence, sports_domain, query_idx, matches_to_teams)
     # Pretty hard coded. Check the base model to make sure these are right.
     if sports_map[sports_domain]["skill"] in query_sentence:
         athlete = re.search("where do you think (.*) ranks", query_sentence).group(1).lower()
-        print(athlete, query_sentence)
         base_query_string = sports_to_latent_variables_parses[sports_domain][sports_map[sports_domain]["skill"]]
         query_string = f"query{query_idx+1}: " + base_query_string.format(athlete=athlete)
         return query_string
     if latents[sports_map[sports_domain]["latent"]]['token'] in query_sentence:
-        print(query_sentence)
         athlete = re.search("do you think (.*?)\s+", query_sentence).group(1).strip().lower()
         nth_match = re.search(f"the (.*?)\s+{match_token}", query_sentence).group(1).strip().lower()
-        print(athlete, nth_match)
         nth_number = nth_to_number_map[nth_match]
         base_query_string = sports_to_latent_variables_parses[sports_domain][sports_map[sports_domain]["latent"]]
         if sports_domain == "diving":
