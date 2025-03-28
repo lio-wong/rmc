@@ -85,6 +85,67 @@ def construct_background_domain_prompt(background_domain, args):
     return p
 
 #### SMC-RMC 
+class WebPPLProgram():
+    def __init__(self):
+        self.definitions = []
+        self.conditions = []
+        self.queries = []
+
+     def definitions_to_string(self):
+        return "\n".join([f'\t// {fn_comment}\n{fn_def}' for (fn_comment, fn_def) in self.definitions]) + "\n"
+    
+    def conditions_to_string(self):
+        return "\n".join([f'\t// {cond_comment}\n\t{cond}' for (cond_comment, cond) in self.conditions]) + "\n"
+    
+    def queries_to_string(self):
+        return 
+    
+    def to_string(self, posterior=True, 
+                    posterior_samples=10000,
+                    sampling_method='rejection'):
+        model_str = "var model = function() {\n"
+
+        model_str += "// BACKGROUND KNOWLEDGE\n"
+        model_str += self.definitions_to_string()
+
+        model_str += "// CONDITIONS\n"
+        model_str += self.conditions_to_string()
+
+        model_str += "//QUERIES"
+        model_str += self.queries_to_string()
+        model_str += "}\n"
+
+        if posterior:
+            sampling_string = f"var posterior = Infer({{ model: model, method: '{sampling_method}', samples: {posterior_samples} }});"
+            if sampling_method == "MCMC":
+                sampling_string = f"var posterior = Infer({{ model: model, method: '{sampling_method}', samples: {posterior_samples}, burn: 1000 }});"
+            model_str += sampling_string
+        return model_str
+    
+    def try_extend_potential_ppl_expression(self, nl_sentence, potential_ppl_expression, print_model=True, inference_timeout=30):
+        sentence_expression = (nl_sentence, potential_ppl_expression)
+        # Definition?
+        if potential_ppl_expression.startswith(constants.WEBPPL_START_DEFINITION):
+            self.definitions.append( sentence_expression)
+        elif potential_ppl_expression.startswith(constants.WEBPPL_START_CONDITION):
+            self.conditions.append( sentence_expression)
+        elif potential_ppl_expression.startswith(WEBPPL_START_QUERY):
+            self.queries.append(sentence_expression)
+        else:
+            return False
+        
+        model_str = self.to_string(samples=1)
+        if print_model:
+            print(model_str)
+        key, sample_str = utils.run_webppl(code=model_str, timeout=inference_timeout)
+        if key is None:
+            return False
+
+        return True
+
+        
+
+
 class RMCModel(Model):
     def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences):
         super().__init__()
@@ -94,25 +155,57 @@ class RMCModel(Model):
         self.condition_sentences = condition_sentences
         self.query_sentences = query_sentences
 
-        self.program = ""
+        self.program = WebPPLProgram()
         self.remaining_sentences = background_sentences + condition_sentences + query_sentences
+        self.current_code_string = ""
 
-    async next_tokens(sentence):
+    def string_for_serialization(self):
+        return f"{self.context}"
+
+    async def next_tokens(sentence):
         tokens = self.LLM.tokenizer()
+
 
     async def step(self):
         if len(self.remaining_sentences) == 0:
             self.finish()
             return
+        # Get the next sentence.
         next_sentence = self.remaining_sentences.pop()
-        continuation = f"// {next_sentence}\n{constants.START_SINGLE_PARSE_TOKEN}\n"
-        print(next_sentence)
-        # Intervene the sentences
-        await self.intervene()
-   
+        commented_next_sentence = f"// {next_sentence}\n{constants.START_SINGLE_PARSE_TOKEN}\n"
+        print(commented_next_sentence)
+        # Intervene that the sentence is generated.
+        commented_next_sentence_tokens = lm.tokenizer.encode(commented_next_sentence)
+        for comment_token in commented_next_sentence_tokens:
+            await self.intervene(self.context.mask_dist(set(comment_token)), True)
+            token = await self.sample(self.context.next_token())
+        print(self.string_for_serialization())
+        print("INTERVENED SENTENCE^^")
+
+        # Now generate the tokens up until the end code token
+        token = await self.sample(self.context.next_token())
+        self.current_code_string += str(token)
+
+        if self.current_code_string.endswith(END_SINGLE_PARSE_TOKEN):
+            # Extract the current WebPPL code.
+            potential_code = self.current_code_string.split(END_SINGLE_PARSE_TOKEN)[0]
+
+            print(self.string_for_serialization())
+            print("POTENTIAL CODE")
+            print(potential_code)
+            
+            # Check if program is valid.
+            self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
+
+            # Reset code string.
+            self.current_code_string = ""
+        
 
 
-async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=2, ess_threshold=0.5):
+
+
+
+async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=1, ess_threshold=0.5):
     # Cache the key value vectors for the prompt.
     LLM.cache_kv(LLM.tokenizer.encode(background_prompt))
 

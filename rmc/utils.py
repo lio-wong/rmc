@@ -92,3 +92,58 @@ def gold_query_parse(query_sentence, sports_domain, query_idx, matches_to_teams)
         matches_to_teams[curr_match] = [team1, team2]
         query_string = f"query{query_idx+1}: " + base_query_string.format(team1=team1, team2=team2, match=curr_match)
         return query_string
+
+
+def run_webppl(code, tmp_file="temp.wppl", timeout=30, append_utilities=True):
+    if append_utilities: 
+        starter_code = LIBRARY_FUNCTIONS
+    else: starter_code = ""
+
+    webppl_code = starter_code + code + """
+var samples = posterior["samples"]
+console.dir(samples, {maxArrayLength: null, depth: null})
+"""
+
+    # print("running webppl: ",webppl_code )
+    
+    # print("PATH:", os.environ['PATH'])
+
+    # # Try checking if webppl exists
+    # result = subprocess.run(['which', 'webppl'], capture_output=True, text=True)
+    # print("webppl location:", result.stdout)
+
+    # tmp_starter = "rand_" + str(np.random.randint(9999))
+    # tmp_file_name = tmp_starter + tmp_file
+    # # Write the WebPPL code to a temporary file
+    # with open(tmp_file_name, "w") as file:
+    #     file.write(webppl_code)
+        
+        # Write the WebPPL code to a temporary file
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".wppl") as tmp_file:
+        tmp_file.write(webppl_code.encode())
+        tmp_file_name = tmp_file.name
+    result = subprocess.run(
+        ["webppl", tmp_file_name],
+        capture_output=True,
+        text=True,
+        timeout=timeout
+    )
+    # return result
+    
+    os.remove(tmp_file_name)
+    
+    try:
+        if result.stderr != "" or "Error" in result.stdout: 
+            print("getting err msg")
+            err_msg = "ERROR: " + result.stderr + "\n" + result.stdout
+            print("err msg")
+            return None, err_msg
+        #print("res output: ", result.stdout)
+        #keys ={}
+        #sample_str = result.stdout
+        keys, sample_str = parse_samples(result.stdout, code)
+        return keys, sample_str
+    except Exception as e: 
+        print("error result: ", e)
+        err_msg = result
+        return None, err_msg 
