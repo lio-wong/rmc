@@ -91,15 +91,21 @@ class WebPPLProgram():
         self.conditions = []
         self.queries = []
 
-     def definitions_to_string(self):
+    def definitions_to_string(self):
         return "\n".join([f'\t// {fn_comment}\n{fn_def}' for (fn_comment, fn_def) in self.definitions]) + "\n"
     
     def conditions_to_string(self):
         return "\n".join([f'\t// {cond_comment}\n\t{cond}' for (cond_comment, cond) in self.conditions]) + "\n"
     
     def queries_to_string(self):
-        return 
-    
+        query_comments = ""
+        query_string = "return {\n"
+        for q_comment, q in self.queries:
+            query_comments += f"\t // {q_comment}\n"
+            query_string += q + "\n"
+        full_string = query_comments + "\n" + query_string + "\n" + "}"
+        return full_string
+        
     def to_string(self, posterior=True, 
                     posterior_samples=10000,
                     sampling_method='rejection'):
@@ -171,13 +177,14 @@ class RMCModel(Model):
             self.finish()
             return
         # Get the next sentence.
-        next_sentence = self.remaining_sentences.pop()
+        next_sentence = self.remaining_sentences.pop(0)
         commented_next_sentence = f"// {next_sentence}\n{constants.START_SINGLE_PARSE_TOKEN}\n"
         print(commented_next_sentence)
         # Intervene that the sentence is generated.
-        commented_next_sentence_tokens = lm.tokenizer.encode(commented_next_sentence)
+        commented_next_sentence_tokens = self.LLM.tokenizer.encode(commented_next_sentence)
+        print(commented_next_sentence_tokens)
         for comment_token in commented_next_sentence_tokens:
-            await self.intervene(self.context.mask_dist(set(comment_token)), True)
+            await self.intervene(self.context.mask_dist(set([comment_token])), True)
             token = await self.sample(self.context.next_token())
         print(self.string_for_serialization())
         print("INTERVENED SENTENCE^^")
@@ -186,9 +193,9 @@ class RMCModel(Model):
         token = await self.sample(self.context.next_token())
         self.current_code_string += str(token)
 
-        if self.current_code_string.endswith(END_SINGLE_PARSE_TOKEN):
+        if self.current_code_string.endswith(constants.END_SINGLE_PARSE_TOKEN):
             # Extract the current WebPPL code.
-            potential_code = self.current_code_string.split(END_SINGLE_PARSE_TOKEN)[0]
+            potential_code = self.current_code_string.split(constants.END_SINGLE_PARSE_TOKEN)[0]
 
             print(self.string_for_serialization())
             print("POTENTIAL CODE")
