@@ -1,6 +1,26 @@
-import datetime
+from asyncio import constants
 import os
 import pathlib
+import sys
+from urllib import response
+# from dotenv import load_dotenv
+import numpy as np 
+import pandas as pd 
+import random
+import json
+import re
+import time
+from datetime import datetime
+from scipy.stats import pearsonr 
+from openai import OpenAI
+import os
+import seaborn as sns
+from matplotlib.pylab import plt
+import subprocess
+from rmc.constants import *
+import tempfile
+import itertools
+import copy 
 import re
 
 from rmc.constants import *
@@ -147,3 +167,112 @@ console.dir(samples, {maxArrayLength: null, depth: null})
         print("error result: ", e)
         err_msg = result
         return None, err_msg 
+
+
+def parse_samples(result_output, response_code): 
+    try: 
+        # extract out the keys in case of multi-query dict
+        # in the case of a single query, keys will hold the function name
+        match = find_return_statement(response_code)
+        keys = get_keys(match)
+        
+        # print("sample str: ", result_output)
+        
+        # print("sample str: ", result_output[:100])
+        # print("newline sample str: ", result_output.split(f"[\n"), len(result_output.split(f"[\n")))
+        # print("splitting sample str: ", result_output.split(f"[\n")[-1].split("\n]"))
+        samples_str = "[" + result_output.split(f"[\n")[-1].split("\n]")[0] + "]"
+        
+        
+        
+        
+        # come back to for categorical
+        #samples_str = "[" + "[\n".join(result_output.split(f"[\n")[1:]).split("\n]")[0] + "]"
+        
+        
+        
+        
+        
+        # print("len: ", len(result_output.split(f"[\n")))
+        #return None, "[" + "[\n".join(result_output.split(f"[\n")[1:])
+        samples_str = samples_str.replace("\n", "")
+        samples_str = samples_str.replace("value", "\"value\"")
+        samples_str = samples_str.replace("score", "\"score\"")
+        
+
+        # print("sample str pre keys: ", samples_str)
+        if keys is not None: 
+            for key in keys: 
+                samples_str = samples_str.replace(key, f"\"{key}\"")
+                
+        # print("sample str post keys: ", samples_str)
+        # js -> python
+        samples_str = samples_str.replace("false", "False")
+        samples_str = samples_str.replace("true", "True")
+        # print("sample str post T/F: ", samples_str)
+        
+        samples_str = samples_str.replace("\x1b[32m\'", "'")
+        samples_str = samples_str.replace("\'\x1b[39m", "'")
+        samples_str = samples_str.replace("\x1b[33m", "")
+        samples_str = samples_str.replace("\x1b[39m", "")
+        
+        return keys, samples_str
+    except Exception as e:
+        print(e)
+        # parsing error 
+        return None, None
+
+
+def find_return_statement(response_code): 
+    # Find the last *two* closing parentheses, since the last one is the close of the model and the second to last one should be the end of the return statement. 
+    response_code = response_code.split("var posterior")[0]
+    pattern = r"(?<![^\n\s])\s*return\s*\{[\s\S]*\}[\s\S]*?\}"
+    matches = re.findall(pattern, response_code, re.M)
+    if len(matches) != 0:
+        # Select the last match and format it
+        #print("last matches: ", matches[-2:])
+        matches = [match for match in matches if not re.search(r'//.*' + re.escape(match), response_code) and "\nvar posterior" not in match] # if so, it matched a comment in final return
+        # Remove the final "}"
+        last_match = matches[-1][:-1]
+        last_match = last_match.lstrip()[6:].strip()
+        if last_match[-1] == ";": last_match = last_match[:-1]# Remove 'return' and the trailing ';'
+    else:
+        #pattern = r"(?<!\\ )return\s*[\s\S]*?\)" #r"return\s*[\s\S]*?\)"
+        # print("response code: ", response_code, response_code.count("\n"))
+        # pattern = r"(?<![^\n])\n\s*return\s*[\s\S]*?\)" #r"(?<!\\)(?:\n|^)return\s*[\s\S]*?\)"
+        # matches = re.findall(pattern, response_code, re.M)
+        pattern = r"return\s*[\s\S]*?\)"#r"(?<![^\n\s])\s*return\s*[\s\S]*?\)"
+        matches = re.findall(pattern, response_code, re.M)
+
+        # Filter out matches that are commented out
+        
+        if len(matches) != 0:
+            # be sure the match isn't a "return" in the comment
+            # print("MATCHES: ", matches[-2:])
+            matches = [match for match in matches if not re.search(r'//.*' + re.escape(match), response_code) and "\nvar posterior" not in match] # if so, it matched a comment in final return
+            # print("last matches: ", matches[-2:])
+            # Select the last match and format it
+            last_match = matches[-1].lstrip()[6:].strip()
+            if last_match[-1] == ";": last_match = last_match[:-1]# Remove 'return' and the trailing ';'
+        else: 
+            print("No match found")
+            last_match= None
+    return last_match
+
+def get_keys(input_string):
+    # Strip leading and trailing whitespace
+    input_string = input_string.strip()
+
+    # Handling the dictionary format
+    if input_string.startswith("{") and input_string.endswith("}"):
+        # Remove new lines and excessive spaces to make the string single-line
+        input_string = ' '.join(input_string.split())
+        # Extract keys from dictionary format
+        keys = re.findall(r"\b(\w+)\s*:", input_string)
+    else:
+        # Handling the non-dictionary format
+        # Extract a single key from a non-dictionary format
+        key_match = re.findall(r"(\w+)\(", input_string)
+        keys = [key_match[0]] if key_match else []
+
+    return keys

@@ -10,7 +10,6 @@ from hfppl import LMContext
 from hfppl import Model
 from hfppl import smc_standard
 
-
 def get_scenario_conditions(scenario):
     condition_sentences = scenario.split('CONDITIONS')[1].split('QUERIES')[0].split("\n")
     condition_sentences = [s.strip() for s in condition_sentences if len(s.strip()) > 0]
@@ -140,20 +139,23 @@ class WebPPLProgram():
         else:
             return False
         
-        model_str = self.to_string(samples=1)
+        model_str = self.to_string(posterior_samples=1)
         if print_model:
+            print("====TRYING WEBPPL MODEL====")
             print(model_str)
+            print("====TRYING WEBPPL MODEL====")
         key, sample_str = utils.run_webppl(code=model_str, timeout=inference_timeout)
         if key is None:
+            print("ERROR, FAILED TO COMPILE")
             return False
 
+        print("====SUCCESSFUL WEBPPL MODEL====")
+        print(model_str)
+        print("====SUCCESSFUL WEBPPL MODEL====")
         return True
 
-        
-
-
 class RMCModel(Model):
-    def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences):
+    def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500):
         super().__init__()
         self.LLM = LLM
         self.context = LMContext(LLM, background_prompt)
@@ -163,54 +165,56 @@ class RMCModel(Model):
 
         self.program = WebPPLProgram()
         self.remaining_sentences = background_sentences + condition_sentences + query_sentences
+        self.max_tokens_per_step = max_tokens_per_step
+        self.current_code_num_tokens = 0
         self.current_code_string = ""
+        self.current_code_tokens = []
 
     def string_for_serialization(self):
         return f"{self.context}"
 
-    async def next_tokens(sentence):
-        tokens = self.LLM.tokenizer()
-
-
     async def step(self):
+        print("================STARTING NEXT STEP============")
         if len(self.remaining_sentences) == 0:
             self.finish()
             return
         # Get the next sentence.
         next_sentence = self.remaining_sentences.pop(0)
         commented_next_sentence = f"// {next_sentence}\n{constants.START_SINGLE_PARSE_TOKEN}\n"
-        print(commented_next_sentence)
+
         # Intervene that the sentence is generated.
         commented_next_sentence_tokens = self.LLM.tokenizer.encode(commented_next_sentence)
-        print(commented_next_sentence_tokens)
+
         for comment_token in commented_next_sentence_tokens:
             await self.intervene(self.context.mask_dist(set([comment_token])), True)
             token = await self.sample(self.context.next_token())
+
+        print("================CURRENT CONTEXT WITH SENTENCE============")
         print(self.string_for_serialization())
-        print("INTERVENED SENTENCE^^")
+        print("================CURRENT CONTEXT WITH SENTENCE============")
 
-        # Now generate the tokens up until the end code token
-        token = await self.sample(self.context.next_token())
-        self.current_code_string += str(token)
-
-        if self.current_code_string.endswith(constants.END_SINGLE_PARSE_TOKEN):
-            # Extract the current WebPPL code.
-            potential_code = self.current_code_string.split(constants.END_SINGLE_PARSE_TOKEN)[0]
-
+        # Now generate until we have an expression block.
+        while (not constants.END_SINGLE_PARSE_TOKEN in self.current_code_string) and self.current_code_num_tokens <= self.max_tokens_per_step:
+            print(f"Sampling code token...; {self.current_code_tokens} tokens generated")
+            token = await self.sample(self.context.next_token())
+            self.current_code_tokens.append(token.token_id)
+            self.current_code_string = f"{self.LLM.tokenizer.decode(self.current_code_tokens)}"
+            self.current_code_num_tokens += 1
+            print("================CURRENT CONTEXT WITH CODE============")
             print(self.string_for_serialization())
-            print("POTENTIAL CODE")
-            print(potential_code)
-            
-            # Check if program is valid.
-            self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
+            print("\n")
+            print(self.current_code_string)
+            print("================CURRENT CONTEXT WITH CODE============")
 
-            # Reset code string.
-            self.current_code_string = ""
+        # Extract the current WebPPL code.
+        potential_code = self.current_code_string.split(constants.END_SINGLE_PARSE_TOKEN)[0]
         
+        # Check if program is valid.
+        self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
 
-
-
-
+        # Reset code string.
+        self.current_code_string = ""
+        
 
 async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=1, ess_threshold=0.5):
     # Cache the key value vectors for the prompt.
@@ -234,6 +238,10 @@ def parse(scenario, background_domains, experiment_dir, rng, args):
 
     # Retrieve all of the sentences we plan to observe from the scenario.
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)
+
+    background_sentences = background_sentences[:2]
+    condition_sentences = []
+    query_sentences = []
 
     # Begin SMC-style parse. This could be generalized, for now we just assume a very stereotyped ordering of the vignettes.
     LLM = CachedCausalLM.from_pretrained(args.llm)
