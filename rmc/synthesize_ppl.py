@@ -80,7 +80,7 @@ def construct_background_domain_prompt(background_domain, args):
     query_parse = "\n".join([f"// {s}\n{constants.START_SINGLE_PARSE_TOKEN}\n{p}\n{constants.END_SINGLE_PARSE_TOKEN}\n" for (s, p) in zip(query_sentences, query_parses)])
 
     p += condition_parse.strip() + "\n\n"
-    p += query_parse.strip() + "\n\n" + constants.END_PARSE_TOKEN + "\n" 
+    p += query_parse.strip() + "\n\n" + constants.START_PARSE_TOKEN + "\n" 
     return p
 
 #### SMC-RMC 
@@ -131,12 +131,13 @@ class WebPPLProgram():
         sentence_expression = (nl_sentence, potential_ppl_expression)
         # Definition?
         if potential_ppl_expression.startswith(constants.WEBPPL_START_DEFINITION):
-            self.definitions.append( sentence_expression)
+            self.definitions.append(sentence_expression)
         elif potential_ppl_expression.startswith(constants.WEBPPL_START_CONDITION):
-            self.conditions.append( sentence_expression)
-        elif potential_ppl_expression.startswith(WEBPPL_START_QUERY):
+            self.conditions.append(sentence_expression)
+        elif potential_ppl_expression.startswith(constants.WEBPPL_START_QUERY):
             self.queries.append(sentence_expression)
         else:
+            print("Sentence is not of any of the correct types!")
             return False
         
         model_str = self.to_string(posterior_samples=1)
@@ -158,7 +159,7 @@ class RMCModel(Model):
     def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500):
         super().__init__()
         self.LLM = LLM
-        self.context = LMContext(LLM, background_prompt)
+        self.context = LMContext(LLM, background_prompt, show_prompt=True)
         self.background_sentences = background_sentences
         self.condition_sentences = condition_sentences
         self.query_sentences = query_sentences
@@ -235,7 +236,6 @@ async def run_smc_async(LLM, background_prompt, background_sentences, condition_
 def parse(scenario, background_domains, experiment_dir, rng, args):
     # Construct a context for a given scenario.
     background_prompt = construct_background_domains_prompt(scenario, rng, background_domains, args)
-
     # Retrieve all of the sentences we plan to observe from the scenario.
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)
 
