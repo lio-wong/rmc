@@ -1,0 +1,360 @@
+This is a semantic parsing task to translate English sentences (marked with comment notation //) into lines of a probabilistic programming language called WebPPL, which is similar to Javascript but has some differences in its notation. Please translate each sentence into a single function, condition expression, or query expression, delimited by <BEGIN_CODE> and <END_CODE>. To help you understand how to translate, we have provided several example translations of models. As you write the model, you can 
+
+ You will begin each translation with <BEGIN_CODE> and end each translation with <END_CODE>. Functions may call any library function, or any other function in the context delimited by the current <START_LANGUAGE_TO_WEBPPL_CODE> scope. 
+
+Here are the library functions you can always use.
+// LIBRARY_FUNCTIONS
+var argMax = function(f, ar){
+    return maxWith(f, ar)[0]
+};
+
+var mapMaxOverArray = function(f, ar){ 
+    return maxWith(f, ar)[1]
+}
+
+var argMin = function(f, ar){
+    return minWith(f, ar)[0]
+};
+
+var mapMinOverArray = function(f, ar){ 
+    return minWith(f, ar)[1]
+}
+
+var mean = function(ar){ 
+    return sum(ar) / ar.length
+}
+
+Here is the start of a model, with example translations from the comments (marked with //) to code.
+<START_LANGUAGE_TO_WEBPPL_CODE>
+// An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+<BEGIN_CODE>
+var intrinsic_strength = mem(function ({athlete}) {
+      var parameter_intrinsic_strength_average = 100;
+      var parameter_intrinsic_strength_variance = 20;
+      return Math.max(gaussian(parameter_intrinsic_strength_average, parameter_intrinsic_strength_variance), 0)
+    })
+<END_CODE>
+
+// Athletes also vary in the percentage level of effort that they put into any given race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+<BEGIN_CODE>
+var effort_percentage_level_in_race = mem(function({athlete, race}) {
+      var parameter_low_effort_prior = 
+          intrinsic_strength(athlete) > 140 ? 0.05 : 
+               intrinsic_strength(athlete) < 90 ?  0.8 : 
+                                                     0.2; 
+      var parameter_moderate_effort_prior = intrinsic_strength(athlete) > 140 ? 0.15 : 
+               intrinsic_strength(athlete) < 90 ?  0.15 : 
+                                                        0.6; 
+      var parameter_extra_high_effort_prior = intrinsic_strength(athlete) > 140 ? 0.8 :  
+               intrinsic_strength(athlete) < 90 ?  0.05 : 
+                                                        0.2; 
+
+      var low_effort_average = 40; 
+      var moderate_effort_average = 60;
+      var extra_high_effort_average = 80;
+      var effort_variance = 10;
+      
+      var effort_average = categorical({ps: [parameter_low_effort_prior, parameter_moderate_effort_prior, parameter_extra_high_effort_prior], 
+      vs: [low_effort_average, moderate_effort_average, extra_high_effort_average]});
+
+      return Math.min(Math.max(gaussian(effort_average, effort_variance), 0), 100)
+    })
+<END_CODE>
+
+// How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+<BEGIN_CODE>
+var how_fast_an_athlete_rows_in_given_race = mem(function({athlete, race}) {
+      var base_rowing_speed_in_race = intrinsic_strength({athlete : athlete})
+
+      var average_effort = 50;
+
+      var rowing_speed_adjusted_for_effort_level_in_this_race = (effort_level_in_race({athlete: athlete, race: race}) / average_effort) * base_rowing_speed_in_race;
+
+      return rowing_speed_adjusted_for_effort_level_in_this_race;
+    })
+<END_CODE>
+
+// How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+<BEGIN_CODE>
+var how_fast_team_rows_overall_in_given_race = function({team, race}) {
+      return mean(map(function(athlete) { return effective_rowing_speed_in_race({athlete: athlete, race: race}) }, team))
+    }
+<END_CODE>
+
+// A team beats another team in a given race if the first team rows faster than the other team.
+<BEGIN_CODE>
+var beat = function({team1, team2, race}){
+      return how_fast_team_rows_overall_in_given_race({team: team1, race: race}) > how_fast_team_rows_overall_in_given_race({team: team2, race: race})
+    }
+<END_CODE>
+
+// A team loses if their team did not beat the other team in a given race.
+<BEGIN_CODE>
+var lost = function({team1, team2, race}){ 
+      return !beat({team1: team1, team2: team2, race: race})
+    }
+<END_CODE>
+
+// An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+<BEGIN_CODE>
+var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
+        var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
+        
+        return sum(map(
+            function(random_athlete_id) {
+              return intrinsic_strength({athlete: athlete}) > intrinsic_strength({athlete: random_athlete_id})}, random_athlete_ids))
+    }
+<END_CODE>
+
+// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.
+<BEGIN_CODE>
+var who_would_win_by_how_much = function({team1, team2, race}) {
+      var num_future_races_to_simulate = 100;
+      var random_future_race_ids = mapN(function(x) {return uniform(race+1, 1000)}, num_future_races_to_simulate);
+
+      var simulated_races_won_by_team_2 = sum(map(
+            function(random_future_race_id) {
+              return lost({team1: team1, team2: team2, race: random_future_race_id})}, random_future_race_ids))
+
+      return simulated_races_won_by_team_2 / num_future_races_to_simulate;
+    }
+<END_CODE>
+
+// In the first race, Robin and Willow lost to Gale and Ollie
+<BEGIN_CODE>
+condition(lost({team1: ['robin', 'willow'], team2: ['gale', 'ollie'], race: 1}))
+<END_CODE>
+
+// In the second race, Willow and Drew beat Gale and Ollie
+<BEGIN_CODE>
+condition(beat({team1: ['willow', 'drew'], team2: ['gale', 'ollie'], race: 2}))
+<END_CODE>
+
+// In the third race, Willow and Val beat Gale and Ollie
+<BEGIN_CODE>
+condition(beat({team1: ['willow', 'val'], team2: ['gale', 'ollie'], race: 3}))
+<END_CODE>
+
+// Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+<BEGIN_CODE>
+query1: intrinsic_strength_rank({athlete: 'robin', out_of_n_athletes: 100})
+<END_CODE>
+
+// Query 2: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?
+<BEGIN_CODE>
+query2: intrinsic_strength_rank({athlete: 'willow', out_of_n_athletes: 100})
+<END_CODE>
+
+// Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+<BEGIN_CODE>
+query3: intrinsic_strength_rank({athlete: 'gale', out_of_n_athletes: 100})
+<END_CODE>
+
+// Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first race?
+<BEGIN_CODE>
+query4: effort_percentage_level_in_race({athlete: 'robin', race: 1})
+<END_CODE>
+
+// Query 5: On a percentage scale from 0 to 100%, how much effort do you think Willow put into the first race?
+<BEGIN_CODE>
+query5: effort_percentage_level_in_race({athlete: 'willow', race: 1})
+<END_CODE>
+
+// Query 6: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the first race?
+<BEGIN_CODE>
+query6: effort_percentage_level_in_race({athlete: 'gale', race: 1})
+<END_CODE>
+
+// Query 7: In a new race later this same day between Robin and Willow (Team 1) and Drew and Gale (Team 2), who would win and by how much?
+<BEGIN_CODE>
+query7: who_would_win_by_how_much({team1: ['robin', 'willow'], team2: ['drew', 'gale'], race: 4})
+<END_CODE>
+
+// Query 8: In a new race later this same day between Robin and Gale (Team 1) and Willow and Ollie (Team 2), who would win and by how much?
+<BEGIN_CODE>
+query8: who_would_win_by_how_much({team1: ['robin', 'gale'], team2: ['willow', 'ollie'], race: 5})
+<END_CODE>
+
+<START_LANGUAGE_TO_WEBPPL_CODE>
+
+<START_LANGUAGE_TO_WEBPPL_CODE>
+Translate each new sentence into a function of WebPPL code. Begin each translation with <BEGIN_CODE> and end each translation with <END_CODE>. Functions may call any library function, or any other function in the context delimited by the current <START_LANGUAGE_TO_WEBPPL_CODE> scope.
+
+Example model with translations:
+<START_LANGUAGE_TO_WEBPPL_CODE>
+// DEFINE: An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+<BEGIN_CODE>
+var intrinsic_strength = mem(function ({athlete}) {
+      var parameter_weak_prior = 0.33;
+      var parameter_average_prior = 0.33;
+      var parameter_strong_prior = 0.34;
+
+      var weak_mean = 80; 
+      var average_mean = 100;
+      var strong_mean = 140;
+      var parameter_intrinsic_strength_variance = 10;
+
+      var parameter_intrinsic_strength_average = categorical({ps: [parameter_weak_prior, parameter_average_prior, parameter_strong_prior], 
+      vs: [weak_mean, average_mean, strong_mean]});
+
+      return Math.max(gaussian(parameter_intrinsic_strength_average ,  parameter_intrinsic_strength_variance), 0);
+    })
+<END_CODE>
+
+// DEFINE: Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+var athlete_speed_at_skiing_in_round = mem(function({athlete, round}) {
+      return intrinsic_strength({athlete : athlete});
+    })
+
+// DEFINE: An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+<BEGIN_CODE>
+var athlete_shooting_accuracy_in_round = mem(function({athlete, round}) {
+     var parameter_low_accuracy_prior = 
+          intrinsic_strength(athlete) > 120 ? 0.05 : 
+               intrinsic_strength(athlete) < 80 ?  0.8 : 
+                                                     0.2;  
+      var parameter_moderate_accuracy_prior = intrinsic_strength(athlete) > 120 ? 0.15 : 
+               intrinsic_strength(athlete) < 80 ?  0.15 : 
+                                                        0.6; 
+      var parameter_extra_high_accuracy_prior = intrinsic_strength(athlete) > 120 ? 0.8 :  
+               intrinsic_strength(athlete) < 80 ?  0.05 : 
+                                                        0.2; 
+
+      var low_accuracy_average = 30; 
+      var moderate_accuracy_average = 60;
+      var extra_high_accuracy_average = 90;
+      var accuracy_variance = 10;
+      
+      var this_player_accuracy_average = categorical({ps: [parameter_low_accuracy_prior, parameter_moderate_accuracy_prior, parameter_extra_high_accuracy_prior], 
+      vs: [low_accuracy_average, moderate_accuracy_average, extra_high_accuracy_average]});
+
+      return Math.min(Math.max(gaussian(this_player_accuracy_average, accuracy_variance), 0), 100)
+    })
+<END_CODE>
+
+// DEFINE: A team’s overall score is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+<BEGIN_CODE>
+var team_overall_score_in_round = function({team, round}) {
+    var total_team_sum_of_scores = sum(map(function(athlete) { 
+        return athlete_speed_at_skiing_in_round({athlete: athlete, round: round}) + athlete_shooting_accuracy_in_round({athlete: athlete, round: round})
+        }, team));
+    return total_team_sum_of_scores;
+}
+<END_CODE>
+
+// DEFINE: The team that completes the course with the highest score beats the other team.
+<BEGIN_CODE>
+var beat = function({team1, team2, round}){
+      // Assert that the appropriate team wins
+      // Return true if team1 won
+      return team_overall_score_in_round({team: team1, round: round}) > team_overall_score_in_round({team: team2, round: round})
+}
+<END_CODE>
+
+// DEFINE: A biathalon team loses to another team if they did not beat that team in a given round.
+<BEGIN_CODE>
+var lost = function({team1, team2, round}){ 
+      return !beat({team1: team1, team2: team2, round: round})
+}
+<END_CODE>
+
+// DEFINE: An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+<BEGIN_CODE>
+var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
+        var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
+        
+        return sum(map(
+            function(random_athlete_id) {
+              return intrinsic_strength({athlete: athlete}) > intrinsic_strength({athlete: random_athlete_id})}, random_athlete_ids))
+    }
+<END_CODE>
+
+// DEFINE: Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random round.
+<BEGIN_CODE>
+var who_would_win_by_how_much = function({team1, team2, round}) {
+      var num_future_rounds_to_simulate = 100;
+      var random_future_round_ids = mapN(function(x) {return uniform(round+1, 1000)}, num_future_rounds_to_simulate);
+
+      var simulated_rounds_won_by_team_2 = sum(map(
+            function(random_future_round_id) {
+              return lost({team1: team1, team2: team2, round: random_future_round_id})}, random_future_round_ids))
+
+      return simulated_rounds_won_by_team_2 / num_future_rounds_to_simulate;
+}
+<END_CODE>
+
+// CONDITION:
+
+
+<END_LANGUAGE_TO_WEBPPL_CODE>
+
+Now you translate this model:
+<START_LANGUAGE_TO_WEBPPL_CODE>
+
+// In the first round, Avery and Blake lost to Kay and Drew
+<BEGIN_CODE>
+condition(lost({team1: ['avery', 'blake'], team2: ['kay', 'drew'], round: 1}))
+<END_CODE>
+
+// In the second round, Blake and Peyton beat Kay and Drew
+<BEGIN_CODE>
+condition(beat({team1: ['blake', 'peyton'], team2: ['kay', 'drew'], round: 2}))
+<END_CODE>
+
+// In the third round, Blake and Willow beat Kay and Drew
+<BEGIN_CODE>
+condition(beat({team1: ['blake', 'willow'], team2: ['kay', 'drew'], round: 3}))
+<END_CODE>
+
+// Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+<BEGIN_CODE>
+query1: intrinsic_strength_rank({athlete: 'avery', out_of_n_athletes: 100})
+<END_CODE>
+
+// Query 2: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+<BEGIN_CODE>
+query2: intrinsic_strength_rank({athlete: 'blake', out_of_n_athletes: 100})
+<END_CODE>
+
+// Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+<BEGIN_CODE>
+query3: intrinsic_strength_rank({athlete: 'kay', out_of_n_athletes: 100})
+<END_CODE>
+
+// Query 4: On a percentage scale from 0 to 100%, how accurate do you think Avery was at shooting in the first round?
+<BEGIN_CODE>
+query4: accuracy_at_shooting_in_round({athlete: 'avery', round: 1})
+<END_CODE>
+
+// Query 5: On a percentage scale from 0 to 100%, how accurate do you think Blake was at shooting in the first round?
+<BEGIN_CODE>
+query5: accuracy_at_shooting_in_round({athlete: 'blake', round: 1})
+<END_CODE>
+
+// Query 6: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the first round?
+<BEGIN_CODE>
+query6: accuracy_at_shooting_in_round({athlete: 'kay', round: 1})
+<END_CODE>
+
+// Query 7: In a new round later this same day between Avery and Blake (Team 1) and Peyton and Kay (Team 2), who would win and by how much?
+<BEGIN_CODE>
+query7: who_would_win_by_how_much({team1: ['avery', 'blake'], team2: ['peyton', 'kay'], round: 4})
+<END_CODE>
+
+// Query 8: In a new round later this same day between Avery and Kay (Team 1) and Blake and Drew (Team 2), who would win and by how much?
+<BEGIN_CODE>
+query8: who_would_win_by_how_much({team1: ['avery', 'kay'], team2: ['blake', 'drew'], round: 5})
+<END_CODE>
+
+Now continue translating the following model. Remember to generate a single line of code and end with <END_CODE>. 
+<START_LANGUAGE_TO_WEBPPL_CODE>
+// An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+<BEGIN_CODE>
+var intrinsic_strength = mem(function ({athlete}) {
+      var parameter_intrinsic_strength_average = 100;
+      var parameter_intrinsic_strength_variance = 20;
+      return Math.max(gaussian(parameter_intrinsic_strength_average, parameter_intrinsic_strength_variance), 0)
+    })
+<END_CODE>
+
+// Athletes also vary in the percentage level of effort that they put into any given match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.

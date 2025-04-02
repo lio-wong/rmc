@@ -10,6 +10,7 @@ import random
 import numpy as np
 
 import rmc.synthesize_ppl as synthesize_ppl
+import rmc.inference_ppl as inference_ppl
 import rmc.utils as utils
 
 parser = argparse.ArgumentParser()
@@ -44,8 +45,14 @@ def answer_questions(scenario, experiment_dir, rng, args):
  
 def rmc(scenario, experiment_dir, rng, args):
     # Synthesize programs from scenario text.
-    programs = synthesize_ppl.parse(scenario, background_domains=args.background_domains, experiment_dir=experiment_dir, rng=rng, args=args)
+    particles, parse_metadata = synthesize_ppl.parse(scenario, background_domains=args.background_domains, experiment_dir=experiment_dir, rng=rng, args=args)
+
     # Inferences to answer questions given world models.
+    # TODO: consider parallelizing.
+    for particle_idx, particle in enumerate(particles):
+        executability, post_samples, err = inference_ppl.evaluate_probabilistic_program(program=particle.program, sampling_budget=args.mean_sampling_budget_per_model, sampling_method=args.sampling_method)
+
+        utils.write_checkpoint(particle_idx, particle, parse_metadata, executability, post_samples, err, experiment_dir, args)
    
 if __name__ == "__main__":
     args = parser.parse_args()

@@ -52,7 +52,7 @@ def construct_background_domains_prompt(scenario, rng, background_domains, args)
 
     shuffled_background_domains = rng.permutation(background_domains)
     p += "\n".join(construct_background_domain_prompt(background_domain, args) for background_domain in shuffled_background_domains)
-    p += "\n" + constants.END_PARSE_TOKEN + "\n"
+    p += "\n" + constants.START_PARSE_TOKEN + "\n"
     return p
 
 def construct_background_domain_prompt(background_domain, args):
@@ -80,7 +80,7 @@ def construct_background_domain_prompt(background_domain, args):
     query_parse = "\n".join([f"// {s}\n{constants.START_SINGLE_PARSE_TOKEN}\n{p}\n{constants.END_SINGLE_PARSE_TOKEN}\n" for (s, p) in zip(query_sentences, query_parses)])
 
     p += condition_parse.strip() + "\n\n"
-    p += query_parse.strip() + "\n\n" + constants.START_PARSE_TOKEN + "\n" 
+    p += query_parse.strip() + "\n\n" + constants.END_PARSE_TOKEN + "\n" 
     return p
 
 #### SMC-RMC 
@@ -126,7 +126,7 @@ class WebPPLProgram():
                 sampling_string = f"var posterior = Infer({{ model: model, method: '{sampling_method}', samples: {posterior_samples}, burn: 1000 }});"
             model_str += sampling_string
         return model_str
-    
+
     def try_extend_potential_ppl_expression(self, nl_sentence, potential_ppl_expression, print_model=True, inference_timeout=30):
         sentence_expression = (nl_sentence, potential_ppl_expression)
         # Definition?
@@ -159,7 +159,7 @@ class RMCModel(Model):
     def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500):
         super().__init__()
         self.LLM = LLM
-        self.context = LMContext(LLM, background_prompt, show_prompt=True)
+        self.context = LMContext(LLM, background_prompt, show_prompt=False)
         self.background_sentences = background_sentences
         self.condition_sentences = condition_sentences
         self.query_sentences = query_sentences
@@ -195,6 +195,10 @@ class RMCModel(Model):
         print("================CURRENT CONTEXT WITH SENTENCE============")
 
         # Now generate until we have an expression block.
+        # Reset code string.
+        self.current_code_tokens = []
+        self.current_code_string = ""
+        self.current_code_num_tokens = 0
         while (not constants.END_SINGLE_PARSE_TOKEN in self.current_code_string) and self.current_code_num_tokens <= self.max_tokens_per_step:
             print(f"Sampling code token...; {self.current_code_tokens} tokens generated")
             token = await self.sample(self.context.next_token())
@@ -202,8 +206,7 @@ class RMCModel(Model):
             self.current_code_string = f"{self.LLM.tokenizer.decode(self.current_code_tokens)}"
             self.current_code_num_tokens += 1
             print("================CURRENT CONTEXT WITH CODE============")
-            print(self.string_for_serialization())
-            print("\n")
+            print("CURRENT CODE_STRING:")
             print(self.current_code_string)
             print("================CURRENT CONTEXT WITH CODE============")
 
@@ -212,9 +215,6 @@ class RMCModel(Model):
         
         # Check if program is valid.
         self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
-
-        # Reset code string.
-        self.current_code_string = ""
         
 
 async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=1, ess_threshold=0.5):
@@ -246,3 +246,13 @@ def parse(scenario, background_domains, experiment_dir, rng, args):
     # Begin SMC-style parse. This could be generalized, for now we just assume a very stereotyped ordering of the vignettes.
     LLM = CachedCausalLM.from_pretrained(args.llm)
     particles = asyncio.run(run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences))
+
+    # Currently its the same parse metdata for every particle
+    parse_metadata = {
+        "gen_metadata" : {
+            "prompt": background_prompt,
+            "background_domains" : tuple(background_domains)
+        }
+    }
+
+    return particles, parse_metadata

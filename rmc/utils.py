@@ -276,3 +276,30 @@ def get_keys(input_string):
         keys = [key_match[0]] if key_match else []
 
     return keys
+
+def write_checkpoint(particle_idx, particle, parse_metadata, executability, post_samples, err, experiment_dir, args):
+    # Write out the model program to be looked at.
+    with open(f"{experiment_dir}/parse_{particle_idx}.txt", "w") as f:
+        f.write(particle.program.to_string())
+
+    parse_metadata["definitions"] = particle.program.definitions
+    parse_metadata["conditions"] = particle.program.conditions
+    parse_metadata["queries"] = particle.program.queries
+ 
+    # Write out the inference results JSON.
+    metadata = {
+        "parse": parse_metadata,
+        "wm" : {
+            "parsed_model" : particle.program.to_string(),
+            # TODO: we want to keep commensurability to be able to have multiple sets of posteriors with respect to sets of conditions.
+            "official_posterior_samples" : str(post_samples),
+            "executability" : executability,
+            "err" : err,
+            "intermediate_posterior_samples" : []
+        }
+    }
+
+    checkpoint_file = os.path.join(experiment_dir, f'inference_results_{particle_idx}.json')
+    with open(checkpoint_file, "w") as f:
+        json.dump(metadata, f)
+    
