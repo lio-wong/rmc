@@ -19,9 +19,11 @@ parser.add_argument('--debug_run_first_k', type=int, default=-1,
                     help='By default (-1), run all scenarios. Otherwise, just run the first k.')
 parser.add_argument('--number_of_particles', type=int, default=10, help='Number of particles per scenario.')
 parser.add_argument('--mean_sampling_budget_per_model', type=int, default=1000, help='Mean number of samples per model to evaluate.')
+parser.add_argument('--parsing_temperature', type=float, default=0.2, help='Temperature for LLM sampling')
 parser.add_argument('--sampling_method', type=str, default="rejection")
 parser.add_argument("--base_dir", type=str, default="rmc-experiments/", help='Base output directory for runs.')
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
+parser.add_argument("--no_background_generation", action="store_true", help="If true, don't generate background knowledge.")
 
 if __name__ == "__main__": 
     # Handwritten background parses.
@@ -72,12 +74,15 @@ if __name__ == "__main__":
                     line = line.replace("$SCENARIO", f"{scenario}")
                     line = line.replace("$LLM", f"{llm}")
                     
+                    line = line.replace("$PARSING_TEMPERATURE", f"{args.parsing_temperature}")
                     line = line.replace("$NUMBER_OF_PARTICLES", f"{args.number_of_particles}")
                     line = line.replace("$SAMPLING_METHOD", f"{args.sampling_method}")
                     line = line.replace("$BASE_DIR", f"{args.base_dir}")
                     line = line.replace('$BACKGROUND_PARSES', " ".join(background_parses))
                     line = line.replace("$PROMPTS", " ".join(scenario_prompts))
-
+                    
+                    if args.no_background_generation:
+                        line += " --no_background_generation"
 
                     if args.replace_background_with_background_parses:
                         line += " --replace_background_with_background_parses"

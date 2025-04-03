@@ -1,4 +1,4 @@
-// An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+// An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
 <BEGIN_CODE>
 var intrinsic_strength = mem(function ({athlete}) {
       var parameter_intrinsic_strength_average = 100;
@@ -7,7 +7,7 @@ var intrinsic_strength = mem(function ({athlete}) {
     })
 <END_CODE>
 
-// Athletes also vary in the percentage level of effort that they put into any given match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+// Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
 <BEGIN_CODE>
 var effort_percentage_level_in_match = mem(function({athlete, match}) {
       var strong_threshold = 140;
@@ -35,7 +35,7 @@ var effort_percentage_level_in_match = mem(function({athlete, match}) {
     })
 <END_CODE>
 
-// How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+// How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
 <BEGIN_CODE>
 var how_hard_each_athlete_pulls_in_given_match = mem(function({athlete, match}) {
       var base_pulling_strength_in_match =  intrinsic_strength({athlete : athlete});

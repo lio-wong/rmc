@@ -1,4 +1,4 @@
-// An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+// An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
 <BEGIN_CODE>
 var intrinsic_strength = mem(function ({athlete}) {
       var parameter_intrinsic_strength_average = 100;
@@ -7,7 +7,7 @@ var intrinsic_strength = mem(function ({athlete}) {
     })
 <END_CODE>
 
-// Athletes also vary in the percentage level of effort that they put into any given race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+// Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
 <BEGIN_CODE>
 var effort_percentage_level_in_race = mem(function({athlete, race}) {
       var parameter_low_effort_prior = 
@@ -33,7 +33,7 @@ var effort_percentage_level_in_race = mem(function({athlete, race}) {
     })
 <END_CODE>
 
-// How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+// How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
 <BEGIN_CODE>
 var how_fast_an_athlete_rows_in_given_race = mem(function({athlete, race}) {
       var base_rowing_speed_in_race = intrinsic_strength({athlete : athlete})

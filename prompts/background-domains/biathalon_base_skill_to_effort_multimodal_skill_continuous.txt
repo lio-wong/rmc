@@ -1,4 +1,4 @@
-// An athlete’s intrinsic strength remains constant throughout a tournament, and varies somewhat widely from athlete to athlete.
+// An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
 <BEGIN_CODE>
 var intrinsic_strength = mem(function ({athlete}) {
       var parameter_weak_prior = 0.33;
@@ -50,7 +50,7 @@ var athlete_shooting_accuracy_in_round = mem(function({athlete, round}) {
     })
 <END_CODE>
 
-// A team’s overall score is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+// A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
 <BEGIN_CODE>
 var team_overall_score_in_round = function({team, round}) {
     var total_team_sum_of_scores = sum(map(function(athlete) { 
@@ -60,14 +60,14 @@ var team_overall_score_in_round = function({team, round}) {
 }
 <END_CODE>
 
-// The team that completes the course with the highest score beats the other team.
+// The team that completes the biathlon round with the highest score beats the other team.
 <BEGIN_CODE>
 var beat = function({team1, team2, round}){
       return team_overall_score_in_round({team: team1, round: round}) > team_overall_score_in_round({team: team2, round: round})
 }
 <END_CODE>
 
-// A biathalon team loses to another team if they did not beat that team in a given round.
+// A biathalon team loses to another team if they did not beat that team in a given biathlon round.
 <BEGIN_CODE>
 var lost = function({team1, team2, round}){ 
       return !beat({team1: team1, team2: team2, round: round})
@@ -85,7 +85,7 @@ var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
     }
 <END_CODE>
 
-// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random round.
+// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.
 <BEGIN_CODE>
 var who_would_win_by_how_much = function({team1, team2, round}) {
       var num_future_rounds_to_simulate = 5;
