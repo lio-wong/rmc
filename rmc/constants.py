@@ -35,6 +35,13 @@ TRANSLATIONS_HEADER = """
 Translate each new sentence into a function of WebPPL code. Begin each translation with <BEGIN_CODE> and end each translation with <END_CODE>. Functions may call any library function, or any other function in the context delimited by the current <START_LANGUAGE_TO_WEBPPL_CODE> scope.
 """
 
+CODE_CONTINUATION_HEADER = "/** This is a code generation task. Your job is to write simple probabilisitic programs in the WebPPL programming language. Please delimit any new functions or expressions with two new line characters. **/\n"
+
+CODE_EXAMPLE_HEADER = "/** Here is an example probabilistic program written in WebPPL, which you should reference to write a new model, which is like these.\n**/\n"
+
+CODE_ANOTHER_EXAMPLE_HEADER = "/** Here is another example probabilistic program written in WebPPL.\n**/\n"
+
+CODE_YOUR_EXAMPLE_HEADER = "/** Given those examples, please try to continue the following WebPPL model. You should directly continue the model in line. Please generate only the next expression of the comment that is there and then stop by generating, producing two new line characters to end the line. **/\n"
 
 sports_map = {
     "tug-of-war": {"description": """In this event, the athletes are competing in matches of tug-of-war. In each round, the team that wins the round depends on how hard the athletes collectively pull, based on their intrinsic strength modulated by other factors including how much effort they put in to that round.""",
@@ -136,7 +143,7 @@ sports_to_latent_variables_parses = {
     },
     "biathalon": {
         "strength" : "intrinsic_strength_rank({{athlete: '{athlete}', out_of_n_athletes: 100}})",
-        "shooting-accuracy" : "accuracy_at_shooting_in_round({{athlete: '{athlete}', round: {match}}})",
+        "shooting-accuracy" : "athlete_shooting_accuracy_in_round({{athlete: '{athlete}', round: {match}}})",
         "new_match" : "who_would_win_by_how_much({{team1: {team1}, team2: {team2}, round: {match}}})"
     }
 }

@@ -25,8 +25,10 @@ parser.add_argument('--random_seed', type=int, default=7,
     help='Random seed')
 parser.add_argument('--llm', type=str, default="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
     help='LLM to run')
+# parser.add_argument('--parsing_temperature', type=float, default=0.5, help='Temperature for LLM sampling')
 
 # World model evaluation parameters.
+parser.add_argument('--number_of_particles', type=int, default=10, help='Number of particles per scenario.')
 parser.add_argument('--mean_sampling_budget_per_model', type=int, default=5000, help='Mean number of samples per model to evaluate.')
 parser.add_argument('--sampling_method', type=str, default="rejection")
 
@@ -37,6 +39,7 @@ parser.add_argument('--base_dir', type=str, default="rmc-experiments/",
     help='Base output directory for runs.')
 
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
+parser.add_argument("--delimited_parse_generation", action="store_true", help="If true, prompts and splits on tokens rather than completions as in generated code in line.")
 
 
 def answer_questions(scenario, experiment_dir, rng, args):

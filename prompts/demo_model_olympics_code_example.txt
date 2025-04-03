@@ -1,4 +1,4 @@
-This is a code generation task. Your job is to write simple probabilsitic programs in the WebPPL programming language. Please delimit any new functions or expressions with two newline characters.
+This is a code generation task. Your job is to write simple probabilisitic programs in the WebPPL programming language. Please delimit any new functions or expressions with two newline characters.
 
 Here are the library functions you can always use.
 // LIBRARY_FUNCTIONS

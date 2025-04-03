@@ -44,18 +44,69 @@ def get_all_scenario_sentences(scenario, args):
     return background_sentences, condition_sentences, query_sentences
 
 def construct_background_domains_prompt(scenario, rng, background_domains, args):
-    # Add in a header.
+    if args.delimited_parse_generation:
+       return construct_delimited_parse_generation_prompt(scenario, rng, background_domains, args)
+    else:
+        # Code continuation format.
+        return construct_code_continuation_prompt(scenario, rng, background_domains, args)
+
+def construct_code_continuation_prompt(scenario, rng, background_domains, args):
+    p = constants.CODE_CONTINUATION_HEADER
+    p += "\n" + constants.LIBRARY_FUNCTIONS_HEADER + constants.LIBRARY_FUNCTIONS + "\n"
+    shuffled_background_domains = rng.permutation(background_domains)
+    p += constants.CODE_EXAMPLE_HEADER.join(construct_continuation_background_domain_prompt(background_domain, args) for background_domain in shuffled_background_domains)
+    p += "\n" + constants.CODE_YOUR_EXAMPLE_HEADER + "\n" + "var model = function() {\n"
+    return p
+
+def construct_delimited_parse_generation_prompt(scenario, rng, background_domains, args):
+     # Add in a header.
     p = constants.TRANSLATIONS_HEADER 
 
     # Add in library functions.
     p += "\n" + constants.LIBRARY_FUNCTIONS_HEADER + constants.LIBRARY_FUNCTIONS + "\n"
 
     shuffled_background_domains = rng.permutation(background_domains)
-    p += "\n".join(construct_background_domain_prompt(background_domain, args) for background_domain in shuffled_background_domains)
-    p += "\n" + constants.START_PARSE_TOKEN + "\n"
+    p += "\n".join(construct_delimited_background_domain_prompt(background_domain, args) for background_domain in shuffled_background_domains)
+    p += "\n" + constants.START_PARSE_TOKEN + "\n" 
     return p
 
-def construct_background_domain_prompt(background_domain, args):
+def construct_continuation_background_domain_prompt(background_domain, args):
+    sports_domain = background_domain.split("_")[0]
+    background_scenario_text = utils.get_scenario_txt(background_domain, args)
+    # Construct a WebPPL model from the backgrounds and then write it out to a string.
+    example_program = WebPPLProgram()
+    background_parse_file = [b for b in args.background_parses if sports_domain in b][0]
+    with open(os.path.join(args.background_domains_dir, background_parse_file + ".txt"), "r") as f:
+        background_parse = f.read().strip()
+
+    example_program.definitions = background_parse_file_to_definitions(background_parse)
+
+    # Construct the conditions parse.
+    condition_sentences = get_scenario_conditions(background_scenario_text)
+    # Construct the queries parse.
+    query_sentences = get_scenario_queries(background_scenario_text)
+    matches_to_teams = {}
+    condition_parses = [utils.gold_condition_parse(c, matches_to_teams) for c in condition_sentences]
+    query_parses = [utils.gold_query_parse(query_sentence=q, sports_domain=sports_domain, query_idx=idx, matches_to_teams=matches_to_teams) 
+                       for idx, q in enumerate(query_sentences)]
+    
+    example_program.conditions = zip(condition_sentences, condition_parses)
+    example_program.queries = zip(query_sentences, query_parses)
+    return example_program.to_string(include_expression_type_headers=False)
+
+
+
+def background_parse_file_to_definitions(background_parse):
+    parses = background_parse.split("//")[1:]
+    definition_tuples = []
+    for p in parses:
+        split_parse = p.split(constants.START_SINGLE_PARSE_TOKEN)
+        sentence = split_parse[0].strip()
+        code = split_parse[-1].split(constants.END_SINGLE_PARSE_TOKEN)[0].strip()
+        definition_tuples.append((sentence, code))
+    return definition_tuples
+
+def construct_delimited_background_domain_prompt(background_domain, args):
     sports_domain = background_domain.split("_")[0]
     background_scenario_text = utils.get_scenario_txt(background_domain, args)
 
@@ -91,32 +142,36 @@ class WebPPLProgram():
         self.queries = []
 
     def definitions_to_string(self):
-        return "\n".join([f'\t// {fn_comment}\n{fn_def}' for (fn_comment, fn_def) in self.definitions]) + "\n"
+        return "\n\n".join([f'\t// {fn_comment}\n\t{fn_def}' for (fn_comment, fn_def) in self.definitions]) + "\n\n"
     
     def conditions_to_string(self):
-        return "\n".join([f'\t// {cond_comment}\n\t{cond}' for (cond_comment, cond) in self.conditions]) + "\n"
+        return "\n\n".join([f'\t// {cond_comment}\n\t{cond}' for (cond_comment, cond) in self.conditions]) + "\n\n"
     
     def queries_to_string(self):
-        query_comments = ""
         query_string = "return {\n"
         for q_comment, q in self.queries:
-            query_comments += f"\t // {q_comment}\n"
-            query_string += q + "\n"
-        full_string = query_comments + "\n" + query_string + "\n" + "}"
-        return full_string
+            query_string += f"\t // {q_comment}\n\t{q},\n"
+            
+        query_string += "}\n"
+        return query_string + "\n\n"
         
     def to_string(self, posterior=True, 
                     posterior_samples=10000,
-                    sampling_method='rejection'):
+                    sampling_method='rejection', include_expression_type_headers=True):
         model_str = "var model = function() {\n"
 
-        model_str += "// BACKGROUND KNOWLEDGE\n"
+        if include_expression_type_headers:
+            model_str += "// BACKGROUND KNOWLEDGE\n"
         model_str += self.definitions_to_string()
 
-        model_str += "// CONDITIONS\n"
+        if include_expression_type_headers:
+            model_str += "// CONDITIONS\n"
         model_str += self.conditions_to_string()
 
-        model_str += "//QUERIES"
+        if include_expression_type_headers:
+            model_str += "//QUERIES\n"
+
+        model_str += "// Return inference query." # Keep this to have a comment.
         model_str += self.queries_to_string()
         model_str += "}\n"
 
@@ -156,13 +211,14 @@ class WebPPLProgram():
         return True
 
 class RMCModel(Model):
-    def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500):
+    def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500, delimited_parse_generation=True):
         super().__init__()
         self.LLM = LLM
         self.context = LMContext(LLM, background_prompt, show_prompt=False)
         self.background_sentences = background_sentences
         self.condition_sentences = condition_sentences
         self.query_sentences = query_sentences
+        self.delimited_parse_generation = delimited_parse_generation
 
         self.program = WebPPLProgram()
         self.remaining_sentences = background_sentences + condition_sentences + query_sentences
@@ -175,13 +231,30 @@ class RMCModel(Model):
         return f"{self.context}"
 
     async def step(self):
+        # TODO: HANDLE THE QUERY GENERATION.
+        # TODO: there are newline characters in the code lol.
+
         print("================STARTING NEXT STEP============")
         if len(self.remaining_sentences) == 0:
             self.finish()
             return
         # Get the next sentence.
         next_sentence = self.remaining_sentences.pop(0)
-        commented_next_sentence = f"// {next_sentence}\n{constants.START_SINGLE_PARSE_TOKEN}\n"
+
+        # If we're not in delimited parse generatoin mode, we need to generate the return query before queries.
+        if len(self.remaining_sentences) == len(self.query_sentences):
+            if self.delimited_parse_generation:
+                return_query = "return {\n"
+                return_query_tokens = self.LLM.tokenizer.encode(return_query)
+                for return_query_token in return_query_tokens:
+                    await self.intervene(self.context.mask_dist(set([return_query_token])), True)
+                    token = await self.sample(self.context.next_token())
+
+
+        if self.delimited_parse_generation:
+            commented_next_sentence = f"// {next_sentence}\n{constants.START_SINGLE_PARSE_TOKEN}\n"
+        else:
+            commented_next_sentence = f"// {next_sentence}\n"
 
         # Intervene that the sentence is generated.
         commented_next_sentence_tokens = self.LLM.tokenizer.encode(commented_next_sentence)
@@ -199,53 +272,67 @@ class RMCModel(Model):
         self.current_code_tokens = []
         self.current_code_string = ""
         self.current_code_num_tokens = 0
-        while (not constants.END_SINGLE_PARSE_TOKEN in self.current_code_string) and self.current_code_num_tokens <= self.max_tokens_per_step:
-            print(f"Sampling code token...; {self.current_code_tokens} tokens generated")
+
+        # Note that this currently assumes no commenting in the code.
+        stop_token = constants.END_SINGLE_PARSE_TOKEN if self.delimited_parse_generation else "//"
+        while (not stop_token in self.current_code_string) and self.current_code_num_tokens <= self.max_tokens_per_step:
+            if self.current_code_num_tokens % 1 == 0:
+                print(f"Sampling code token: {self.current_code_num_tokens} / {self.max_tokens_per_step} max tokens generated")
+                print("================CURRENT CONTEXT WITH CODE============")
+                print("SENTENCE TO PARSE:")
+                print(str(commented_next_sentence))
+                print("CURRENT CODE_STRING:")
+                print(self.current_code_string)
+                print("================CURRENT CONTEXT WITH CODE============")
             token = await self.sample(self.context.next_token())
             self.current_code_tokens.append(token.token_id)
             self.current_code_string = f"{self.LLM.tokenizer.decode(self.current_code_tokens)}"
             self.current_code_num_tokens += 1
-            print("================CURRENT CONTEXT WITH CODE============")
-            print("CURRENT CODE_STRING:")
-            print(self.current_code_string)
-            print("================CURRENT CONTEXT WITH CODE============")
-
+            
         # Extract the current WebPPL code.
-        potential_code = self.current_code_string.split(constants.END_SINGLE_PARSE_TOKEN)[0]
+        potential_code = self.current_code_string.split(stop_token)[0]
         
         # Check if program is valid.
         self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
         
 
-async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=1, ess_threshold=0.5):
+async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=False, n_particles=1, ess_threshold=0.5):
     # Cache the key value vectors for the prompt.
     LLM.cache_kv(LLM.tokenizer.encode(background_prompt))
 
     # Initialize the Model
-    rmc_model = RMCModel(LLM, background_prompt, background_sentences, condition_sentences, query_sentences)
+    rmc_model = RMCModel(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=delimited_parse_generation)
     
     # Run inference
+    print(f"Initializing SMC with {n_particles} particles.")
     # TODO: replace NONE with output reading.
     particles = await smc_standard(
         rmc_model, n_particles, ess_threshold, None, None
     )
-
+    import pdb; pdb.set_trace()
     return particles
 
 
 def parse(scenario, background_domains, experiment_dir, rng, args):
     # Construct a context for a given scenario.
     background_prompt = construct_background_domains_prompt(scenario, rng, background_domains, args)
+
+    print("========BACKGROUND DOMAINS:==========")
+    print(background_domains)
+    print("========BACKGROUND PROMPT:==========")
+    print(background_prompt)
+
     # Retrieve all of the sentences we plan to observe from the scenario.
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)
 
-    background_sentences = background_sentences[:2]
-    condition_sentences = []
-    query_sentences = []
+    # DEBUG.
+    # background_sentences = background_sentences[:2]
+    # condition_sentences = []
+    # query_sentences = []
 
     # Begin SMC-style parse. This could be generalized, for now we just assume a very stereotyped ordering of the vignettes.
     LLM = CachedCausalLM.from_pretrained(args.llm)
-    particles = asyncio.run(run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences))
+    particles = asyncio.run(run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=args.number_of_particles, delimited_parse_generation=args.delimited_parse_generation))
 
     # Currently its the same parse metdata for every particle
     parse_metadata = {

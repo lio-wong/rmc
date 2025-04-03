@@ -18,9 +18,11 @@ var intrinsic_strength = mem(function ({athlete}) {
 <END_CODE>
 
 // Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+<BEGIN_CODE>
 var athlete_speed_at_skiing_in_round = mem(function({athlete, round}) {
       return intrinsic_strength({athlete : athlete});
     })
+<END_CODE>
 
 // An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
 <BEGIN_CODE>
@@ -61,8 +63,6 @@ var team_overall_score_in_round = function({team, round}) {
 // The team that completes the course with the highest score beats the other team.
 <BEGIN_CODE>
 var beat = function({team1, team2, round}){
-      // Assert that the appropriate team wins
-      // Return true if team1 won
       return team_overall_score_in_round({team: team1, round: round}) > team_overall_score_in_round({team: team2, round: round})
 }
 <END_CODE>
@@ -77,7 +77,7 @@ var lost = function({team1, team2, round}){
 // An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
 <BEGIN_CODE>
 var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
-        var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
+        var random_athlete_ids = mapN(function(x) {return uniform(0, 100)}, out_of_n_athletes - 1)
         
         return sum(map(
             function(random_athlete_id) {
@@ -88,8 +88,8 @@ var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
 // Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random round.
 <BEGIN_CODE>
 var who_would_win_by_how_much = function({team1, team2, round}) {
-      var num_future_rounds_to_simulate = 100;
-      var random_future_round_ids = mapN(function(x) {return uniform(round+1, 1000)}, num_future_rounds_to_simulate);
+      var num_future_rounds_to_simulate = 5;
+      var random_future_round_ids = mapN(function(x) {return uniform(round+1, 20)}, num_future_rounds_to_simulate);
 
       var simulated_rounds_won_by_team_2 = sum(map(
             function(random_future_round_id) {
