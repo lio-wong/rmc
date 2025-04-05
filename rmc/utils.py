@@ -123,7 +123,6 @@ def run_webppl(code, tmp_file="temp.wppl", timeout=30, append_utilities=True):
 var samples = posterior["samples"]
 console.dir(samples, {maxArrayLength: null, depth: null})
 """
-
     # print("running webppl: ",webppl_code )
     
     # print("PATH:", os.environ['PATH'])
@@ -151,7 +150,6 @@ console.dir(samples, {maxArrayLength: null, depth: null})
     # return result
     
     os.remove(tmp_file_name)
-    
     try:
         if result.stderr != "" or "Error" in result.stdout: 
             print("getting err msg")
@@ -169,7 +167,8 @@ console.dir(samples, {maxArrayLength: null, depth: null})
         return None, err_msg 
 
 
-def parse_samples(result_output, response_code): 
+def parse_samples(result_output, response_code):
+
     try: 
         # extract out the keys in case of multi-query dict
         # in the case of a single query, keys will hold the function name
@@ -257,12 +256,14 @@ def find_return_statement(response_code):
         else: 
             print("No match found")
             last_match= None
+
+    # Remove any 'comments'
+    last_match = "\n".join([s for s in last_match.split("\n") if not s.strip().startswith("//")])
     return last_match
 
 def get_keys(input_string):
     # Strip leading and trailing whitespace
     input_string = input_string.strip()
-
     # Handling the dictionary format
     if input_string.startswith("{") and input_string.endswith("}"):
         # Remove new lines and excessive spaces to make the string single-line
@@ -270,15 +271,16 @@ def get_keys(input_string):
         # Extract keys from dictionary format
         keys = re.findall(r"\b(\w+)\s*:", input_string)
     else:
-        # Handling the non-dictionary format
+# Handling the non-dictionary format
         # Extract a single key from a non-dictionary format
         key_match = re.findall(r"(\w+)\(", input_string)
         keys = [key_match[0]] if key_match else []
 
     return keys
 
-def write_checkpoint(particle_idx, particle, parse_metadata, executability, post_samples, err, experiment_dir, args):
+def write_checkpoint(particle_idx, particle, parse_metadata, executability, post_samples, err, experiment_dir, args, intermediate_posterior_metadata=None):
     # Write out the model program to be looked at.
+    print("Writing checkpoint to: ", f"{experiment_dir}/parse_{particle_idx}.txt")
     with open(f"{experiment_dir}/parse_{particle_idx}.txt", "w") as f:
         f.write(particle.program.to_string())
 
@@ -290,12 +292,15 @@ def write_checkpoint(particle_idx, particle, parse_metadata, executability, post
     metadata = {
         "parse": parse_metadata,
         "wm" : {
-            "parsed_model" : particle.program.to_string(),
+            "parsed_model" : particle.program.to_string(posterior_samples=args.mean_sampling_budget_per_model, sampling_method=args.sampling_method),
             # TODO: we want to keep commensurability to be able to have multiple sets of posteriors with respect to sets of conditions.
             "official_posterior_samples" : str(post_samples),
             "executability" : executability,
             "err" : err,
-            "intermediate_posterior_samples" : []
+            "run_dynamic_posthoc_conditioning": args.run_dynamic_posthoc_conditioning,
+            "intermediate_posterior_executabilities": intermediate_posterior_metadata["executabilities"],
+            "intermediate_posterior_errs": intermediate_posterior_metadata["errs"],
+            "intermediate_posterior_samples" : intermediate_posterior_metadata["posterior_samples"],
         }
     }
 

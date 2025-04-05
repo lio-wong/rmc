@@ -24,6 +24,8 @@ parser.add_argument('--sampling_method', type=str, default="rejection")
 parser.add_argument("--base_dir", type=str, default="rmc-experiments/", help='Base output directory for runs.')
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
 parser.add_argument("--no_background_generation", action="store_true", help="If true, don't generate background knowledge.")
+parser.add_argument("--run_dynamic_posthoc_conditioning", action="store_true", help="If true, run dynamic posthoc conditioning.")
+
 
 if __name__ == "__main__": 
     # Handwritten background parses.
@@ -86,6 +88,9 @@ if __name__ == "__main__":
 
                     if args.replace_background_with_background_parses:
                         line += " --replace_background_with_background_parses"
+                    
+                    if args.run_dynamic_posthoc_conditioning:
+                        line += " --run_dynamic_posthoc_conditioning"
                     
                     print("\n\nRunning ...", line)
                     command_args = line.split()

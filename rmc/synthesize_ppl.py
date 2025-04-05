@@ -159,7 +159,7 @@ class WebPPLProgram():
         query_string = "return {\n"
         for q_comment, q in self.queries:
             query_string += f"\t // {q_comment}\n\t{q},\n"
-            
+        query_string += "// END OF QUERIES\n" # Necessary to terminate the queries for extraction so we can re-add in the return.
         query_string += "}\n"
         return query_string + "\n\n"
         
@@ -222,8 +222,6 @@ class WebPPLProgram():
             return False
 
         print("====SUCCESSFUL WEBPPL MODEL====")
-        print(model_str)
-        print("====SUCCESSFUL WEBPPL MODEL====")
         return True
 
 class RMCModel(Model):
@@ -231,6 +229,7 @@ class RMCModel(Model):
         super().__init__()
         self.LLM = LLM
         self.context = LMContext(LLM, background_prompt, show_prompt=False, temp=temperature)
+        print(f"==Initialized context with temperature: {self.context.temp}\n")
         self.background_sentences = background_sentences
         self.condition_sentences = condition_sentences
         self.query_sentences = query_sentences
@@ -307,7 +306,7 @@ class RMCModel(Model):
             self.current_code_tokens.append(token.token_id)
             self.current_code_string = f"{self.LLM.tokenizer.decode(self.current_code_tokens)}"
             self.current_code_num_tokens += 1
-            if self.current_code_num_tokens % 1 == 0:
+            if self.current_code_num_tokens % 100 == 0:
                 print(f"Sampling code token: {self.current_code_num_tokens} / {self.max_tokens_per_step} max tokens generated")
                 print("================CURRENT CONTEXT WITH CODE============")
                 print("SENTENCE TO PARSE:")
@@ -322,12 +321,11 @@ class RMCModel(Model):
         # Check if program is valid.
         self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
         
-
 async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=False, n_particles=1, no_background_generation=False, ess_threshold=0.5, gold_program=None, args=None):
     # Cache the key value vectors for the prompt.
     LLM.cache_kv(LLM.tokenizer.encode(background_prompt))
 
-    # Initialize the Model
+    # Initialize the model.
     rmc_model = RMCModel(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=delimited_parse_generation, no_background_generation=no_background_generation, gold_program=gold_program, temperature=args.parsing_temperature)
     
     # Run inference
@@ -336,7 +334,6 @@ async def run_smc_async(LLM, background_prompt, background_sentences, condition_
     particles = await smc_standard(
         rmc_model, n_particles, ess_threshold, None, None
     )
-    import pdb; pdb.set_trace()
     return particles
 
 
@@ -348,12 +345,13 @@ def parse(scenario, background_domains, experiment_dir, rng, args):
     print(background_domains)
     print("========BACKGROUND PROMPT:==========")
     print(background_prompt)
-    import pdb; pdb.set_trace()
     # Retrieve all of the sentences we plan to observe from the scenario.
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)
 
     # Begin SMC-style parse. This could be generalized, for now we just assume a very stereotyped ordering of the vignettes.
-    LLM = CachedCausalLM.from_pretrained(args.llm)
+    LLM = CachedCausalLM.from_pretrained(args.llm, engine_opts={
+        "max_model_len" : 10000 # Context window length. Set to reduce memory.
+    })
     particles = asyncio.run(run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=args.number_of_particles, delimited_parse_generation=args.delimited_parse_generation, no_background_generation=args.no_background_generation, gold_program=gold_program, args=args))
 
     # Currently its the same parse metdata for every particle

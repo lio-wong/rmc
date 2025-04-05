@@ -41,6 +41,7 @@ parser.add_argument('--base_dir', type=str, default="rmc-experiments/",
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
 parser.add_argument("--delimited_parse_generation", action="store_true", help="If true, prompts and splits on tokens rather than completions as in generated code in line.")
 parser.add_argument("--no_background_generation", action="store_true", help="If true, don't generate background knowledge.")
+parser.add_argument("--run_dynamic_posthoc_conditioning", action="store_true", help="If true, run dynamic posthoc conditioning.")
 
 def answer_questions(scenario, experiment_dir, rng, args):
     # TODO: alternative models using LLMs can go here.
@@ -50,12 +51,29 @@ def rmc(scenario, experiment_dir, rng, args):
     # Synthesize programs from scenario text.
     particles, parse_metadata = synthesize_ppl.parse(scenario, background_domains=args.background_domains, experiment_dir=experiment_dir, rng=rng, args=args)
 
+    # with open("prompts/demo_tug_of_war_code.txt", "r") as f:
+    #     test_program = f.read()
+    # executability, post_samples, err = inference_ppl.evaluate_probabilistic_program(program=test_program, sampling_budget=args.mean_sampling_budget_per_model, sampling_method=args.sampling_method)
+
+
+
     # Inferences to answer questions given world models.
     # TODO: consider parallelizing.
     for particle_idx, particle in enumerate(particles):
         executability, post_samples, err = inference_ppl.evaluate_probabilistic_program(program=particle.program, sampling_budget=args.mean_sampling_budget_per_model, sampling_method=args.sampling_method)
 
-        utils.write_checkpoint(particle_idx, particle, parse_metadata, executability, post_samples, err, experiment_dir, args)
+        intermediate_posterior_metadata = {}
+        if args.run_dynamic_posthoc_conditioning:
+            intermediate_posterior_metadata = inference_ppl.run_dynamic_posthoc_condition(program=particle.program, sampling_budget=args.mean_sampling_budget_per_model, sampling_method=args.sampling_method)
+            
+        utils.write_checkpoint(particle_idx, 
+                               particle, parse_metadata, 
+                               executability, 
+                               post_samples, 
+                               err, 
+                               experiment_dir, 
+                               args,
+                               intermediate_posterior_metadata=intermediate_posterior_metadata)
    
 if __name__ == "__main__":
     args = parser.parse_args()
