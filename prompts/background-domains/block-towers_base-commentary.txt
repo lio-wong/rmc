@@ -1,0 +1,255 @@
+var model = function () {
+    // BACKGROUND KNOWLEDGE
+    // Let's imagine what is in this scene, constructing it into a mental physical model in our mind by specifying the various objects and forces that might exist.
+    var make_block_scene = function () {
+        // In this scene everything rests on the ground. We can just think of the ground as a very large flat rectangle, located at the bottom of the scene.
+        var world_width = 600; // Units are centimeters.
+        var world_height = 500;
+        var floor_height = 10;
+        var ground = {
+        shape: 'rect',
+        static: true,
+        // Imagine this as a really large floor extending effectively in all directions.
+        dims: [100000 * world_width, floor_height],
+        x: world_width / 2,
+        y: world_height
+        }
+
+        // There is a table in the middle of the scene, and tables are generally about 100 centimeters tall and 75 centimeters wide.
+        var table_height = 75;
+        var table_width = 100;
+        var table = {
+        shape: 'rect',
+        static: false,
+        dims: [table_width, table_height],
+        x: world_width / 2,
+        y: world_height - table_height - floor_height,
+        color: 'blue'
+        }
+        
+        // Blocks can be red or yellow.
+        var color = function () { return flip() ? 'red' : 'yellow' };
+    
+        // Blocks are square and we'll say they're 10cm tall and wide.
+        var block_height = 10; 
+        var block_width = 10; 
+    
+        // Block stacks can be placed at non-overlapping locations on the table, so keep track of where blocks are.
+        var xpositions = _.range(world_width / 2 - table_width, world_width / 2 + table_width + (2*block_width), (2*block_width));
+        var xposOnTable = function (options) {
+        return uniformDraw(options);
+        }
+        
+        
+        // To construct a stack, we repeatedly select blocks, and if it its the first block, we select the color and location on the X-axis. Otherwise, place blocks on top of the previous block.
+        var nextBlockOnTopOfStack = function (prevBlock, isFirst) {
+            var xposition = xposOnTable(xpositions);
+            var ypos_block_in_stack = function (prevBlock, h) {
+            var prevY = prevBlock.y;
+            var prevH = prevBlock.dims[1];
+            return prevY - (prevH + h)
+            }
+            if (isFirst) {
+            var index = xpositions.indexOf(xposition);
+            xpositions.splice(index, 1);
+            }
+            return {
+            shape: 'rect',
+            color: isFirst ? color() : prevBlock.color, // If first block in a stack, select the color. Otherwise, 
+            static: false, // Blocks can move.
+            dims: [block_width, block_height],
+            x: isFirst ? xposition : prevBlock.x,
+            y: ypos_block_in_stack(prevBlock, block_height)
+            }
+        }
+
+        // Stacks of blocks come in different heights and are comprised of blocks of the same color stacked on top of each other.
+        var stack = function (stackSoFar, num_blocks) {
+        var newBlock = nextBlockOnTopOfStack(stackSoFar[stackSoFar.length - 1], false);
+        var theStack = stackSoFar.concat(newBlock);
+        if (stackSoFar.length >= num_blocks) {
+            return stackSoFar;
+        } else {
+            return stack(theStack, num_blocks);
+        }
+        }
+        
+        // Stacks can be of varying heights, but  generally it becomes less likely that we place a new block on a stack with each block thats already there.
+        var num_blocks_in_stack = function () { return truncated_geometric(0.8, 1, 15) };
+        // There can be varying numbers of stacks on a table, but generally it becomes less likely that we place a new stack with each stack that already exists.
+        var num_stacks_on_table = truncated_geometric(0.8, 1, 10);
+
+        // All the stacks of blocks that exist on a table are constructed by considering how many stacks are curerently on the table and repeatedly adding new stacks to that.
+        var makeStacks = function (stacksSoFar, n) {
+        var num_blocks = num_blocks_in_stack();
+        var newStack = stack([nextBlockOnTopOfStack(table, true)], num_blocks);
+        var stacks = stacksSoFar.concat([newStack]);
+        if (stacksSoFar.length >= n) {
+            return stacksSoFar;
+        } else {
+            return makeStacks(stacks, n);
+        }
+        }
+    
+        // We will model the bump to the table as an object moving very fast.
+        var bump_velocity = 10000; // cm per second
+        var force = function () {
+        var left = flip();
+        return {
+            shape: 'square',
+            static: false,
+            dims: [uniformDraw([15, 16, 17, 18])],
+            x: left ? table_width : world_width - table_width,
+            y: (world_height - (table_height / 2) - floor_height), // In the middle of the table.
+            color: 'green',
+            velocity: left ? [bump_velocity, 0] : [-bump_velocity, 0]
+        }
+        }
+        
+        // Construct all of the stacks on the table.
+        var blocks_and_stacks_on_table = makeStacks([], num_stacks_on_table);
+    
+        // Get a list of all of the blocks on the table.
+        var blockList = blocks_and_stacks_on_table.flat();
+    
+        // A set of blocks on a table is what we would actually call a 'stack' if there are more than 2 blocks in it.
+        var stack_of_blocks_not_singleton_or_double = function (stack) {
+        return stack.length >= 2;
+        }
+
+        
+        var stacks_of_blocks = filter(stack_of_blocks_not_singleton_or_double, blocks_and_stacks_on_table);
+    
+        // Helper function to get information on a stack object.
+        var getStackInfo = function (stack) {
+        var color =  stack[0].color;
+        var height = stack[0].y - stack[stack.length - 1].y + 2 * block_height;
+        return {
+            blocks: stack,
+            color: color,
+            x: stack[0].x,
+            height: height,
+        }
+        }
+        var stacks = map(getStackInfo, stacks_of_blocks);
+    
+    // Finally, summarize all the relevant information about the world. 
+        var world = {
+        stacks: stacks,
+        blocks: blockList,
+        ground: ground,
+        table: table,
+        force: force()
+        }
+        return world;
+    }
+    
+    // An object is red if its color is red.
+    var isRed = function (obj) {
+        return obj.color == 'red';
+    }
+    
+    // An object is yellow if its color is yellow.
+    var isYellow = function (obj) {
+        return obj.color == 'yellow';
+    }
+
+    // A stack is tall if it is more than 100cm tall (10 blocks).
+    var isTall = function (stack) {
+        return stack.height >= 100;
+    }
+    
+    // A stack is short if it is less than 50cm tall (5 blocks).
+    var isShort = function (stack) {
+        return stack.height <= 50;
+    }
+
+    // An object is on the left of the scene if its absolute X position is less than the center of the world with some tolerance for where we would define it as being in the center.
+    var isOnLeft = function (obj) {
+        var world_width = 600;
+        var center_tolerance = 30;
+        return obj.x <= ((world_width / 2) - center_tolerance);
+    }
+    
+    // An object is on the right of the scene if its absolute X position is less than the right of the world.
+    var isOnRight = function (obj) {
+        var world_width = 600;
+        var center_tolerance = 30;
+        return obj.x >= ((world_width / 2) + center_tolerance);
+    }
+
+    // An object is in the middle of the table if it is not on the left or the right.
+    var isInMiddle = function (obj) {
+        return !isOnLeft(obj) && !isOnRight(obj);
+    }
+
+    // An object is on the center if it is directly in the absolute center of the room.
+    var isOnCenter = function (obj) {
+        var world_width = 600;
+        return obj.x == (world_width / 2);
+    }
+    
+    // An object is on the 'edge' of the table if it is located within some tolerance 
+    var isOnEdge = function (obj) {
+        var table_width = 100;
+        var world_width = 600;
+        var block_width = 10;
+        var edge_tolerance = block_width;
+        // Left edge.
+        var left_edge_location = (world_width / 2) - table_width;
+        var right_edge_location = (world_width / 2) + table_width;
+        return (obj.x >=  left_edge_location && obj.x <= left_edge_location + edge_tolerance) || (obj.x <= right_edge_location && obj.x >= right_edge_location - edge_tolerance);
+    }
+
+  
+    // An object is 'on the ground' if it has fallen off of the table.
+    var isOnGround = function (obj) {
+        var world_height = 500;
+        var table_height = 75;
+        // Y is from top (0) to bottom ()
+        return obj.y > (world_height - table_height);
+    }
+    
+    
+    // A block is 'near' to another block if it is within some distance from another block.
+    var isNear = function (obj1) {
+        return function (obj2) {
+        var near_tolerance = 40;
+        return Math.abs(obj1.x - obj2.x) <= near_tolerance;
+        }
+    }
+
+    var flattenWorld = function (world) {
+        return [world.ground, world.table, world.force].concat(world.blocks);
+    }
+
+    // Physics simulations need to be nested within an internal run model that is itself conditioned.
+    var run = function (world) {
+        var flatWorld = flattenWorld(world);
+        var finalWorld = physics.run(1000, flatWorld);
+
+        var objectsOnGround = filter(isOnGround, finalWorld);
+
+        // CONDITIONS
+        <START_NEXT_CONDITIONS>
+
+        var numYellow = filter(isYellow, objectsOnGround).length;
+        var numRed = filter(isRed, objectsOnGround).length;
+        return numYellow > numRed ? 2 : numYellow == numRed ? 1 : 0
+    }
+
+    // Convert into a likert distribution.
+    var likert_scale_table_bumped_more_red_or_yellow = function() {
+      var d = Infer({ method: 'rejection', samples: 10 },
+      function () { return run(make_block_scene()) });
+      var moreRedProb = Math.exp(d.score(0));
+      var moreYellowProb = Math.exp(d.score(2));
+
+      var likert = Math.round((moreYellowProb / (moreRedProb + moreYellowProb)) * 6) + 1;
+      return likert;
+    }
+
+    return {
+      query1: likert_scale_table_bumped_more_red_or_yellow()
+    };
+  }

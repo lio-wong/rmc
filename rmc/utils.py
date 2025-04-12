@@ -65,22 +65,28 @@ nth_to_number_map = {
     "tenth": 10
 }
 
-def gold_condition_parse(condition_sentence, matches_to_teams):
-    # In the first race, Ness and Emery beat Blake and Ollie
-    # In the fourth race, Ness and Emery lost to Blake and Ollie
-    nth_match = re.search("In the (.*?) (.*?),", condition_sentence)
-    nth_token, match_token = nth_match.group(1), nth_match.group(2)
-    nth_to_number = nth_to_number_map[nth_token]
+def gold_condition_parse(condition_sentence, matches_to_teams, gold_parses=None):
+    if gold_parses is not None:
+        if condition_sentence not in gold_parses:
+            condition_sentence = condition_sentence + "."
+        return gold_parses[condition_sentence]
+    else:
+        # SPORTS subdomains.
+        # In the first race, Ness and Emery beat Blake and Ollie
+        # In the fourth race, Ness and Emery lost to Blake and Ollie
+        nth_match = re.search("In the (.*?) (.*?),", condition_sentence)
+        nth_token, match_token = nth_match.group(1), nth_match.group(2)
+        nth_to_number = nth_to_number_map[nth_token]
 
-    beat_lost_token = "beat" if "beat" in condition_sentence else "lost to"
+        beat_lost_token = "beat" if "beat" in condition_sentence else "lost to"
 
-    teams = re.search(f", (.*?) {beat_lost_token} (.*)", condition_sentence)
-    team1, team2 = teams.group(1).split("and"), teams.group(2).split("and")
-    team1, team2 = [t.lower().strip() for t in team1], [t.lower().strip() for t in team2]
-    beat_lost_function = "beat" if "beat" == beat_lost_token else "lost"
-    condition_parse = f"condition({beat_lost_function}({{team1: {team1}, team2: {team2}, {match_token}: {nth_to_number}}}))"
-    matches_to_teams[nth_to_number] = [team1, team2]
-    return condition_parse
+        teams = re.search(f", (.*?) {beat_lost_token} (.*)", condition_sentence)
+        team1, team2 = teams.group(1).split("and"), teams.group(2).split("and")
+        team1, team2 = [t.lower().strip() for t in team1], [t.lower().strip() for t in team2]
+        beat_lost_function = "beat" if "beat" == beat_lost_token else "lost"
+        condition_parse = f"condition({beat_lost_function}({{team1: {team1}, team2: {team2}, {match_token}: {nth_to_number}}}))"
+        matches_to_teams[nth_to_number] = [team1, team2]
+        return condition_parse
 
 def gold_query_parse(query_sentence, sports_domain, query_idx, matches_to_teams):
     match_token = sports_map[sports_domain]["match"]

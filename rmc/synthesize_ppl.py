@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 import asyncio
@@ -28,9 +29,6 @@ def get_scenario_queries(scenario):
 
 def get_all_scenario_sentences(scenario, args):
     sports_domain = scenario.split("_")[0]
-    background_parse_file = [b for b in args.background_parses if sports_domain in b][0]
-    with open(os.path.join(args.background_domains_dir, background_parse_file + ".txt"), "r") as f:
-        background_parse = f.read().strip()
 
     scenario_text = utils.get_scenario_txt(scenario, args)
     condition_sentences = get_scenario_conditions(scenario_text)
@@ -38,30 +36,56 @@ def get_all_scenario_sentences(scenario, args):
 
     # TODO: REPLACE WITH BACKGROUNDS FROM THE DOMAIN PROMPT.
     if args.replace_background_with_background_parses:
+        background_parse_file = [b for b in args.background_parses if sports_domain in b][0]
+        with open(os.path.join(args.background_domains_dir, background_parse_file + ".txt"), "r") as f:
+            background_parse = f.read().strip()
         background_sentences = get_background_parse_sentences(background_parse)
     else:
-        assert False
+        background_sentences = []
     return background_sentences, condition_sentences, query_sentences
 
-def construct_background_domains_prompt(scenario, rng, background_domains, no_background_generation=False, args=None):
+def construct_background_domains_prompt(scenario, rng, background_domains, insert_into_raw_background_domain_str="", gold_parses=None, no_background_generation=False, args=None):
     if args.delimited_parse_generation:
        return construct_delimited_parse_generation_prompt(scenario, rng, background_domains, no_background_generation, args)
     else:
         # Code continuation format.
-        return construct_code_continuation_prompt(scenario, rng, background_domains, no_background_generation, args)
+        return construct_code_continuation_prompt(scenario, rng, background_domains, no_background_generation, insert_into_raw_background_domain_str=insert_into_raw_background_domain_str, gold_parses=gold_parses, args=args)
 
-def construct_code_continuation_prompt(scenario, rng, background_domains, no_background_generation, args):
+def construct_code_continuation_prompt(scenario, rng, background_domains, no_background_generation, insert_into_raw_background_domain_str="", gold_parses=None, args=None):
     gold_program = None
     p = constants.CODE_CONTINUATION_HEADER
-    p += "\n" + constants.LIBRARY_FUNCTIONS_HEADER + constants.LIBRARY_FUNCTIONS + "\n" + constants.CODE_EXAMPLE_HEADER
+    p += "\n" + constants.LIBRARY_FUNCTIONS_HEADER + constants.LIBRARY_FUNCTIONS + "\n"
+
     shuffled_background_domains = rng.permutation(background_domains)
-    p += f"{constants.CODE_EXAMPLE_HEADER}\n\n".join(construct_continuation_background_domain_prompt(background_domain, args=args)[0] for background_domain in shuffled_background_domains)
-    if no_background_generation:
-        gold_string, gold_program = construct_continuation_background_domain_prompt(scenario, background_only=True, args=args)
-        p += "\n\n" + constants.CODE_YOUR_EXAMPLE_HEADER + "\n" + gold_string
+    if insert_into_raw_background_domain_str != "":
+        with open(os.path.join(args.background_domains_dir, insert_into_raw_background_domain_str + ".txt"), "r") as f:
+            background_parse = f.read().strip()
+        assert no_background_generation # If we are using an existing background then there must be no background to generate.
+
+        p += background_parse.split(constants.START_NEXT_CONDITIONS)[0]
+        
+        # Construct all of the conditions only for the continuation background domains.
+       
+        p += f"".join(construct_continuation_background_domain_prompt(background_domain, conditions_only=True, gold_parses=gold_parses, args=args)[0] for background_domain in shuffled_background_domains).strip()
+
+        gold_program = construct_scenario_gold_program_from_raw_background_str(background_parse, scenario, gold_parses, args)
+        return p, gold_program
     else:
-        p += "\n\n" + constants.CODE_YOUR_EXAMPLE_HEADER + "\n" + "var model = function() {\n"
+        p += f"{constants.CODE_EXAMPLE_HEADER}\n\n".join(construct_continuation_background_domain_prompt(background_domain, args=args)[0] for background_domain in shuffled_background_domains)
+        if no_background_generation:
+            gold_string, gold_program = construct_continuation_background_domain_prompt(scenario, background_only=True, args=args)
+            p += "\n\n" + constants.CODE_YOUR_EXAMPLE_HEADER + "\n" + gold_string
+        else:
+            p += "\n\n" + constants.CODE_YOUR_EXAMPLE_HEADER + "\n" + "var model = function() {\n"
     return p, gold_program
+
+def construct_scenario_gold_program_from_raw_background_str(background_parse, scenario, gold_parses, args):
+    example_program = WebPPLProgram(from_raw_background=background_parse)
+    background_scenario_text = utils.get_scenario_txt(scenario, args)
+    condition_sentences = get_scenario_conditions(background_scenario_text)
+    condition_parses = [utils.gold_condition_parse(c, matches_to_teams={}, gold_parses=gold_parses) for c in condition_sentences]
+    example_program.conditions =list(zip(condition_sentences, condition_parses))
+    return example_program
 
 def construct_delimited_parse_generation_prompt(scenario, rng, background_domains, no_background_generation, args):
     gold_program = None
@@ -79,30 +103,33 @@ def construct_delimited_parse_generation_prompt(scenario, rng, background_domain
     p += "\n" + constants.START_PARSE_TOKEN + "\n" 
     return p, gold_program
 
-def construct_continuation_background_domain_prompt(background_domain, background_only=False, args=None):
-    sports_domain = background_domain.split("_")[0]
+def construct_continuation_background_domain_prompt(background_domain, background_only=False, conditions_only=True, gold_parses=None, args=None):
+    sub_domain = background_domain.split("_")[0]
     background_scenario_text = utils.get_scenario_txt(background_domain, args)
     # Construct a WebPPL model from the backgrounds and then write it out to a string.
     example_program = WebPPLProgram()
-    background_parse_file = [b for b in args.background_parses if sports_domain in b][0]
-    with open(os.path.join(args.background_domains_dir, background_parse_file + ".txt"), "r") as f:
-        background_parse = f.read().strip()
 
-    example_program.definitions = background_parse_file_to_definitions(background_parse)
+    if not conditions_only:
+        background_parse_file = [b for b in args.background_parses if sub_domain in b][0]
+        with open(os.path.join(args.background_domains_dir, background_parse_file + ".txt"), "r") as f:
+            background_parse = f.read().strip()
+
+        example_program.definitions = background_parse_file_to_definitions(background_parse)
 
     # Construct the conditions parse.
     condition_sentences = get_scenario_conditions(background_scenario_text)
-    # Construct the queries parse.
-    query_sentences = get_scenario_queries(background_scenario_text)
-    matches_to_teams = {}
-    condition_parses = [utils.gold_condition_parse(c, matches_to_teams) for c in condition_sentences]
-    query_parses = [utils.gold_query_parse(query_sentence=q, sports_domain=sports_domain, query_idx=idx, matches_to_teams=matches_to_teams) 
-                       for idx, q in enumerate(query_sentences)]
-    
-    example_program.conditions = zip(condition_sentences, condition_parses)
-    example_program.queries = zip(query_sentences, query_parses)
-    return example_program.to_string(include_expression_type_headers=False, background_only=background_only), example_program
 
+    matches_to_teams = {}
+    condition_parses = [utils.gold_condition_parse(c, matches_to_teams, gold_parses=gold_parses) for c in condition_sentences]
+    # Construct the queries parse.
+    if not conditions_only:
+        query_sentences = get_scenario_queries(background_scenario_text)
+        query_parses = [utils.gold_query_parse(query_sentence=q, sports_domain=sub_domain, query_idx=idx, matches_to_teams=matches_to_teams) 
+                        for idx, q in enumerate(query_sentences)]
+        example_program.queries = list(zip(query_sentences, query_parses))
+    
+    example_program.conditions =list(zip(condition_sentences, condition_parses))
+    return example_program.to_string(include_expression_type_headers=False, background_only=background_only, conditions_only=conditions_only), example_program
 
 def background_parse_file_to_definitions(background_parse):
     parses = background_parse.split("//")[1:]
@@ -144,18 +171,28 @@ def construct_delimited_background_domain_prompt(background_domain, args):
 
 #### SMC-RMC 
 class WebPPLProgram():
-    def __init__(self):
+    def __init__(self, from_raw_background=""):
+        self.from_raw_background = ""
+        self.raw_background_only = ""
+        if len(from_raw_background) > 0:
+            self.from_raw_background = from_raw_background
+            self.raw_background_only = from_raw_background.split(constants.START_NEXT_CONDITIONS)[0]
+            self.raw_queries_only = from_raw_background.split(constants.START_NEXT_CONDITIONS)[-1]
         self.definitions = []
         self.conditions = []
         self.queries = []
 
     def definitions_to_string(self):
+        if len(self.from_raw_background) > 0:
+            return self.raw_background_only
         return "\n\n".join([f'\t// {fn_comment}\n\t{fn_def}' for (fn_comment, fn_def) in self.definitions]) + "\n\n"
     
     def conditions_to_string(self):
         return "\n\n".join([f'\t// {cond_comment}\n\t{cond}' for (cond_comment, cond) in self.conditions]) + "\n\n"
     
     def queries_to_string(self):
+        if len(self.from_raw_background) > 0:
+            return self.raw_queries_only
         query_string = "return {\n"
         for q_comment, q in self.queries:
             query_string += f"\t // {q_comment}\n\t{q},\n"
@@ -166,7 +203,8 @@ class WebPPLProgram():
     def to_string(self, posterior=True, 
                     posterior_samples=10000,
                     sampling_method='rejection', include_expression_type_headers=True,
-                    background_only=False):
+                    background_only=False, conditions_only=False):
+        
         model_str = "var model = function() {\n"
 
         if include_expression_type_headers:
@@ -181,6 +219,9 @@ class WebPPLProgram():
             model_str += "// CONDITIONS\n"
         model_str += self.conditions_to_string()
 
+        if conditions_only:
+            return self.conditions_to_string()
+        
         if include_expression_type_headers:
             model_str += "//QUERIES\n"
 
@@ -225,7 +266,7 @@ class WebPPLProgram():
         return True
 
 class RMCModel(Model):
-    def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500, delimited_parse_generation=True, no_background_generation=False, temperature=0.2, args=None, gold_program=None):
+    def __init__(self, LLM, background_prompt, background_sentences, condition_sentences, query_sentences, max_tokens_per_step=500, delimited_parse_generation=True, no_background_generation=False, no_condition_generation=False, temperature=0.2, args=None, gold_program=None):
         super().__init__()
         self.LLM = LLM
         self.context = LMContext(LLM, background_prompt, show_prompt=False, temp=temperature)
@@ -321,12 +362,12 @@ class RMCModel(Model):
         # Check if program is valid.
         self.condition(self.program.try_extend_potential_ppl_expression(nl_sentence=next_sentence, potential_ppl_expression=potential_code))
         
-async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=False, n_particles=1, no_background_generation=False, ess_threshold=0.5, gold_program=None, args=None):
+async def run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=False, n_particles=1, no_background_generation=False, no_condition_generation=False, ess_threshold=0.5, gold_program=None, args=None):
     # Cache the key value vectors for the prompt.
     LLM.cache_kv(LLM.tokenizer.encode(background_prompt))
 
     # Initialize the model.
-    rmc_model = RMCModel(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=delimited_parse_generation, no_background_generation=no_background_generation, gold_program=gold_program, temperature=args.parsing_temperature)
+    rmc_model = RMCModel(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, delimited_parse_generation=delimited_parse_generation, no_background_generation=no_background_generation, no_condition_generation=no_condition_generation, gold_program=gold_program, temperature=args.parsing_temperature)
     
     # Run inference
     print(f"Initializing SMC with {n_particles} particles.")
@@ -337,22 +378,29 @@ async def run_smc_async(LLM, background_prompt, background_sentences, condition_
     return particles
 
 
-def parse(scenario, background_domains, experiment_dir, rng, args):
+def parse(scenario, background_domains, insert_into_raw_background_domain_str, experiment_dir, rng, args):
     # Construct a context for a given scenario.
-    background_prompt, gold_program = construct_background_domains_prompt(scenario, rng, background_domains, no_background_generation=args.no_background_generation, args=args)
+    if len(str(args.gold_parses)) > 0:
+        gold_parses = json.load(open(args.gold_parses))
+    else:
+        gold_parses = None
+    background_prompt, gold_program = construct_background_domains_prompt(scenario, rng, background_domains, no_background_generation=args.no_background_generation, insert_into_raw_background_domain_str=insert_into_raw_background_domain_str, gold_parses=gold_parses,args=args)
+
+    
 
     print("========BACKGROUND DOMAINS:==========")
     print(background_domains)
     print("========BACKGROUND PROMPT:==========")
     print(background_prompt)
+
     # Retrieve all of the sentences we plan to observe from the scenario.
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)
-
+    
     # Begin SMC-style parse. This could be generalized, for now we just assume a very stereotyped ordering of the vignettes.
     LLM = CachedCausalLM.from_pretrained(args.llm, engine_opts={
         "max_model_len" : 10000 # Context window length. Set to reduce memory.
     })
-    particles = asyncio.run(run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=args.number_of_particles, delimited_parse_generation=args.delimited_parse_generation, no_background_generation=args.no_background_generation, gold_program=gold_program, args=args))
+    particles = asyncio.run(run_smc_async(LLM, background_prompt, background_sentences, condition_sentences, query_sentences, n_particles=args.number_of_particles, delimited_parse_generation=args.delimited_parse_generation, no_background_generation=args.no_background_generation, no_query_generation=args.no_query_generation, gold_program=gold_program, args=args))
 
     # Currently its the same parse metdata for every particle
     parse_metadata = {

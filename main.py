@@ -37,11 +37,14 @@ parser.add_argument('--background_domains_dir', type=str, default="prompts/backg
 parser.add_argument('--scenario_dir', type=str, default="scenarios/model-readable")
 parser.add_argument('--base_dir', type=str, default="rmc-experiments/",
     help='Base output directory for runs.')
+parser.add_argument('--gold_parses', type=str, default="", help='Path to gold parses for evaluation.')
 
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
 parser.add_argument("--delimited_parse_generation", action="store_true", help="If true, prompts and splits on tokens rather than completions as in generated code in line.")
 parser.add_argument("--no_background_generation", action="store_true", help="If true, don't generate background knowledge.")
+parser.add_argument('--no_query_generation', action="store_true", help="If true, don't generate queries.")
 parser.add_argument("--run_dynamic_posthoc_conditioning", action="store_true", help="If true, run dynamic posthoc conditioning.")
+parser.add_argument("--insert_into_raw_background_domain_str", type=str, default="")
 
 def answer_questions(scenario, experiment_dir, rng, args):
     # TODO: alternative models using LLMs can go here.
@@ -49,13 +52,11 @@ def answer_questions(scenario, experiment_dir, rng, args):
  
 def rmc(scenario, experiment_dir, rng, args):
     # Synthesize programs from scenario text.
-    particles, parse_metadata = synthesize_ppl.parse(scenario, background_domains=args.background_domains, experiment_dir=experiment_dir, rng=rng, args=args)
+    particles, parse_metadata = synthesize_ppl.parse(scenario, background_domains=args.background_domains, experiment_dir=experiment_dir, insert_into_raw_background_domain_str=args.insert_into_raw_background_domain_str, rng=rng, args=args)
 
     # with open("prompts/demo_tug_of_war_code.txt", "r") as f:
     #     test_program = f.read()
     # executability, post_samples, err = inference_ppl.evaluate_probabilistic_program(program=test_program, sampling_budget=args.mean_sampling_budget_per_model, sampling_method=args.sampling_method)
-
-
 
     # Inferences to answer questions given world models.
     # TODO: consider parallelizing.

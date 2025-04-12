@@ -8,6 +8,8 @@ WEBPPL_START_DEFINITION = "var"
 WEBPPL_START_CONDITION = "condition("
 WEBPPL_START_QUERY = "query"
 
+START_NEXT_CONDITIONS = "<START_NEXT_CONDITIONS>"
+
 LIBRARY_FUNCTIONS_HEADER = """// LIBRARY_FUNCTIONS"""
 LIBRARY_FUNCTIONS = """
 var argMax = function(f, ar){
@@ -30,6 +32,8 @@ var mean = function(ar){
     return sum(ar) / ar.length
 }
 """
+
+SUBDOMAIN_BLOCK_TOWERS = "block-towers"
 
 TRANSLATIONS_HEADER = """
 Translate each new sentence into a function of WebPPL code. Begin each translation with <BEGIN_CODE> and end each translation with <END_CODE>. Functions may call any library function, or any other function in the context delimited by the current <START_LANGUAGE_TO_WEBPPL_CODE> scope.

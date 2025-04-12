@@ -24,7 +24,14 @@ parser.add_argument('--sampling_method', type=str, default="rejection")
 parser.add_argument("--base_dir", type=str, default="rmc-experiments/", help='Base output directory for runs.')
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
 parser.add_argument("--no_background_generation", action="store_true", help="If true, don't generate background knowledge.")
+parser.add_argument('--no_query_generation', action="store_true", help="If true, don't generate queries.")
+
 parser.add_argument("--run_dynamic_posthoc_conditioning", action="store_true", help="If true, run dynamic posthoc conditioning.")
+parser.add_argument("--insert_into_raw_background_domain_str", type=str, default="")
+parser.add_argument("--select_scenarios_from_same_domain", action="store_true", help="If true, select scenarios from the same domain.")
+parser.add_argument("--num_scenario_examples_per_domain", type=int, default=1, help="Number of scenarios to condition on.")
+parser.add_argument('--gold_parses', type=str, default="", help='Path to gold parses for evaluation.')
+
 
 
 if __name__ == "__main__": 
@@ -59,12 +66,20 @@ if __name__ == "__main__":
         domains_to_scenarios = defaultdict(list)
         for other_scenario in scenarios: 
             other_scenario_domain = other_scenario.split("_")[0]
-            if other_scenario_domain != scenario_domain: 
-                domains_to_scenarios[other_scenario_domain].append(other_scenario)
+            if args.select_scenarios_from_same_domain:
+                if other_scenario_domain == scenario_domain:
+                    domains_to_scenarios[other_scenario_domain].append(other_scenario)
+                else:
+                    if other_scenario_domain != scenario_domain: 
+                        domains_to_scenarios[other_scenario_domain].append(other_scenario)
         scenario_prompts = []
         for d in domains_to_scenarios:
-            if d != scenario_domain:
-                scenario_prompts += list(random.sample(domains_to_scenarios[d], 1))
+            if args.select_scenarios_from_same_domain:
+                other_scenarios = [s for s in domains_to_scenarios[d] if s != scenario]
+                scenario_prompts += list(random.sample(other_scenarios, args.num_scenario_examples_per_domain))
+            else:
+                if d != scenario_domain:
+                    scenario_prompts += list(random.sample(domains_to_scenarios[d], args.num_scenario_examples_per_domain))
 
         for llm in llms:
             with open(args.run_file, "r") as f:
@@ -82,9 +97,14 @@ if __name__ == "__main__":
                     line = line.replace("$BASE_DIR", f"{args.base_dir}")
                     line = line.replace('$BACKGROUND_PARSES', " ".join(background_parses))
                     line = line.replace("$PROMPTS", " ".join(scenario_prompts))
+                    line = line.replace("$RAW_BACKGROUND_DOMAIN_STR", args.insert_into_raw_background_domain_str)
+                    line = line.replace("$GOLD_PARSES", f"{args.gold_parses}")
                     
                     if args.no_background_generation:
                         line += " --no_background_generation"
+
+                    if args.no_query_generation:
+                        line += " --no_query_generation"
 
                     if args.replace_background_with_background_parses:
                         line += " --replace_background_with_background_parses"
