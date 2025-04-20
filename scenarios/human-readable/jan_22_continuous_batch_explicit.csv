@@ -1,0 +1,482 @@
+full_stimuli_id,sport,tag,original_background,rmc_background,conditions,match-queries,newmatch-queries
+biathalon_shooting-accuracy_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable,biathalon,team-confounded-partner-10-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Kay and Avery lost to Lane and Quinn.
+In the second round, Kay and Avery lost to Blake and Peyton.
+In the third round, Kay and Avery lost to Jamie and Gale.","Query 1: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the third round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Avery was at shooting in the third round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Jamie was at shooting in the third round?","Query 7: In a new round later this same day between Kay and Avery (Team 1) and Lane and Gale (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Kay and Lane (Team 1) and Avery and Quinn (Team 2), who would win and by how much?"
+biathalon_shooting-accuracy_team-confounded-partner-9-dec_win_how_much_explicit_continuous_variable,biathalon,team-confounded-partner-9-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Ness and Peyton beat Taylor and Gale.
+In the second round, Ness and Peyton beat Drew and Casey.
+In the third round, Ness and Peyton beat Harper and Willow.","Query 1: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the second round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Peyton was at shooting in the second round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Drew was at shooting in the second round?","Query 7: In a new round later this same day between Ness and Peyton (Team 1) and Taylor and Willow (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Ness and Taylor (Team 1) and Peyton and Gale (Team 2), who would win and by how much?"
+biathalon_shooting-accuracy_team-diverse-17-dec_win_how_much_explicit_continuous_variable,biathalon,team-diverse-17-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Val and Willow beat Indiana and Fey.
+In the second round, Val and Ollie beat Blake and Jamie.
+In the third round, Val and Emery beat Casey and Peyton.","Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Val was at shooting in the second round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Willow was at shooting in the first round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Indiana was at shooting in the first round?","Query 7: In a new round later this same day between Val and Willow (Team 1) and Indiana and Jamie (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Val and Indiana (Team 1) and Willow and Fey (Team 2), who would win and by how much?"
+biathalon_shooting-accuracy_team-explain-away-11b-dec_win_how_much_explicit_continuous_variable,biathalon,team-explain-away-11b-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Casey and Val lost to Quinn and Harper.
+In the second round, Casey and Max lost to Quinn and Taylor.
+In the third round, Casey and Avery lost to Quinn and Drew.
+In the fourth round, Casey and Val beat Quinn and Harper.","Query 1: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Casey was at shooting in the fourth round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Val was at shooting in the fourth round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Quinn was at shooting in the fourth round?","Query 7: In a new round later this same day between Casey and Val (Team 1) and Max and Drew (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Casey and Quinn (Team 1) and Val and Harper (Team 2), who would win and by how much?"
+biathalon_shooting-accuracy_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable,biathalon,team-explain-away-confounded-opponent-partner-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Drew and Ness beat Gale and Quinn.
+In the second round, Drew and Ness lost to Gale and Quinn.
+In the third round, Drew and Ness beat Gale and Harper.
+In the fourth round, Drew and Ness beat Gale and Val.
+In the fifth round, Drew and Ness beat Gale and Lane.","Query 1: Out of 100 random athletes, where do you think Drew ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Ness ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Drew was at shooting in the second round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Ness was at shooting in the second round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Gale was at shooting in the second round?","Query 7: In a new round later this same day between Drew and Ness (Team 1) and Gale and Quinn (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Drew and Ness (Team 1) and Quinn and Harper (Team 2), who would win and by how much?"
+biathalon_shooting-accuracy_team-strong-indirect-14-dec_win_how_much_explicit_continuous_variable,biathalon,team-strong-indirect-14-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Avery and Blake lost to Kay and Drew.
+In the second round, Blake and Peyton beat Kay and Drew.
+In the third round, Blake and Willow beat Kay and Drew.","Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Avery was at shooting in the first round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Blake was at shooting in the first round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the first round?","Query 7: In a new round later this same day between Avery and Blake (Team 1) and Peyton and Kay (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Avery and Kay (Team 1) and Blake and Drew (Team 2), who would win and by how much?"
+biathalon_shooting-accuracy_team-weak-indirect-15-dec_win_how_much_explicit_continuous_variable,biathalon,team-weak-indirect-15-dec,"In this event, the athletes are competing in a series of biathlon relay tournaments, a winter sport that combines cross-country skiing races and rifle shooting. Each tournament consists of a series of rounds.
+In each round, athletes compete on teams. In a biathlon, each athlete first skis a short distance, then shoots at a target.
+Athletes are scored based on how fast they ski and how accurately they shoot. An athlete’s ability to ski is based on their intrinsic strength. Note that an athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between rounds. You can assume that all matches take place on the same day.
+An athlete’s ability to shoot accurately is unrelated to their intrinsic strength. An athlete who is intrinsically strong may be a very good shooter, a very bad shooter, or something in between. Athlete’s shooting accuracy in any given round is also somewhat down to chance.
+A team’s overall score is determined by the sum of the scores for each athlete per event. Ski performance and shooting accuracy are weighted equally. Athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the course with the highest score wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.","In the first round, Willow and Kay beat Gale and Peyton.
+In the second round, Kay and Jamie beat Gale and Peyton.
+In the third round, Kay and Quinn beat Gale and Peyton.","Query 1: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how accurate do you think Willow was at shooting in the first round?
+Query 5: On a percentage scale from 0 to 100%, how accurate do you think Kay was at shooting in the first round?
+Query 6: On a percentage scale from 0 to 100%, how accurate do you think Gale was at shooting in the first round?","Query 7: In a new round later this same day between Willow and Kay (Team 1) and Jamie and Gale (Team 2), who would win and by how much?
+Query 8: In a new round later this same day between Willow and Gale (Team 1) and Kay and Peyton (Team 2), who would win and by how much?"
+canoe-race_effort_team-confounded-opponent-12-dec_win_how_much_explicit_continuous_variable,canoe-race,team-confounded-opponent-12-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Val and Gale lost to Avery and Kay.
+In the second race, Val and Harper lost to Avery and Ness.
+In the third race, Val and Indiana lost to Avery and Casey.","Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Val put into the second race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the first race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second race?","Query 7: In a new race later this same day between Val and Gale (Team 1) and Harper and Casey (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Val and Avery (Team 1) and Gale and Kay (Team 2), who would win and by how much?"
+canoe-race_effort_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable,canoe-race,team-confounded-partner-10-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Gale and Emery lost to Kay and Indiana.
+In the second race, Gale and Emery lost to Fey and Quinn.
+In the third race, Gale and Emery lost to Jamie and Casey.","Query 1: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Jamie ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the third race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Emery put into the third race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Jamie put into the third race?","Query 7: In a new race later this same day between Gale and Emery (Team 1) and Kay and Casey (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Gale and Kay (Team 1) and Emery and Indiana (Team 2), who would win and by how much?"
+canoe-race_effort_team-explain-away-11-dec_win_how_much_explicit_continuous_variable,canoe-race,team-explain-away-11-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Avery and Peyton beat Val and Casey.
+In the second race, Avery and Jamie beat Val and Harper.
+In the third race, Avery and Kay beat Val and Taylor.
+In the fourth race, Avery and Peyton lost to Val and Casey.","Query 1: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the fourth race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the fourth race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Val put into the fourth race?","Query 7: In a new race later this same day between Avery and Peyton (Team 1) and Jamie and Taylor (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Avery and Val (Team 1) and Peyton and Casey (Team 2), who would win and by how much?"
+canoe-race_effort_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable,canoe-race,team-explain-away-confounded-opponent-partner-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Blake and Avery beat Lane and Ollie.
+In the second race, Blake and Avery lost to Lane and Ollie.
+In the third race, Blake and Avery beat Lane and Willow.
+In the fourth race, Blake and Avery beat Lane and Quinn.
+In the fifth race, Blake and Avery beat Lane and Robin.","Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the second race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the second race?","Query 7: In a new race later this same day between Blake and Avery (Team 1) and Lane and Ollie (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Blake and Avery (Team 1) and Ollie and Willow (Team 2), who would win and by how much?"
+canoe-race_effort_team-explain-away-diverse-confounded-partner-dec_win_how_much_explicit_continuous_variable,canoe-race,team-explain-away-diverse-confounded-partner-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Sam and Ollie beat Taylor and Blake.
+In the second race, Sam and Ollie beat Indiana and Avery.
+In the third race, Sam and Ollie lost to Indiana and Blake.
+In the fourth race, Sam and Ollie beat Taylor and Indiana.
+In the fifth race, Sam and Ollie beat Avery and Blake.","Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Ollie ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the third race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Ollie put into the third race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the third race?","Query 7: In a new race later this same day between Sam and Ollie (Team 1) and Indiana and Blake (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Sam and Taylor (Team 1) and Ollie and Avery (Team 2), who would win and by how much?"
+canoe-race_effort_team-strong-indirect-13-dec_win_how_much_explicit_continuous_variable,canoe-race,team-strong-indirect-13-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Sam and Val beat Max and Taylor.
+In the second race, Val and Drew lost to Max and Taylor.
+In the third race, Val and Peyton lost to Max and Taylor.","Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Max ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Sam put into the first race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Max put into the first race?","Query 7: In a new race later this same day between Sam and Val (Team 1) and Drew and Max (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Sam and Max (Team 1) and Val and Taylor (Team 2), who would win and by how much?"
+canoe-race_effort_team-strong-indirect-14-dec_win_how_much_explicit_continuous_variable,canoe-race,team-strong-indirect-14-dec,"In this event, the athletes are competing in a series of canoe racing tournaments. Each tournament consists of a series of races. In each race, athletes compete as part of a team.
+An athlete's intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between races. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given race. Most of the time, people row with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength. Other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest.
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete. How fast an athlete rows in a given race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that rows the fastest (highest team speed) in a given race wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.","In the first race, Robin and Willow lost to Gale and Ollie.
+In the second race, Willow and Drew beat Gale and Ollie.
+In the third race, Willow and Val beat Gale and Ollie.","Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Willow ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Gale ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first race?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Willow put into the first race?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Gale put into the first race?","Query 7: In a new race later this same day between Robin and Willow (Team 1) and Drew and Gale (Team 2), who would win and by how much?
+Query 8: In a new race later this same day between Robin and Gale (Team 1) and Willow and Ollie (Team 2), who would win and by how much?"
+tug-of-war_effort_team-confounded-opponent-12-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-confounded-opponent-12-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Indiana and Lane lost to Taylor and Ness.
+In the second match, Indiana and Casey lost to Taylor and Avery.
+In the third match, Indiana and Kay lost to Taylor and Fey.","Query 1: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Lane ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the second match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Lane put into the first match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the second match?","Query 7: In a new match later this same day between Indiana and Lane (Team 1) and Casey and Fey (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Indiana and Taylor (Team 1) and Lane and Ness (Team 2), who would win and by how much?"
+tug-of-war_effort_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-confounded-partner-10-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Blake and Peyton lost to Ness and Taylor.
+In the second match, Blake and Peyton lost to Quinn and Harper.
+In the third match, Blake and Peyton lost to Robin and Max.","Query 1: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the third match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the third match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the third match?","Query 7: In a new match later this same day between Blake and Peyton (Team 1) and Ness and Max (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Blake and Ness (Team 1) and Peyton and Taylor (Team 2), who would win and by how much?"
+tug-of-war_effort_team-explain-away-confounded-opponent-partner-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-explain-away-confounded-opponent-partner-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Taylor and Indiana beat Quinn and Max.
+In the second match, Taylor and Indiana lost to Quinn and Max.
+In the third match, Taylor and Indiana beat Quinn and Avery.
+In the fourth match, Taylor and Indiana beat Quinn and Blake.
+In the fifth match, Taylor and Indiana beat Quinn and Robin.","Query 1: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Indiana ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Quinn ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the second match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Indiana put into the second match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Quinn put into the second match?","Query 7: In a new match later this same day between Taylor and Indiana (Team 1) and Quinn and Max (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Taylor and Indiana (Team 1) and Max and Avery (Team 2), who would win and by how much?"
+tug-of-war_effort_team-explain-away-diverse-confounded-partner-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-explain-away-diverse-confounded-partner-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Taylor and Avery beat Kay and Robin.
+In the second match, Taylor and Avery beat Fey and Jamie.
+In the third match, Taylor and Avery lost to Fey and Robin.
+In the fourth match, Taylor and Avery beat Kay and Fey.
+In the fifth match, Taylor and Avery beat Jamie and Robin.","Query 1: Out of 100 random athletes, where do you think Taylor ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Taylor put into the third match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the third match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the third match?","Query 7: In a new match later this same day between Taylor and Avery (Team 1) and Fey and Robin (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Taylor and Kay (Team 1) and Avery and Jamie (Team 2), who would win and by how much?"
+tug-of-war_effort_team-round-robin-20-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-round-robin-20-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Peyton and Avery lost to Blake and Casey.
+In the second match, Peyton and Blake lost to Avery and Casey.
+In the third match, Peyton and Casey lost to Avery and Blake.","Query 1: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Avery ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the second match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Avery put into the second match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the second match?","Query 7: In a new match later this same day between Peyton and Avery (Team 1) and Blake and Gale (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Peyton and Blake (Team 1) and Avery and Gale (Team 2), who would win and by how much?"
+tug-of-war_effort_team-weak-indirect-15-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-weak-indirect-15-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Robin and Peyton beat Kay and Ollie.
+In the second match, Peyton and Quinn beat Kay and Ollie.
+In the third match, Peyton and Fey beat Kay and Ollie.","Query 1: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Kay ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Peyton put into the first match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Kay put into the first match?","Query 7: In a new match later this same day between Robin and Peyton (Team 1) and Quinn and Kay (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Robin and Kay (Team 1) and Peyton and Ollie (Team 2), who would win and by how much?"
+tug-of-war_effort_team-weak-indirect-16-dec_win_how_much_explicit_continuous_variable,tug-of-war,team-weak-indirect-16-dec,"In this event, the athletes are competing in tug-of-war tournaments. Each tournament consists of a series of matches. In each match, athletes compete as part of a team.
+An athlete’s intrinsic strength remains constant throughout a tournament. An athlete neither gets stronger nor weaker between matches. You can assume that all matches take place on the same day.
+Athletes also vary in the effort that they put into any given match. Most of the time, people pull with a moderately high amount of effort. Sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength. Other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest.
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match. How hard each athlete pulls in a given match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+The team that pulls the hardest in a given match wins.
+Athletes compete either individually or as a team.
+All matches take place on the same day.","An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.","In the first match, Emery and Casey lost to Fey and Blake.
+In the second match, Casey and Harper lost to Fey and Blake.
+In the third match, Casey and Jamie lost to Fey and Blake.","Query 1: Out of 100 random athletes, where do you think Emery ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Casey ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Fey ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Emery put into the first match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Casey put into the first match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Fey put into the first match?","Query 7: In a new match later this same day between Emery and Casey (Team 1) and Harper and Fey (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Emery and Fey (Team 1) and Casey and Blake (Team 2), who would win and by how much?"

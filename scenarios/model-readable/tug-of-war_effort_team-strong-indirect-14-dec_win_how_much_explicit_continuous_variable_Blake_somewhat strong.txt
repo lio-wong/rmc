@@ -1,0 +1,25 @@
+BACKGROUND
+An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+A team beats another in a given match if their team pulls harder than the other team.
+A team loses if their team did not beat the other team in a given match.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.
+
+CONDITIONS
+In the first match, Val and Robin lost to Blake and Jamie.
+In the second match, Robin and Gale beat Blake and Jamie.
+In the third match, Robin and Kay beat Blake and Jamie.
+Blake is somewhat strong.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Val ranks in terms of intrinsic strength?
+Query 2: Out of 100 random athletes, where do you think Robin ranks in terms of intrinsic strength?
+Query 3: Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?
+Query 4: On a percentage scale from 0 to 100%, how much effort do you think Val put into the first match?
+Query 5: On a percentage scale from 0 to 100%, how much effort do you think Robin put into the first match?
+Query 6: On a percentage scale from 0 to 100%, how much effort do you think Blake put into the first match?
+Query 7: In a new match later this same day between Val and Robin (Team 1) and Gale and Blake (Team 2), who would win and by how much?
+Query 8: In a new match later this same day between Val and Blake (Team 1) and Robin and Jamie (Team 2), who would win and by how much?

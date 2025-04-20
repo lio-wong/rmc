@@ -1,0 +1,14 @@
+tag,base-stimulus-outcomes,vague-adjective-players-of-interest
+team-strong-indirect-14-dec,"P1, P2 < P5, P6
+P2, P3 > P5, P6
+P2, P4 > P5, P6","P1,P5"
+team-explain-away-11-dec,"P1, P2 > P5, P6
+P1, P3 > P5, P7
+P1, P4 > P5, P8
+P1, P2 < P5, P6","P1,P5"
+team-confounded-partner-9-dec,"P1, P2 > P3, P4
+P1, P2 > P5, P6
+P1, P2 > P7, P8",P1
+team-diverse-17-dec,"P1, P2 > P5, P6
+P1, P3 > P7, P8
+P1, P4 > P9, PZ",P1
