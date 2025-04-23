@@ -1,0 +1,18 @@
+BACKGROUND
+An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+The team that completes the biathlon round with the highest score beats the other team.
+A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.
+
+CONDITIONS
+In the first round, Peyton and Ness lost to Robin and Blake.
+In the second round, Peyton and Taylor lost to Drew and Kay.
+In the third round, Peyton and Fey lost to Willow and Gale.
+
+QUERIES
+Query 1: In a new round later this same day between Peyton and Ness (Team 1) and Robin and Kay (Team 2), who would win and by how much?
+Query 2: In a new round later this same day between Peyton and Robin (Team 1) and Ness and Blake (Team 2), who would win and by how much?

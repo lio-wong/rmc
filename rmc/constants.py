@@ -33,6 +33,32 @@ var mean = function(ar){
 }
 """
 
+# CODE FOR GENERATING STIMULI.
+MATCH2IDX = {"M1": "first", "M2": "second", "M3": "third", "M4": "fourth", "M5": "fifth", "M6": "sixth", "M7": "seventh"}
+
+GENDER_NEUTRAL_NAMES = """Avery
+Blake
+Casey
+Drew
+Emery
+Fey
+Gale
+Harper
+Indiana
+Jamie
+Kay
+Lane
+Max
+Ness
+Ollie
+Peyton
+Quinn
+Robin
+Sam
+Taylor
+Val
+Willow""".split("\n")
+
 SUBDOMAIN_BLOCK_TOWERS = "block-towers"
 
 TRANSLATIONS_HEADER = """

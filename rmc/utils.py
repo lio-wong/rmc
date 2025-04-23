@@ -25,6 +25,16 @@ import re
 
 from rmc.constants import *
 
+def impute_names(scenario_str, name_set): 
+    for person_id, name in name_set.items():
+        scenario_str = scenario_str.replace(person_id, name)
+    return scenario_str
+
+def impute_win_loss(scenario_str): 
+    scenario_str = scenario_str.replace(">", "beat")
+    scenario_str = scenario_str.replace("<", "lost to")
+    return scenario_str
+
 def read_example(filepth): 
     with open(filepth, "r") as f: 
         return "".join(f.readlines())

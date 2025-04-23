@@ -1,0 +1,18 @@
+BACKGROUND
+An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+A team beats another team in a given race if the first team rows faster than the other team.
+A team loses if their team did not beat the other team in a given race.
+An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.
+
+CONDITIONS
+In the first race, Fey and Harper lost to Sam and Avery.
+In the second race, Fey and Robin lost to Sam and Willow.
+In the third race, Fey and Quinn lost to Sam and Lane.
+
+QUERIES
+Query 1: In a new race later this same day between Fey and Harper (Team 1) and Robin and Lane (Team 2), who would win and by how much?
+Query 2: In a new race later this same day between Fey and Sam (Team 1) and Harper and Avery (Team 2), who would win and by how much?

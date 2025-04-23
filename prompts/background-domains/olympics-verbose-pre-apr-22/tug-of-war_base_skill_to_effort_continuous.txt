@@ -1,0 +1,93 @@
+// An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+<BEGIN_CODE>
+var intrinsic_strength = mem(function ({athlete}) {
+      var parameter_intrinsic_strength_average = 100;
+      var parameter_intrinsic_strength_variance = 20;
+      return Math.max(gaussian(parameter_intrinsic_strength_average, parameter_intrinsic_strength_variance), 0)
+    })
+<END_CODE>
+
+// Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+<BEGIN_CODE>
+var effort_percentage_level_in_match = mem(function({athlete, match}) {
+      var strong_threshold = 140;
+      var weak_threshold = 90;
+
+      var parameter_low_effort_prior = 
+          intrinsic_strength(athlete) > strong_threshold ? 0.05 :
+               intrinsic_strength(athlete) < weak_threshold ?  0.8 :
+                                                     0.2;
+      var parameter_moderate_effort_prior = intrinsic_strength(athlete) > strong_threshold ? 0.15 :
+               intrinsic_strength(athlete) < weak_threshold ?  0.15 : 
+                                                        0.6;
+      var parameter_extra_high_effort_prior = intrinsic_strength(athlete) > strong_threshold ? 0.8 :  
+               intrinsic_strength(athlete) < weak_threshold ?  0.05 : 
+                                                        0.2; 
+      var low_effort_average = 40; 
+      var moderate_effort_average = 60;
+      var extra_high_effort_average = 80;
+      var effort_variance = 10;
+      
+      var effort_average = categorical({ps: [parameter_low_effort_prior, parameter_moderate_effort_prior, parameter_extra_high_effort_prior], 
+      vs: [low_effort_average, moderate_effort_average, extra_high_effort_average]});
+
+      return Math.min(Math.max(gaussian(effort_average, effort_variance), 0), 100)
+    })
+<END_CODE>
+
+// How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+<BEGIN_CODE>
+var how_hard_each_athlete_pulls_in_given_match = mem(function({athlete, match}) {
+      var base_pulling_strength_in_match =  intrinsic_strength({athlete : athlete});
+
+      var average_effort = 50;
+      var strength_modulated_for_effort_level = (effort_percentage_level_in_match({athlete: athlete, match: match}) / average_effort) * base_pulling_strength_in_match;
+
+      return strength_modulated_for_effort_level;
+    })
+<END_CODE>
+
+// How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+<BEGIN_CODE>
+var how_hard_team_pulls_overall_in_given_match = function({team, match}) {
+      return sum(map(function(athlete) { return how_hard_each_athlete_pulls_in_given_match({athlete: athlete, match: match}) }, team))
+    }
+<END_CODE>
+
+// A team beats another in a given match if their team pulls harder than the other team.
+<BEGIN_CODE>
+var beat = function({team1, team2, match}){
+    return how_hard_team_pulls_overall_in_given_match({team: team1, match: match}) > how_hard_team_pulls_overall_in_given_match({team: team2, match: match})
+}
+<END_CODE>
+
+// A team loses if their team did not beat the other team in a given match.
+<BEGIN_CODE>
+var lost = function({team1, team2, match}){ 
+      return !beat({team1: team1, team2: team2, match: match})
+}
+<END_CODE>
+
+// An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+<BEGIN_CODE>
+var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
+        var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
+        
+        return sum(map(
+            function(random_athlete_id) {
+              return intrinsic_strength({athlete: athlete}) > intrinsic_strength({athlete: random_athlete_id})}, random_athlete_ids))
+    }
+<END_CODE>
+
+// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.
+<BEGIN_CODE>
+var who_would_win_by_how_much = function({team1, team2, match}) {
+      var num_future_matches_to_simulate = 100;
+      var random_future_match_ids = mapN(function(x) {return uniform(match+1, 1000)}, num_future_matches_to_simulate);
+
+      var simulated_matches_won_by_team_2 = sum(map(
+            function(random_future_match_id) {
+              return lost({team1: team1, team2: team2, match: random_future_match_id})}, random_future_match_ids))
+      return simulated_matches_won_by_team_2 / num_future_matches_to_simulate;
+    }
+<END_CODE>
