@@ -64,7 +64,7 @@ SUBDOMAIN_BLOCK_TOWERS = "block-towers"
 TRANSLATIONS_HEADER = """
 Translate each new sentence into a function of WebPPL code. Begin each translation with <BEGIN_CODE> and end each translation with <END_CODE>. Functions may call any library function, or any other function in the context delimited by the current <START_LANGUAGE_TO_WEBPPL_CODE> scope.
 """
-
+BACKTAG_BOLD = "</b>"
 CODE_CONTINUATION_HEADER = "/** This is a code generation task. Your job is to write simple probabilisitic programs in the WebPPL programming language. Please delimit any new functions or expressions with two new line characters. **/\n"
 
 CODE_EXAMPLE_HEADER = "/** Here is an example probabilistic program written in WebPPL, which you should reference to write a new model, which is like these.\n**/\n"
@@ -72,6 +72,25 @@ CODE_EXAMPLE_HEADER = "/** Here is an example probabilistic program written in W
 CODE_ANOTHER_EXAMPLE_HEADER = "/** Here is another example probabilistic program written in WebPPL.\n**/\n"
 
 CODE_YOUR_EXAMPLE_HEADER = "/** Given those examples, please try to continue the following WebPPL model. You should directly continue the model in line. Please generate only the next expression of the comment that is there and then stop by generating, producing two new line characters to end the line. **/\n"
+
+SKILL_QUESTION = "Out of 100 random athletes, where do you think {player} ranks in terms of <b>overall {skill_q_txt}{back_tag}?"
+SKILL_QUESTION_SCALE = (
+    "Better than 0 athletes",
+    "25 athletes",
+    "50 athletes",
+    "75 athletes",
+    "Better than 100 athletes",
+)
+
+NEW_MATCH_LIKELIHOOD_QUESTION = "In a new {match_token} later this same day between {comp1} (Team 1) and {comp2} (Team 2), which team would be <b>more likely to win>{back_tag}?"
+
+NEW_MATCH_LIKELIHOOD_QUESTION_SCALE = (
+    "Definitely Team 1",
+    "Likely Team 1",
+    "Equally likely Team 1 or Team 2",
+    "Likely Team 2",
+    "Definitely Team 2",
+)
 
 sports_map = {
     "tug-of-war": {"description": """In this event, the athletes are competing in matches of tug-of-war. In each round, the team that wins the round depends on how hard the athletes collectively pull, based on their intrinsic strength modulated by other factors including how much effort they put in to that round.""",
@@ -88,6 +107,7 @@ The team that pulls the hardest in a given match wins.
  """,
     "skill": "strength",
     "latent": "effort",
+    "latent_scale": ("0% (No effort at all)", "25%", "50%", "75%", "100% (Maximum effort)"),
     "match": "match"},
     "canoe-race": {"description": """In this event, the athletes are competing in a series of canoe races. In each race, the team that wins depends on the average speed with which the athletes are able to row, based on their intrinsic strength modulated by other factors including how much effort they put in to that race.""",
                    "description_full": """
@@ -103,6 +123,7 @@ The team that rows the fastest (highest team speed) in a given race wins.
                    """,
     "skill": "strength",
     "latent": "effort",
+    "latent_scale": ("0% (No effort at all)", "25%", "50%", "75%", "100% (Maximum effort)"),
     "match": "race"},
 
     "diving": {"description": """In this event, teams of players are competing in rounds of a synchronized diving tournament. The overall dive difficulty attempted by any given team is determined by the least skilled athlete on the team. In each round of a synchronized dive, the team's overall score depends on their dive difficulty and how well matched the team members are in their execution in that particular round.""",
@@ -140,15 +161,19 @@ The team that completes the course with the highest score wins.
 """,
     "skill": "strength",
     "latent": "shooting-accuracy",
+    "latent_scale" : ("0% accurate", "25%", "50%", "75%", "100% accurate"),
     "match": "round"},    
 }
 
 latents = {
     "effort": {"description": "tried hard in", "preface": "Did", "question": 
-    "On a percentage scale from 0 to 100%, how much effort do you think {player} put into the {match_idx} {match_token}?", "token": "effort"},
+    "On a percentage scale from 0 to 100%, how much <b>effort{back_tag} do you think {player} put into the <b>{match_idx} {match_token}{back_tag}?", "token": "effort",
+    "scale": ("0% (No effort at all)", "25%", "50%", "75%", "100% (Maximum effort)"),
+    },
     "well-synchronized": {"description": "was well synchronized in", "preface": "Was", "question": "On a percentage scale from 0 to 100%, how well synchronized do you think {player} was with their teammate in the {match_idx} {match_token}?", "token": "well synchronized"},
     "difficulty": {"description": "attempt a difficult dive in", "preface": "Did", "question": "On a percentage scale from 0 to 100% (where 0=extremely easy, 100=as difficult as possible), how difficult of a dive do you think the team {player} was on in {match_idx} {match_token} attempted?", "token": "difficulty"},
-    "shooting-accuracy": {"description": "had good shooting accuracy in", "preface": "Had", "question": "On a percentage scale from 0 to 100%, how accurate do you think {player} was at shooting in the {match_idx} {match_token}?", "token": "accurate"},
+    "shooting-accuracy": {"description": "had good shooting accuracy in", "preface": "Had", "question": "On a percentage scale from 0 to 100%, how <b>accurate></b> do you think {player} was at shooting in the <b>{match_idx} {match_token}{back_tag}?", "token": "accurate", 
+    "scale": ("0% inaccurate", "25%", "50%", "75%", "100% accurate")},
 }
 
 skill_map = {"skill": "more skilled", "strength": "stronger", "fast": "faster"}

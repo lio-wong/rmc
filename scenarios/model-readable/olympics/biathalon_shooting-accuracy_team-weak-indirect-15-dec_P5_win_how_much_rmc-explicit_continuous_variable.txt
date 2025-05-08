@@ -1,0 +1,19 @@
+BACKGROUND
+Athletes vary a lot in how <b>strong</b> they are overall. Some athletes are very strong, most are average, and some are weak. This doesn't change throughout the course of the day.
+One part of this sport involves skiing. Stronger athletes can ski faster than weaker athletes.
+Another part of this sport involves shooting. Athletes also vary a lot in how <b>accurate at shooting a rifle</b> they tend to be in any given round. Stronger and more experienced athletes also tend to be more accurate than weaker and less experienced athletes.
+In each round, teams of athletes compete in a skiing race, followed by a target shooting round. Athletes receive a score for how fast they ski, and how accurate they are at shooting in that round. The team's <b>overall score</b> in each round is determined by total scores of the athletes on the team.
+The team that completes the biathlon round with the highest score <b>beats</b> the other team.
+The team that completes the biathlon round with the lowest score <b>loses</b> to the other team.
+When we ask you about an athlete's <b>overall strength ranking</b>, you should imagine a set of random other walk-ons -- how many would this athlete be <b>stronger</b> than?
+Finally, when we ask you to imagine a new biathlon round later this same day, you should imagine the two teams competing against each other and tell us which one you think is <b>more likely to win</b>.
+
+CONDITIONS
+In the first round, Harper and Jamie <b>beat</b> Gale and Lane.
+In the second round, Jamie and Avery <b>beat</b> Gale and Lane.
+In the third round, Jamie and Val <b>beat</b> Gale and Lane.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Gale ranks in terms of <b>overall strength</b>?
+Query 2: On a percentage scale from 0 to 100%, how <b>accurate></b> do you think Gale was at shooting in the <b>second round</b>?
+Query 3: In a new round later this same day between Harper and Gale (Team 1) and Jamie and Lane (Team 2), which team would be <b>more likely to win></b>?

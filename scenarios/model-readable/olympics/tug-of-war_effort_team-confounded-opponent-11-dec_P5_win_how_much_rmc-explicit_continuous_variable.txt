@@ -1,0 +1,19 @@
+BACKGROUND
+The athletes in this tournament have very different <b>strengths</b>.
+The athletes also put in different amounts of <b>effort into <i>each match</i></b>. In general, stronger athletes usually put in more effort, but effort really comes down to chance for each match.
+How hard <b>an athlete pulls</b> in each match depends on <b>both strength and effort</b>. They'll pull harder with more effort, and less hard with less effort.
+Then, how <b>an entire team of athletes pulls</b> depends on the total amount that all the athletes pull in that match.
+In tug-of-war, a team <b>beats</b> another if they pull harder in that match.
+A team <b>loses</b> to another if they pull less hard than the other team in that match.
+We will ask you to imagine how an athlete <b>ranks in terms of strength</b>. You should imagine how they would compare to a bunch of other random athletes, without taking effort into account.
+We will also ask you to imagine the results of <b>fantasy matches between new teams</b>. You should imagine the teams competing against each other, and then tell us which one you think is <b>more likely to win</b>.
+
+CONDITIONS
+In the first match, Drew and Taylor <b>beat</b> Sam and Lane.
+In the second match, Drew and Ollie <b>beat</b> Sam and Gale.
+In the third match, Drew and Blake <b>beat</b> Sam and Ness.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Sam ranks in terms of <b>overall strength</b>?
+Query 2: On a percentage scale from 0 to 100%, how much <b>effort</b> do you think Sam put into the <b>second match</b>?
+Query 3: In a new match later this same day between Sam and Drew (Team 1) and Taylor and Ness (Team 2), which team would be <b>more likely to win></b>?

@@ -33,6 +33,8 @@ def impute_names(scenario_str, name_set):
 def impute_win_loss(scenario_str): 
     scenario_str = scenario_str.replace(">", "beat")
     scenario_str = scenario_str.replace("<", "lost to")
+    scenario_str = scenario_str.replace("beat", "<b>beat</b>")
+    scenario_str = scenario_str.replace("lost to", "<b>lost to</b>")
     return scenario_str
 
 def read_example(filepth): 

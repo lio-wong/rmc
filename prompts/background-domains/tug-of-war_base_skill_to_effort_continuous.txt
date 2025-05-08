@@ -1,4 +1,4 @@
-// An athlete’s intrinsic strength remains constant throughout a tug of war tournament, and varies somewhat widely from athlete to athlete.
+// The athletes in this tournament have very different <b>strengths</b>.
 <BEGIN_CODE>
 var intrinsic_strength = mem(function ({athlete}) {
       var parameter_intrinsic_strength_average = 100;
@@ -7,7 +7,7 @@ var intrinsic_strength = mem(function ({athlete}) {
     })
 <END_CODE>
 
-// Athletes also vary in the percentage level of effort that they put into any given tug of war match -- most of the time, people pull with a moderately high amount of effort,sometimes, an athlete won’t put in much effort and will pull with only a fraction of their strength, and other times, they may put in a lot of effort and pull extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+// The athletes also put in different amounts of <b>effort into <i>each match</i></b>. In general, stronger athletes usually put in more effort, but effort really comes down to chance for each match.
 <BEGIN_CODE>
 var effort_percentage_level_in_match = mem(function({athlete, match}) {
       var strong_threshold = 140;
@@ -35,7 +35,7 @@ var effort_percentage_level_in_match = mem(function({athlete, match}) {
     })
 <END_CODE>
 
-// How hard each athlete pulls in a given tug of war match is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+// How hard <b>an athlete pulls</b> in each match depends on <b>both strength and effort</b>. They'll pull harder with more effort, and less hard with less effort.
 <BEGIN_CODE>
 var how_hard_each_athlete_pulls_in_given_match = mem(function({athlete, match}) {
       var base_pulling_strength_in_match =  intrinsic_strength({athlete : athlete});
@@ -47,28 +47,28 @@ var how_hard_each_athlete_pulls_in_given_match = mem(function({athlete, match}) 
     })
 <END_CODE>
 
-// How hard a team pulls overall in any given match is determined by the total amount that all of the athletes on the team pull in that match.
+// Then, how <b>an entire team of athletes pulls</b> depends on the total amount that all the athletes pull in that match.
 <BEGIN_CODE>
 var how_hard_team_pulls_overall_in_given_match = function({team, match}) {
       return sum(map(function(athlete) { return how_hard_each_athlete_pulls_in_given_match({athlete: athlete, match: match}) }, team))
     }
 <END_CODE>
 
-// A team beats another in a given match if their team pulls harder than the other team.
+// In tug-of-war, a team <b>beats</b> another if they pull harder in that match. 
 <BEGIN_CODE>
 var beat = function({team1, team2, match}){
     return how_hard_team_pulls_overall_in_given_match({team: team1, match: match}) > how_hard_team_pulls_overall_in_given_match({team: team2, match: match})
 }
 <END_CODE>
 
-// A team loses if their team did not beat the other team in a given match.
+// A team <b>loses</b> to another if they pull less hard than the other team in that match. 
 <BEGIN_CODE>
 var lost = function({team1, team2, match}){ 
-      return !beat({team1: team1, team2: team2, match: match})
+      return how_hard_team_pulls_overall_in_given_match({team: team1, match: match}) < how_hard_team_pulls_overall_in_given_match({team: team2, match: match})
 }
 <END_CODE>
 
-// An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+// We will ask you to imagine how an athlete <b>ranks in terms of strength</b>. You should imagine how they would compare to a bunch of other random athletes, without taking effort into account.
 <BEGIN_CODE>
 var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
         var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
@@ -79,7 +79,7 @@ var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
     }
 <END_CODE>
 
-// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random match.
+// We will also ask you to imagine the results of <b>fantasy matches between new teams</b>. You should imagine the teams competing against each other, and then tell us which one you think is <b>more likely to win</b>.
 <BEGIN_CODE>
 var who_would_win_by_how_much = function({team1, team2, match}) {
       var num_future_matches_to_simulate = 100;

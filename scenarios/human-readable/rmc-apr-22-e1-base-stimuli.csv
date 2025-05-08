@@ -1,0 +1,80 @@
+tag,base-stimulus-outcomes,match-queries,newmatch-queries,relationship-to-gersternberg-goodman
+team-confounded-partner-9-dec,"P1, P2 > P3, P4
+P1, P2 > P5, P6
+P1, P2 > P7, P8","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P5, P8
+P5, P1 vs. P2, P8",trial-9
+team-confounded-partner-10-dec,"P1, P2 < P3, P4
+P1, P2 < P5, P6
+P1, P2 < P7, P8","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P5, P8
+P5, P1 vs. P2, P8",trial-10
+team-confounded-opponent-11-dec,"P1, P2 > P5, P6
+P1, P3 > P5, P7
+P1, P4 > P5, P8","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P5, P8
+P5, P1 vs. P2, P8",trial-11
+team-confounded-opponent-12-dec,"P1, P2 < P5, P6
+P1, P3 < P5, P7
+P1, P4 < P5, P8","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P5, P8
+P5, P1 vs. P2, P8",trial-12
+team-strong-indirect-13-dec,"P1, P2 > P5, P6
+P2, P3 < P5, P6
+P2, P4 < P5, P6","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P3, P5
+P1, P5 vs. P2, P6",trial-13
+team-strong-indirect-14-dec,"P1, P2 < P5, P6
+P2, P3 > P5, P6
+P2, P4 > P5, P6","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P3, P5
+P1, P5 vs. P2, P6",trial-14
+team-weak-indirect-15-dec,"P1, P2 > P5, P6
+P2, P3 > P5, P6
+P2, P4 > P5, P6","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P3, P5
+P1, P5 vs. P2, P6",trial-15
+team-weak-indirect-16-dec,"P1, P2 < P5, P6
+P2, P3 < P5, P6
+P2, P4 < P5, P6","{""P1"": ""M2"", ""P5"":""M2""}","P1, P2 vs. P3, P5
+P1, P5 vs. P2, P6",trial-16
+team-diverse-17-dec,"P1, P2 > P5, P6
+P1, P3 > P7, P8
+P1, P4 > P9, PZ","{""P1"": ""M1"", ""P5"":""M1""}","P1, P2 vs. P5, P8
+P1, P5 vs. P2, P6",trial-17
+team-diverse-18-dec,"P1, P2 < P5, P6
+P1, P3 < P7, P8
+P1, P4 < P9, PZ","{""P1"": ""M1"", ""P5"":""M1""}","P1, P2 vs. P5, P8
+P1, P5 vs. P2, P6",trial-18
+team-round-robin-19-dec,"P1, P2 > P3, P4
+P1, P3 > P2, P4
+P1, P4 > P2, P3","{""P1"": ""M2"", ""P4"":""M2""}","P1, P2 vs. P3, P5
+P1, P3 vs. P2, P5",trial-19
+team-round-robin-20-dec,"P1, P2 < P3, P4
+P1, P3 < P2, P4
+P1, P4 < P2, P3","{""P1"": ""M2"", ""P4"":""M2""}","P1, P2 vs. P3, P5
+P1, P3 vs. P2, P5",trial-20
+team-balanced-round-robin-3-round,"P1, P2 < P3, P4
+P1, P3 > P2, P4
+P1, P4 < P2, P3","{""P1"": ""M2"", ""P4"":""M2""}","P1, P2 vs. P4, P5
+P1, P4 vs. P2, P5",
+team-balanced-round-robin-6-round,"P1, P2 > P3, P4
+P1, P3 < P2, P4
+P1, P4 > P2, P3
+P1, P2 < P3, P4
+P1, P3 < P2, P4
+P1, P4 > P2, P3","{""P1"": ""M2"", ""P4"":""M2""}","P1, P2 vs. P4, P5
+P1, P4 vs. P2, P5",
+team-explain-away-confounded-partner-9-dec,"P1, P2 > P3, P4
+P1, P2 > P5, P6
+P1, P2 > P7, P8
+P1, P2 < P3, P4","{""P1"": ""M4"", ""P3"":""M4""}","P1, P2 vs. P3, P8
+P1, P3 vs. P2, P4",trial-9
+team-explain-away-confounded-opponent-11-dec,"P1, P2 > P5, P6
+P1, P3 > P5, P7
+P1, P9 < P5, PZ
+P1, P4 > P5, P8","{""P1"": ""M3"",""P5"": ""M3""}","P1, P2 vs. P5, P8
+P5, P1 vs. P2, P8",trial-11
+team-explain-away-diverse-17-dec,"P1, P2 > P5, P6
+P1, P3 > P7, P8
+P1, P4 > P9, PZ
+P1, P7 < P3, P4","{""P1"": ""M4"", ""P3"": ""M4""}","P1, P2 vs. P5, P8
+P1, P5 vs. P2, P6",trial-17
+team-explain-away-round-robin-19-dec,"P1, P2 > P3, P4
+P1, P3 > P2, P4
+P1, P2 < P3, P4
+P1, P4 > P2, P3","{""P1"": ""M3"", ""P3"": ""M3""}","P1, P2 vs. P3, P5
+P1, P3 vs. P2, P5",trial-19

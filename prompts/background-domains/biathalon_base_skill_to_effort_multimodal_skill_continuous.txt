@@ -1,4 +1,4 @@
-// An athlete’s intrinsic strength remains constant throughout a biathlon tournament, and varies somewhat widely from athlete to athlete.
+// Athletes vary a lot in how <b>strong</b> they are overall. Some athletes are very strong, most are average, and some are weak. This doesn't change throughout the course of the day. 
 <BEGIN_CODE>
 var intrinsic_strength = mem(function ({athlete}) {
       var parameter_weak_prior = 0.33;
@@ -17,14 +17,14 @@ var intrinsic_strength = mem(function ({athlete}) {
     })
 <END_CODE>
 
-// Athletes are scored based on how fast they ski in a given round, and an athlete’s ability to ski is based on their intrinsic strength.
+// One part of this sport involves skiing. Stronger athletes can ski faster than weaker athletes.
 <BEGIN_CODE>
 var athlete_speed_at_skiing_in_round = mem(function({athlete, round}) {
       return intrinsic_strength({athlete : athlete});
     })
 <END_CODE>
 
-// An athlete's shooting accuracy varies from round to round -- an athlete may be a very good shooter, a very bad shooter, or something in between, and an athlete's shooting accuracy in any given round is also somewhat down to chance; intuitively, accuracy probably varies as a function of intrinsic strength, because strong athletes tend to be better shots and weaker athletes who are less experienced in biathalon tend to miss lots of the shots they take.
+// Another part of this sport involves shooting. Athletes also vary a lot in how <b>accurate at shooting a rifle</b> they tend to be in any given round. Stronger and more experienced athletes also tend to be more accurate than weaker and less experienced athletes.
 <BEGIN_CODE>
 var athlete_shooting_accuracy_in_round = mem(function({athlete, round}) {
      var parameter_low_accuracy_prior = 
@@ -50,7 +50,7 @@ var athlete_shooting_accuracy_in_round = mem(function({athlete, round}) {
     })
 <END_CODE>
 
-// A team’s overall score in a biathlon round is determined by the sum of the scores for each athlete per event, and ski performance and shooting accuracy are weighted equally -- athletes receive more points for skiing faster and more points for achieving a high shooting accuracy.
+// In each round, teams of athletes compete in a skiing race, followed by a target shooting round. Athletes receive a score for how fast they ski, and how accurate they are at shooting in that round. The team's <b>overall score</b> in each round is determined by total scores of the athletes on the team.
 <BEGIN_CODE>
 var team_overall_score_in_round = function({team, round}) {
     var total_team_sum_of_scores = sum(map(function(athlete) { 
@@ -60,21 +60,21 @@ var team_overall_score_in_round = function({team, round}) {
 }
 <END_CODE>
 
-// The team that completes the biathlon round with the highest score beats the other team.
+// The team that completes the biathlon round with the highest score <b>beats</b> the other team.
 <BEGIN_CODE>
 var beat = function({team1, team2, round}){
       return team_overall_score_in_round({team: team1, round: round}) > team_overall_score_in_round({team: team2, round: round})
 }
 <END_CODE>
 
-// A biathalon team loses to another team if they did not beat that team in a given biathlon round.
+// The team that completes the biathlon round with the lowest score <b>loses</b> to the other team.
 <BEGIN_CODE>
 var lost = function({team1, team2, round}){ 
       return !beat({team1: team1, team2: team2, round: round})
 }
 <END_CODE>
 
-// An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+// When we ask you about an athlete's <b>overall strength ranking</b>, you should imagine a set of random other walk-ons -- how many would this athlete be <b>stronger</b> than?
 <BEGIN_CODE>
 var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
         var random_athlete_ids = mapN(function(x) {return uniform(0, 100)}, out_of_n_athletes - 1)
@@ -85,7 +85,7 @@ var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
     }
 <END_CODE>
 
-// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random biathlon round.
+// Finally, when we ask you to imagine a new biathlon round later this same day, you should imagine the two teams competing against each other and tell us which one you think is <b>more likely to win</b>.
 <BEGIN_CODE>
 var who_would_win_by_how_much = function({team1, team2, round}) {
       var num_future_rounds_to_simulate = 5;

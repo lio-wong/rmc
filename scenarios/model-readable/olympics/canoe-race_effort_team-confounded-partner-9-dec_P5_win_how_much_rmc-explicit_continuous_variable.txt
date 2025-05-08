@@ -1,0 +1,19 @@
+BACKGROUND
+Athletes vary a lot in how <b>strong</b> they are overall. This doesn't change throughout the course of the day.
+Athletes also vary a lot in how much <b>effort</b> they usually put into specific races. Stronger athletes also usually put in more effort than weaker athletes.
+In each race, how fast an athlete rows depends on their overall strength, and how much effort they put in. They'll row faster if they put in more effort, and slower if they put in less effort.
+How fast a <b>team</b> rows overall in any given race is determined by the average rowing speed of the athletes on the team in that race.
+A team <b>beats</b> another team in a given race if the first team rows faster than the other team.
+A team <b>loses</b> to another in a given match if their team rows slower than the other team.
+When we ask you about an athlete's <b>overall strength ranking</b>, you should imagine a set of random other walk-ons -- how many would this athlete be <b>stronger</b> than?
+Finally, when we ask you to imagine a new race later this same day, you should imagine the two teams competing against each other and tell us which one you think is <b>more likely to win</b>.
+
+CONDITIONS
+In the first race, Drew and Val <b>beat</b> Indiana and Sam.
+In the second race, Drew and Val <b>beat</b> Lane and Max.
+In the third race, Drew and Val <b>beat</b> Casey and Taylor.
+
+QUERIES
+Query 1: Out of 100 random athletes, where do you think Lane ranks in terms of <b>overall strength</b>?
+Query 2: On a percentage scale from 0 to 100%, how much <b>effort</b> do you think Lane put into the <b>second race</b>?
+Query 3: In a new race later this same day between Lane and Drew (Team 1) and Val and Taylor (Team 2), which team would be <b>more likely to win></b>?

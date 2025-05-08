@@ -1,4 +1,4 @@
-// An athlete’s intrinsic strength remains constant throughout a canoe racing tournament, and varies somewhat widely from athlete to athlete.
+// Athletes vary a lot in how <b>strong</b> they are overall. This doesn't change throughout the course of the day.
 <BEGIN_CODE>
 var intrinsic_strength = mem(function ({athlete}) {
       var parameter_intrinsic_strength_average = 100;
@@ -7,7 +7,7 @@ var intrinsic_strength = mem(function ({athlete}) {
     })
 <END_CODE>
 
-// Athletes also vary in the percentage level of effort that they put into any given canoe race -- most of the time, people row with a moderately high amount of effort, sometimes, an athlete won’t put in much effort and will row with only a fraction of their strength, and other times, they may put in a lot of effort and row extra hard, beyond what their intrinsic strength would suggest; this is contingent on an athlete's intrinsic strength, because stronger athletes probably tend to be more likely to put in extra effort, and weaker athletes probably tend to be more likely to put in less effort.
+// Athletes also vary a lot in how much <b>effort</b> they usually put into specific races. Stronger athletes also usually put in more effort than weaker athletes.
 <BEGIN_CODE>
 var effort_percentage_level_in_race = mem(function({athlete, race}) {
       var parameter_low_effort_prior = 
@@ -33,7 +33,7 @@ var effort_percentage_level_in_race = mem(function({athlete, race}) {
     })
 <END_CODE>
 
-// How fast an athlete rows in a given canoe race is determined by their intrinsic strength, modified by how much effort they put in (a lower fraction of their intrinsic strength if they don’t put in much effort, or even more than their strength if they put in more effort).
+// In each race, how fast an athlete rows depends on their overall strength, and how much effort they put in. They'll row faster if they put in more effort, and slower if they put in less effort.
 <BEGIN_CODE>
 var how_fast_an_athlete_rows_in_given_race = mem(function({athlete, race}) {
       var base_rowing_speed_in_race = intrinsic_strength({athlete : athlete})
@@ -46,28 +46,28 @@ var how_fast_an_athlete_rows_in_given_race = mem(function({athlete, race}) {
     })
 <END_CODE>
 
-// How fast a team rows overall in any given race is determined by the average rowing speed of each athlete.
+// How fast a <b>team</b> rows overall in any given race is determined by the average rowing speed of the athletes on the team in that race.
 <BEGIN_CODE>
 var how_fast_team_rows_overall_in_given_race = function({team, race}) {
       return mean(map(function(athlete) { return how_fast_an_athlete_rows_in_given_race({athlete: athlete, race: race}) }, team))
     }
 <END_CODE>
 
-// A team beats another team in a given race if the first team rows faster than the other team.
+// A team <b>beats</b> another team in a given race if the first team rows faster than the other team.
 <BEGIN_CODE>
 var beat = function({team1, team2, race}){
       return how_fast_team_rows_overall_in_given_race({team: team1, race: race}) > how_fast_team_rows_overall_in_given_race({team: team2, race: race})
     }
 <END_CODE>
 
-// A team loses if their team did not beat the other team in a given race.
+// A team <b>loses</b> to another in a given match if their team rows slower than the other team.
 <BEGIN_CODE>
 var lost = function({team1, team2, race}){ 
       return !beat({team1: team1, team2: team2, race: race})
     }
 <END_CODE>
 
-// An athlete's intrinsic strength ranking out of some number of other athletes is the number of other athletes we might expect them to be stronger than out of that many total random athletes.
+// When we ask you about an athlete's <b>overall strength ranking</b>, you should imagine a set of random other walk-ons -- how many would this athlete be <b>stronger</b> than?
 <BEGIN_CODE>
 var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
         var random_athlete_ids = mapN(function(x) {return uniform(0, 100)}, out_of_n_athletes - 1)
@@ -78,7 +78,7 @@ var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
     }
 <END_CODE>
 
-// Given two teams, we can think of who would win and by how much as the likelihood that the first team would beat the other in a new random race.
+// Finally, when we ask you to imagine a new race later this same day, you should imagine the two teams competing against each other and tell us which one you think is <b>more likely to win</b>.
 <BEGIN_CODE>
 var who_would_win_by_how_much = function({team1, team2, race}) {
       var num_future_races_to_simulate = 5;
