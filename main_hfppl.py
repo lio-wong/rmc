@@ -35,8 +35,7 @@ parser.add_argument('--sampling_method', type=str, default="rejection")
 #### Experiment utilities
 parser.add_argument('--background_domains_dir', type=str, default="prompts/background-domains")
 parser.add_argument('--scenario_dir', type=str, default="scenarios/model-readable")
-parser.add_argument('--base_dir', type=str, default="rmc-experiments/",
-    help='Base output directory for runs.')
+
 parser.add_argument('--gold_parses', type=str, default="", help='Path to gold parses for evaluation.')
 
 parser.add_argument("--replace_background_with_background_parses", action="store_true", help="If true, replace background knowledge with the version in the background parses.")
@@ -83,7 +82,7 @@ if __name__ == "__main__":
 
     experiment_tag, experiment_dir = utils.init_experiment_dir(
         base_dir=args.base_dir,
-        scenario=args.scenario,
+        base_experiment_tag=args.scenario,
         llm_type=args.llm)
     
     # save the params to that folder

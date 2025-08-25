@@ -386,12 +386,11 @@ def parse(scenario, background_domains, insert_into_raw_background_domain_str, e
         gold_parses = None
     background_prompt, gold_program = construct_background_domains_prompt(scenario, rng, background_domains, no_background_generation=args.no_background_generation, insert_into_raw_background_domain_str=insert_into_raw_background_domain_str, gold_parses=gold_parses,args=args)
 
-    
-
     print("========BACKGROUND DOMAINS:==========")
     print(background_domains)
     print("========BACKGROUND PROMPT:==========")
     print(background_prompt)
+    import pdb; pdb.set_trace()
 
     # Retrieve all of the sentences we plan to observe from the scenario.
     background_sentences, condition_sentences, query_sentences = get_all_scenario_sentences(scenario, args)

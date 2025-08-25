@@ -51,15 +51,15 @@ def get_scenario_txt(scenario, args):
         scenario_text = f"{scenario_bkgrd_txt}\n\n{scenario_text}"
     return scenario_text
 
-def init_experiment_dir(base_dir, scenario, llm_type):
+def init_experiment_dir(base_dir, base_experiment_tag, llm_type):
    
     # parse out llm type 
     # note: we may want to change this if we have different llms for different parts of synthesis
     llm_type = llm_type.split("/")[-1] # togther.ai has a backslash for some models
     
-    scenario = scenario.split("/")[-1]
+    base_experiment_tag = base_experiment_tag.split("/")[-1]
     # NOTE -- exp names got too long with prompts ... update to hierarchical/agg level prompt later!!
-    experiment_tag = f"{scenario}_{llm_type}"
+    experiment_tag = f"{base_experiment_tag}_{llm_type}"
     full_output_directory = os.path.join(base_dir, experiment_tag)
     pathlib.Path(full_output_directory).mkdir(parents=True, exist_ok=True)
     return experiment_tag, full_output_directory

@@ -1,0 +1,62 @@
+## WebPPL code generation from natural language.
+You are an expert programmer. You are writing Javascript code to solve probabilistic reasoning tasks using a probabilistic programming language (WebPPL). Your job is to turn natural language comments provided by into a corresponding expression in a WebPPL program, so that all of the translated code at each stage forms a valid WebPPL program. Please read this brief tutorial and then translate the user's comments into WebPPL code.
+
+## Overview. Modeling with WebPPL.
+The WebPPL language takes a subset of JavaScript and extends it with pieces needed to describe probabilistic computation. The key idea is that we have primitive operations that describe not only deterministic functions (like and) but stochastic operations. For example, the flip function can be thought of as simulating a (possibly biased) coin toss (technically flip samples from a Bernoulli distribution).
+
+#### Definining stochastic functions.
+In WebPPL, each time you run a program you get a sample by simulating the computations and random choices that the program specifies.
+
+A function expression with an empty argument list, function() {...}, is called a thunk: this is a function that takes no input arguments. If we apply a thunk (to no arguments!) we get a return value back, for example flip(). Complex functions can also have arguments.
+
+For readability, please use parameter destructuring to simulate named parameters. For example, you can define a function with named parameters like this:
+    var flip_weighted_coin = function ({weight}) {
+        return flip(weight) ? 'h' : 't' 
+    }
+Which can then be called like this, with a Bernoulli weight parameter of 0.8:
+    flip_weighted_coin({weight: 0.8})
+
+#### Persistent Randomness: mem.
+It is often useful to model a set of objects that each have a randomly chosen property. For instance, describing the eye colors of a set of people -- what we want is a model in which eye color is random, but persistent. We can do this using a WebPPL built-in: mem. mem is a higher order function that takes a procedure and produces a memoized version of the procedure. When a stochastic procedure is memoized, it will sample a random value the first time it is used with some arguments, but return that same value when called with those arguments thereafter.
+In the eye color example, we can represent the notion that eye color is random, but each person has a fixed eye color.
+    var eyeColor = mem(function ({person}) {
+    return uniformDraw(['blue', 'green', 'brown'])
+    });
+Now, each time we call the eyeColor function with a particular set of arguments, like 
+    eyeColor({person: 'bob'})
+we will get back the same eye color every time, but different random eye colors for different people.
+
+#### Conditional Distributions: condition.
+
+
+## Examples. 
+Let's take a look at some examples. In each example, the user provides natural language sentences in the form of comments. These comments are then translated into the next line of WebPPL code. Each translated line of code should be part of an ongoing, valid program. That is, we should be able to add the next line of code to the program and have it still be a valid program. 
+
+### Example 1. Flipping coins.
+// When you flip a fair coin, with equal probability each, you get either heads or tails.
+var fair_coin_flip = function() { return flip(0.5) ? 'heads' : 'tails'}
+// When you flip a rather heads biased coin, with some rather high bability, the coin comes up heads, and with some rather low probability, the coin comes up tails.
+var heads_biased_coin_flip = function() { return flip(0.8) ? 'heads' : 'tails'}
+// In this game, in each round, you flip a fair coin and a heads biased coin, and the number of points you get is the number of tails that comes up.
+var number_of_points_per_round = mem(function({round}){
+      var points_fair = fair_coin_flip() == 'tails' ? 1 : 0;
+      var points_heads_biased = heads_biased_coin_flip() == 'tails' ? 1 : 0;
+      return points_fair + points_heads_biased;
+})
+// In the first round, I got zero points.
+condition(number_of_points_per_round({round: 1}) == 0)
+// Over the second and third rounds, I got a total of three points.
+condition(number_of_points_per_round({round: 2}) + number_of_points_per_round({round: 3}) == 3)
+// How many points did I get in the second round?
+query: number_of_points_per_round({round: 2})
+// How many points did I get in the third round?
+query: number_of_points_per_round({round: 3})
+
+### Example 2. Causal inference in breast cancer models.
+
+
+### Example 3. Reasoning about 
+
+
+## User query.
+Now, please translate the following comments from the user into WebPPL code.
