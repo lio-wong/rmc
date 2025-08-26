@@ -1,0 +1,26 @@
+[
+    {
+        "scenario": "tug-of-war_effort_team-confounded-partner-10-dec_win_how_much_explicit_continuous_variable",
+        "background": "prompts/background-domains/demo_tug_of_war_background.txt",
+        "example_question_translation": [
+            [
+                "Out of 100 random athletes, where do you think Peyton ranks in terms of intrinsic strength?",
+                "query: intrinsic_strength_rank({athlete: 'Peyton', out_of_n_athletes: 100})"
+            ]
+        ],
+        "example_condition_translation": [
+            [
+                "In the fifth match, Taylor and Indiana beat Quinn and Robin.",
+                "condition(beat({team1: ['Taylor', 'Indiana'], team2: ['Quinn', 'Robin'], match: 5}))"
+            ]
+        ],
+        "questions": [
+            "Out of 100 random athletes, where do you think Blake ranks in terms of intrinsic strength?"
+        ],
+        "conditions": [
+            "In the first match, Blake and Peyton lost to Ness and Taylor.",
+            "In the second match, Blake and Peyton lost to Quinn and Harper.",
+            "In the third match, Blake and Peyton lost to Robin and Max."
+        ]
+    }
+]

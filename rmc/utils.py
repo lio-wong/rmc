@@ -41,6 +41,11 @@ def read_example(filepth):
     with open(filepth, "r") as f: 
         return "".join(f.readlines())
 
+def read_file(filepth): 
+    with open(filepth, 'r') as file:
+        file_content = file.read()
+    return file_content
+
 def get_scenario_txt(scenario, args): 
     # Current scenario.
     scenario_text = read_example(os.path.join(args.scenario_dir, f"{scenario}.txt"))

@@ -27,36 +27,90 @@ Now, each time we call the eyeColor function with a particular set of arguments,
 we will get back the same eye color every time, but different random eye colors for different people.
 
 #### Conditional Distributions: condition.
+Suppose that we know some fixed fact, and we wish to consider hypotheses about how a generative model could have given rise to that fact. 
 
+The condition operator allows models to infer and describe the marginal distributions under some assumption or condition.
+
+Consider the following simple generative model:
+    var model = function() {
+        var A = flip()
+        var B = flip()
+        var C = flip()
+        var D = A + B + C
+    }
+
+The process described in model samples three numbers and adds them. However, suppose that we know that the sum D is equal to 3. We can see this in the following WebPPL inference, where we use condition to express the desired assumption:
+    var model = function () {
+        var A = flip()
+        var B = flip()
+        var C = flip()
+        var D = A + B + C
+        condition(D == 3)
+    };
+
+#### Inference over query variables: query.
+In standard WebPPL, we can return marginals over complex sampling processes by inferring the distribution over a query variable. As you will be translating comments into WebPPL code, please use the query tag to make inference over query variables. 
+For instance, given the random variables defined by the stochastic functions in this model:
+    var model = function () {
+        var A = flip()
+        var B = flip()
+        var C = flip()
+        var D = A + B + C
+        condition(D == 3)
+    };
+You can answer an inference query for a question like "What is the value of A?" like this:
+    query: A
 
 ## Examples. 
-Let's take a look at some examples. In each example, the user provides natural language sentences in the form of comments. These comments are then translated into the next line of WebPPL code. Each translated line of code should be part of an ongoing, valid program. That is, we should be able to add the next line of code to the program and have it still be a valid program. 
+Let's take a look at some examples using stochastic functions, conditions, and queries. In each example, the user provides natural language sentences in the form of comments. These comments are then translated into the next line of WebPPL code. Each translated line of code should be part of an ongoing, valid program. That is, we should be able to add the next line of code to the program and have it still be a valid program. Please use two newlines \n\n after each line of code so we know that you have finished generation.
 
 ### Example 1. Flipping coins.
 // When you flip a fair coin, with equal probability each, you get either heads or tails.
 var fair_coin_flip = function() { return flip(0.5) ? 'heads' : 'tails'}
+
 // When you flip a rather heads biased coin, with some rather high bability, the coin comes up heads, and with some rather low probability, the coin comes up tails.
 var heads_biased_coin_flip = function() { return flip(0.8) ? 'heads' : 'tails'}
+
 // In this game, in each round, you flip a fair coin and a heads biased coin, and the number of points you get is the number of tails that comes up.
 var number_of_points_per_round = mem(function({round}){
       var points_fair = fair_coin_flip() == 'tails' ? 1 : 0;
       var points_heads_biased = heads_biased_coin_flip() == 'tails' ? 1 : 0;
       return points_fair + points_heads_biased;
 })
+
 // In the first round, I got zero points.
 condition(number_of_points_per_round({round: 1}) == 0)
+
 // Over the second and third rounds, I got a total of three points.
 condition(number_of_points_per_round({round: 2}) + number_of_points_per_round({round: 3}) == 3)
+
 // How many points did I get in the second round?
 query: number_of_points_per_round({round: 2})
+
 // How many points did I get in the third round?
 query: number_of_points_per_round({round: 3})
 
-### Example 2. Causal inference in breast cancer models.
+### Example 2. Students taking exams.
+// Any given exam in this class is usually fair.
+var is_exam_fair = mem(function({exam}){return flip(0.8)})
 
+// Any given student in this class usually does their homework.
+var did_homework = mem(function({student}){return flip(0.8)})
 
-### Example 3. Reasoning about 
+// Whether or not a given student passes an exam depends on whether or not the exam is fair, and then in each case, students who did their homework tend to do better (though everyone is more likely to pass a fair exam and less likelihood to pass an unfair one).
+var pass = function({student, exam}) {
+    return flip(is_exam_fair({exam: exam}) ?
+                (did_homework({student: student}) ? 0.9 : 0.4) :
+                (did_homework({student: student}) ? 0.6 : 0.2)) }
 
+// Bill did not pass the first exam.
+condition(!pass({student: 'Bill', exam: 1}))
+
+// How likely is it that Bill did his homework?
+query: did_homework({student: 'Bill'})
+
+// How likely is it that the first exam was fair?    
+query: is_exam_fair({exam: 1})
 
 ## User query.
 Now, please translate the following comments from the user into WebPPL code.

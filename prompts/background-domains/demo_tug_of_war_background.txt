@@ -1,0 +1,70 @@
+// The athletes in this tournament have very different <b>strengths</b>.
+var intrinsic_strength = mem(function ({athlete}) {
+      var parameter_intrinsic_strength_average = 100;
+      var parameter_intrinsic_strength_variance = 20;
+      return Math.max(gaussian(parameter_intrinsic_strength_average, parameter_intrinsic_strength_variance), 0)
+})
+
+// The athletes also put in different amounts of <b>effort into <i>each match</i></b>. In general, stronger athletes usually put in more effort, but effort really comes down to chance for each match.
+var effort_percentage_level_in_match = mem(function({athlete, match}) {
+      var strong_threshold = 140;
+      var weak_threshold = 90;
+      var parameter_low_effort_prior = 
+          intrinsic_strength(athlete) > strong_threshold ? 0.05 :
+               intrinsic_strength(athlete) < weak_threshold ?  0.8 :
+                                                    0.2;
+      var parameter_moderate_effort_prior = intrinsic_strength(athlete) > strong_threshold ? 0.15 :
+               intrinsic_strength(athlete) < weak_threshold ?  0.15 : 
+                                                        0.6;
+      var parameter_extra_high_effort_prior = intrinsic_strength(athlete) > strong_threshold ? 0.8 :  
+               intrinsic_strength(athlete) < weak_threshold ?  0.05 : 
+                                                        0.2; 
+      var low_effort_average = 40; 
+      var moderate_effort_average = 60;
+      var extra_high_effort_average = 80;
+      var effort_variance = 10;
+      var effort_average = categorical({ps: [parameter_low_effort_prior, parameter_moderate_effort_prior, parameter_extra_high_effort_prior], 
+      vs: [low_effort_average, moderate_effort_average, extra_high_effort_average]});
+      return Math.min(Math.max(gaussian(effort_average, effort_variance), 0), 100)
+})
+
+// How hard <b>an athlete pulls</b> in each match depends on <b>both strength and effort</b>. They'll pull harder with more effort, and less hard with less effort.
+var how_hard_each_athlete_pulls_in_given_match = mem(function({athlete, match}) {
+      var base_pulling_strength_in_match =  intrinsic_strength({athlete : athlete});
+      var average_effort = 50;
+      var strength_modulated_for_effort_level = (effort_percentage_level_in_match({athlete: athlete, match: match}) / average_effort) * base_pulling_strength_in_match;
+      return strength_modulated_for_effort_level;
+    })
+
+// Then, how <b>an entire team of athletes pulls</b> depends on the total amount that all the athletes pull in that match.
+var how_hard_team_pulls_overall_in_given_match = function({team, match}) {
+      return sum(map(function(athlete) { return how_hard_each_athlete_pulls_in_given_match({athlete: athlete, match: match}) }, team))
+    }
+
+// In tug-of-war, a team <b>beats</b> another if they pull harder in that match. 
+var beat = function({team1, team2, match}){
+    return how_hard_team_pulls_overall_in_given_match({team: team1, match: match}) > how_hard_team_pulls_overall_in_given_match({team: team2, match: match})
+}
+
+// A team <b>loses</b> to another if they pull less hard than the other team in that match. 
+var lost = function({team1, team2, match}){ 
+      return how_hard_team_pulls_overall_in_given_match({team: team1, match: match}) < how_hard_team_pulls_overall_in_given_match({team: team2, match: match})
+}
+
+// We will ask you to imagine how an athlete <b>ranks in terms of strength</b>. You should imagine how they would compare to a bunch of other random athletes, without taking effort into account.
+var intrinsic_strength_rank = function({athlete, out_of_n_athletes}) {
+        var random_athlete_ids = mapN(function(x) {return uniform(0, 1000)}, out_of_n_athletes - 1)
+        return sum(map(
+            function(random_athlete_id) {
+              return intrinsic_strength({athlete: athlete}) > intrinsic_strength({athlete: random_athlete_id})}, random_athlete_ids))
+    }
+
+// We will also ask you to imagine the results of <b>fantasy matches between new teams</b>. You should imagine the teams competing against each other, and then tell us which one you think is <b>more likely to win</b>.
+var who_would_win_by_how_much = function({team1, team2, match}) {
+      var num_future_matches_to_simulate = 100;
+      var random_future_match_ids = mapN(function(x) {return uniform(match+1, 1000)}, num_future_matches_to_simulate);
+      var simulated_matches_won_by_team_2 = sum(map(
+            function(random_future_match_id) {
+              return lost({team1: team1, team2: team2, match: random_future_match_id})}, random_future_match_ids))
+      return simulated_matches_won_by_team_2 / num_future_matches_to_simulate;
+}
